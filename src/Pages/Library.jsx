@@ -1,41 +1,16 @@
-import react, { useState } from "react";
-import Card from "../Components/BookStore/Card";
+import React from 'react'
 
-import axios from "axios";
-const Library = () => {
-    const [search, setSearch] = useState("");
-    const [bookData, setData] = useState([]);
-    const searchBook = (evt) => {
-        if (evt.key === "Enter") {
-            axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&key=AIzaSyA6SaT23KNiiA6DnUfUQTvFeyAcQEkwnSU' + '&maxResults=40')
-                .then(res => setData(res.data.items))
-                .catch(err => console.log(err))
-        }
-    }
-    return (
-        <>
-            <div className="header">
-                <div className="row1">
-                    <h1>A room without books is like<br /> a body without a soul.</h1>
-                </div>
-                <div className="row2">
-                    <h2>Find Your Book</h2>
-                    <div className="search">
-                        <input type="text" placeholder="Enter Your Book Name"
-                            value={search} onChange={e => setSearch(e.target.value)}
-                            onKeyPress={searchBook} />
-                        <button><i className="fas fa-search"></i></button>
-                    </div>
-                    <img src="./src/Components/BookStore/images/bg2.png" alt="" />
-                </div>
-            </div>
-
-            <div className="container">
-                {
-                    <Card book={bookData} />
-                }
-            </div>
-        </>
-    )
+function Library() {
+  return (
+    <div className='bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-purple-500 to-70%'>
+      <img className='w-full h-[72vh]' src="./src/Components/BookStore/images/bg-1.jpg" alt="img" />
+      <div className='w-full h-[75vh] absolute top-14 flex flex-col justify-center items-center'>
+        <h1 className='text-5xl font-bold text-white'>Our Library</h1>
+        <img className='w-52' src="./src/Components/BookStore/images/bg2.png" alt="img" />
+        <input className='w-2/5 p-4 px-7 text-2xl my-6 rounded-[2.5rem] outline-none ' type="text" placeholder='Search Book Here ...' />
+      </div>
+    </div>
+  )
 }
-export default Library;
+
+export default Library
