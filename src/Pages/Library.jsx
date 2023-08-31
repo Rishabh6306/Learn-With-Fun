@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { ImQuotesLeft, ImQuotesRight } from 'react-icons/im';
 
 function Library() {
     const [search, setSearch] = useState("");
@@ -66,10 +67,8 @@ function Library() {
                 </div>
             </div>
 
-            <div>
-             <p className="bg-indigo-100 py-5 w-full mx-auto text-center text-gray-700 text-2xl lg:text-3xl font-bold absolute font-poppins italic animate-color-change">{quotes[quoteIndex]}</p>
-            
-            </div>
+            <span className="bg-indigo-100 w-full py-3 mx-auto text-center text-gray-700 text-2xl lg:text-3xl font-bold absolute font-poppins italic animate-color-change"><ImQuotesLeft/> {quotes[quoteIndex]} <span className='float-right pt-5'><ImQuotesRight/></span></span>
+
         </>
     )
 }

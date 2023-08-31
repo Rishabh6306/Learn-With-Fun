@@ -11,7 +11,7 @@ function Navbar() {
   // useEffect hook to close the menu when screen size changes
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1536) {
         setIsMenuOpen(true); // Close the menu for larger screens
       } else {
         setIsMenuOpen(false); // Close the menu for smaller screens
@@ -30,7 +30,7 @@ function Navbar() {
   }, []);
 
   return (
-      <nav className={`bg-gradient-to-b from-green-500 to-cyan-500 p-5 md:flex md:justify-between md:items-center text-white ${isMenuOpen ? 'shadow-md' : ''}`}>
+      <nav className={`bg-gradient-to-b from-green-500 to-cyan-500 p-5 2xl:flex 2xl:justify-between 2xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''}`}>
         <div className="flex justify-between items-center">
           <span className="text-3xl font-[Poppins] font-bold cursor-pointer">
             <img
@@ -40,7 +40,7 @@ function Navbar() {
             />
           </span>
           <span
-            className="text-3xl md:hidden block mx-2 cursor-pointer"
+            className="text-[44px] 2xl:hidden block mx-2 cursor-pointer"
             onClick={toggleMenu}
           >
             {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
@@ -49,44 +49,44 @@ function Navbar() {
 
         <ul
           className={`${isMenuOpen ? 'max-h-[34rem]' : 'max-h-0'
-            } md:flex md:items-center z-[-1] md:z-auto md:static w-full md:w-auto md:py-0 py-1 md:pl-0 pl-7 transition-max-h duration-700 ease-in-out overflow-hidden text-center`}
+            } 2xl:flex 2xl:items-center z-[-1] 2xl:z-auto 2xl:static w-full 2xl:w-auto 2xl:py-0 py-2 2xl:pl-0 pl-7 transition-max-h duration-700 ease-in-out overflow-hidden text-center`}
         >
-          <li className="mx-4 my-4 md:my-0">
+          <li className="mx-3 my-4 2xl:my-0">
           <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Home
             </a>
           </li>
-          <li className="mx-4 my-4 md:my-0">
+          <li className="mx-3 my-4 2xl:my-0">
           <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Documentation
             </a>
           </li>
-          <li className="mx-4 my-4 md:my-0">
+          <li className="mx-3 my-4 2xl:my-0">
           <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Features
             </a>
           </li>
-          <li className="mx-4 my-4 md:my-0">
+          <li className="mx-3 my-4 2xl:my-0">
           <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Notes
             </a>
           </li>
-          <li className="mx-4 my-4 md:my-0">
+          <li className="mx-3 my-4 2xl:my-0">
           <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Games
             </a>
           </li>
-          <li className="mx-4 my-4 md:my-0">
+          <li className="mx-3 my-4 2xl:my-0">
           <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Library
             </a>
           </li>
-          <li className="mx-4 my-4 md:my-0">
+          <li className="mx-3 my-4 2xl:my-0">
           <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Code
             </a>
           </li>
-          <li className="mx-4 my-4 md:my-0">
+          <li className="mx-3 my-4 2xl:my-0">
           <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Contact Us
             </a>
