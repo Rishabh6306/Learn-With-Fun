@@ -1,4 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@keyframes colorChange {
+  0%, 100% {
+    color: blue;
+  }
+  10% {
+    color: #8e44ad;
+  }
+  20% {
+    color: #1abc9c;
+  }
+  30% {
+    color: #d35400;
+  }
+  40%, 60% {
+    color: blue;
+  }
+  50% {
+    color: #34495e;
+  }
+  70%, 90% {
+    color: #2980b9;
+  }
+  80% {
+    color: #f1c40f;
+  }
+  100% {
+    color: pink;
+  }
+}
+  
+  /* Apply animation using a utility class */
+  .animate-color-change {
+    animation: colorChange 20s infinite alternate;
+  }
