@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { ImQuotesLeft, ImQuotesRight } from 'react-icons/im';
+import Card from '../Components/BookStore/images/Card';
 
 function Library() {
     const [search, setSearch] = useState("");
@@ -37,7 +38,7 @@ function Library() {
         "Libraries will get you through times of no money better than money will get you through times of no libraries.",
         "Librarians are tour-guides for all of knowledge."
     ]
-    
+
     useEffect(() => {
         const interval = setInterval(() => {
             setQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
@@ -49,8 +50,8 @@ function Library() {
     return (
         <>
             <div className='bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-purple-500 to-70% relative'>
-                <img className='w-full h-[55vh] md:h-[65vh]' src="./src/Components/BookStore/images/bg-image.jpg" alt="img" />
-                <div className='w-full h-[36vh] md:h-[45vh] absolute top-14 flex flex-col justify-center items-center'>
+                <img className='w-full h-[53vh] md:h-[59vh]' src="./src/Components/BookStore/images/bg-image.jpg" alt="img" />
+                <div className='w-full h-[34vh] md:h-[40vh] absolute top-14 flex flex-col justify-center items-center'>
                     <h1 className='text-5xl font-bold text-white'>Our Library</h1>
                     <img className='w-40 md:w-48' src="./src/Components/BookStore/images/bg2.png" alt="img" />
                     <div className="w-full md:w-2/5 inline-block p-3 md:p-4 px-7 text-2xl rounded-[2.5rem] outline-none bg-white">
@@ -67,8 +68,11 @@ function Library() {
                 </div>
             </div>
 
-            <span className="bg-indigo-100 w-full py-3 mx-auto text-center text-gray-700 text-2xl lg:text-3xl font-bold absolute font-poppins italic animate-color-change"><ImQuotesLeft/> {quotes[quoteIndex]} <span className='float-right pt-5'><ImQuotesRight/></span></span>
+            <span className="bg-indigo-100 w-full p-3 mx-auto text-center text-gray-700 text-2xl lg:text-3xl font-bold absolute font-poppins italic animate-color-change"><ImQuotesLeft /> {quotes[quoteIndex]} <span className='float-right pt-5'><ImQuotesRight /></span></span>
 
+            <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(200px,0.5fr))] gap-3 bg-[#14224a] relative top-28 p-1 sm:p-10">
+                <Card book={bookData} />
+            </div>
         </>
     )
 }
