@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { ImQuotesLeft, ImQuotesRight } from 'react-icons/im';
-import Card from '../Components/BookStore/images/Card';
+import Card from '../Components/Bookstore/Card';
 
 function Library() {
     const [search, setSearch] = useState("");
@@ -11,7 +11,7 @@ function Library() {
 
     const searchBook = async () => {
         try {
-            const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=40`);
+            const response = await axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&key=AIzaSyA6SaT23KNiiA6DnUfUQTvFeyAcQEkwnSU' + '&maxResults=40')
             setBookData(response.data.items);
         } catch (error) {
             console.error("Error fetching book data:", error);
@@ -35,14 +35,13 @@ function Library() {
         "A library is a place where you can lose your innocence without losing your virginity.",
         "I have found the most valuable thing in my wallet is my library card.",
         "When in doubt, go to the library.",
-        "Libraries will get you through times of no money better than money will get you through times of no libraries.",
         "Librarians are tour-guides for all of knowledge."
     ]
 
     useEffect(() => {
         const interval = setInterval(() => {
             setQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
-        }, 5000); // Change quote every 5 seconds
+        }, 1000); // Change quote every 5 seconds
 
         return () => clearInterval(interval);
     }, []);
@@ -68,9 +67,9 @@ function Library() {
                 </div>
             </div>
 
-            <span className="bg-indigo-100 w-full p-3 mx-auto text-center text-gray-700 text-2xl lg:text-3xl font-bold absolute font-poppins italic animate-color-change"><ImQuotesLeft /> {quotes[quoteIndex]} <span className='float-right pt-5'><ImQuotesRight /></span></span>
+            <span className="bg-indigo-100 w-full h-36 p-1 sm:p-3 mx-auto text-center text-gray-700 text-xl md:text-2xl font-bold absolute font-poppins italic animate-color-change"><ImQuotesLeft /> {quotes[quoteIndex]} <span className='float-right pt-5'><ImQuotesRight /></span></span>
 
-            <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(200px,0.5fr))] gap-3 bg-[#14224a] relative top-28 p-1 sm:p-10">
+            <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(240px,0.5fr))] gap-3 bg-[#14224a] relative top-36 sm:top-28 p-1 sm:p-10">
                 <Card book={bookData} />
             </div>
         </>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(true) // Default value set to true
@@ -52,44 +53,44 @@ function Navbar() {
             } 2xl:flex 2xl:items-center z-[-1] 2xl:z-auto 2xl:static w-full 2xl:w-auto 2xl:py-0 py-2 2xl:pl-0 pl-7 transition-max-h duration-700 ease-in-out overflow-hidden text-center`}
         >
           <li className="mx-3 my-4 2xl:my-0">
-          <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="/" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Home
-            </a>
+            </Link>
           </li>
           <li className="mx-3 my-4 2xl:my-0">
-          <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Documentation
-            </a>
+            </Link>
           </li>
           <li className="mx-3 my-4 2xl:my-0">
-          <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Features
-            </a>
+            </Link>
           </li>
           <li className="mx-3 my-4 2xl:my-0">
-          <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Notes
-            </a>
+            </Link>
           </li>
           <li className="mx-3 my-4 2xl:my-0">
-          <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Games
-            </a>
+            </Link>
           </li>
           <li className="mx-3 my-4 2xl:my-0">
-          <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="/library" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Library
-            </a>
+            </Link>
           </li>
           <li className="mx-3 my-4 2xl:my-0">
-          <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Code
-            </a>
+            </Link>
           </li>
           <li className="mx-3 my-4 2xl:my-0">
-          <a href="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
               Contact Us
-            </a>
+            </Link>
           </li>
           <button className="bg-violet-600 hover:bg-violet-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-10 mx-6 font-[Poppins] duration-700 rounded-lg ">
             Get Started
