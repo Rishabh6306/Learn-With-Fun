@@ -3,6 +3,7 @@ import axios from 'axios';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { ImQuotesLeft, ImQuotesRight } from 'react-icons/im';
 import Card from '../Components/Bookstore/Card';
+import Navbar from '../Components/Home/Navbar'
 
 function Library() {
     const [search, setSearch] = useState("");
@@ -48,6 +49,7 @@ function Library() {
 
     return (
         <>
+        <Navbar/>
             <div className='bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-purple-500 to-70% relative'>
                 <img className='w-full h-[53vh] md:h-[59vh]' src="./src/Components/BookStore/images/bg-image.jpg" alt="img" />
                 <div className='w-full h-[34vh] md:h-[40vh] absolute top-14 flex flex-col justify-center items-center'>
