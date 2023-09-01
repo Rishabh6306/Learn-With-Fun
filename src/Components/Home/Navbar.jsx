@@ -31,72 +31,72 @@ function Navbar() {
   }, []);
 
   return (
-      <nav className={`bg-gradient-to-b from-green-500 to-cyan-500 p-5 2xl:flex 2xl:justify-between 2xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''}`}>
-        <div className="flex justify-between items-center">
-          <span className="text-3xl font-[Poppins] font-bold cursor-pointer">
-            <img
-              className="w-20 inline ml-4 rounded-full"
-              src='./src/assets/LOGO.png'
-              alt="logo"
-            />
-          </span>
-          <span
-            className="text-[44px] 2xl:hidden block mx-2 cursor-pointer"
-            onClick={toggleMenu}
-          >
-            {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
-          </span>
-        </div>
-
-        <ul
-          className={`${isMenuOpen ? 'max-h-[34rem]' : 'max-h-0'
-            } 2xl:flex 2xl:items-center z-[-1] 2xl:z-auto 2xl:static w-full 2xl:w-auto 2xl:py-0 py-2 2xl:pl-0 pl-7 transition-max-h duration-700 ease-in-out overflow-hidden text-center`}
+    <nav className={`bg-gradient-to-b from-green-500 to-cyan-500 p-5  2xl:flex  2xl:justify-between 2xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
+     <div className="flex justify-between items-center">
+        <span className="text-3xl font-[Poppins] font-bold cursor-pointer">
+          <img
+            className="w-20 inline ml-4 rounded-full"
+            src='./src/assets/LOGO.png'
+            alt="logo"
+          />
+        </span>
+        <span
+          className="text-[44px] 2xl:hidden block mx-2 cursor-pointer"
+          onClick={toggleMenu}
         >
-          <li className="mx-3 my-4 2xl:my-0">
+          {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
+        </span>
+      </div>
+
+      <ul
+        className={`${isMenuOpen ? 'max-h-[34rem]' : 'max-h-0'
+          } 2xl:flex 2xl:items-center z-[-1] 2xl:z-auto 2xl:static w-full 2xl:w-auto 2xl:py-0 py-2 2xl:pl-0 pl-7 transition-max-h duration-700 ease-in-out overflow-hidden text-center`}
+      >
+        <li className="mx-3 my-4 2xl:my-0">
           <Link to="/" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
-              Home
-            </Link>
-          </li>
-          <li className="mx-3 my-4 2xl:my-0">
+            Home
+          </Link>
+        </li>
+        <li className="mx-3 my-4 2xl:my-0">
           <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
-              Documentation
-            </Link>
-          </li>
-          <li className="mx-3 my-4 2xl:my-0">
+            Documentation
+          </Link>
+        </li>
+        <li className="mx-3 my-4 2xl:my-0">
           <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
-              Features
-            </Link>
-          </li>
-          <li className="mx-3 my-4 2xl:my-0">
+            Features
+          </Link>
+        </li>
+        <li className="mx-3 my-4 2xl:my-0">
+          <Link to="/notes" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+            Notes
+          </Link>
+        </li>
+        <li className="mx-3 my-4 2xl:my-0">
           <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
-              Notes
-            </Link>
-          </li>
-          <li className="mx-3 my-4 2xl:my-0">
-          <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
-              Games
-            </Link>
-          </li>
-          <li className="mx-3 my-4 2xl:my-0">
+            Games
+          </Link>
+        </li>
+        <li className="mx-3 my-4 2xl:my-0">
           <Link to="/library" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
-              Library
-            </Link>
-          </li>
-          <li className="mx-3 my-4 2xl:my-0">
+            Library
+          </Link>
+        </li>
+        <li className="mx-3 my-4 2xl:my-0">
           <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
-              Code
-            </Link>
-          </li>
-          <li className="mx-3 my-4 2xl:my-0">
+            Code
+          </Link>
+        </li>
+        <li className="mx-3 my-4 2xl:my-0">
           <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
-              Contact Us
-            </Link>
-          </li>
-          <button className="bg-violet-600 hover:bg-violet-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-10 mx-6 font-[Poppins] duration-700 rounded-lg ">
-            Get Started
-          </button>
-        </ul>
-      </nav>
+            Contact Us
+          </Link>
+        </li>
+        <button className="bg-violet-600 hover:bg-violet-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-10 mx-6 font-[Poppins] duration-700 rounded-lg ">
+          Get Started
+        </button>
+      </ul>
+    </nav>
   );
 }
 

@@ -49,7 +49,7 @@ function Library() {
 
     return (
         <>
-        <Navbar/>
+            <Navbar />
             <div className='bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-purple-500 to-70% relative'>
                 <img className='w-full h-[53vh] md:h-[59vh]' src="./src/Components/BookStore/images/bg-image.jpg" alt="img" />
                 <div className='w-full h-[34vh] md:h-[40vh] absolute top-14 flex flex-col justify-center items-center'>
