@@ -20,6 +20,17 @@ mongoose.connect(process.env.MONGODB_URI)
     console.error('Error connecting to MongoDB:', error);
   });
 
+  app.get('/', async (req, res) => {
+     try {
+          const user = await UserModel.find({});
+          res.json(user);
+        } catch (err) {
+          console.error('Error creating user:', err);
+          res.status(500).json({ error: 'Internal Server Error' });
+        }
+});
+
+
 app.post('/createUser', async (req, res) => {
   try {
     const user = await UserModel.create(req.body);

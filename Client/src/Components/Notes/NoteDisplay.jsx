@@ -1,34 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NoteBox from './NoteBox';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
-function NotesPage() {
+function NoteDisplay() {
   const [headline, setHeadline] = useState('');
   const [content, setContent] = useState('');
   const [notes, setNotes] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Fix the typo here
-
-    axios.post('http://localhost:3001/createUser', { headline, content }) // Fix the typo here
-      .then(result => {
-        console.log(result);
-        // Add the new note to the notes array
-        setNotes([...notes, { headline, content }]);
-        // Clear the input fields
-        setHeadline('');
-        setContent('');
+  useEffect(() => {
+    axios.get('http://localhost:3001/') // Update the endpoint to the correct one
+      .then(res => {
+        console.log(res.data);
+        setNotes(res.data);
       })
-      .catch(error => console.log(error));
+      .catch(err => {
+        console.error('Error fetching notes:', err); // Handle errors
+      });
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
     if (headline.trim() === '' || content.trim() === '') {
       toast('Both Fields are required');
       return;
     }
-  }
 
+    axios.post('http://localhost:3001/createUser', { headline, content })
+      .then(result => {
+        console.log(result);
+        setNotes([...notes, { headline, content }]);
+        setHeadline('');
+        setContent('');
+      })
+      .catch(error => console.log(error));
+  }
 
   return (
     <div className="bg-[aqua]">
@@ -40,7 +48,7 @@ function NotesPage() {
             maxLength={55}
             className='w-full bg-[#7afff4] outline-none p-2 text-xl sm:text-2xl text-green-500'
             value={headline} required
-            onChange={(e) => setHeadline((e.target.value))}
+            onChange={(e) => setHeadline(e.target.value)}
             placeholder='Notes Headline'
           />
           <textarea
@@ -67,4 +75,4 @@ function NotesPage() {
   );
 }
 
-export default NotesPage;
+export default NoteDisplay;
