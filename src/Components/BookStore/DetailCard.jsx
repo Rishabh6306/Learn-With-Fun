@@ -8,7 +8,7 @@ const DetailCard = ({ show, item, onClose }) => {
     let thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
     return (
         <>
-            <div className="min-h-screen w-screen fixed inset-0 flex items-center justify-center bg-gradient-to-b from-transparent via-black to-transparent">
+            <div className="min-h-screen w-screen fixed top-10 inset-0 flex items-center justify-center bg-gradient-to-b from-transparent via-black to-transparent">
                 <div className="bg-white w-10/12 h-5/6 p-7 relative box-border overflow-scroll text-2xl">
                     <button className="text-red-400 absolute top-4 right-5 outline-none border-none text-xl bg-transparent" onClick={onClose}><span className='fixed'><FaTimes /></span></button>
                     <div className="mt-8 flex flex-col md:flex-row justify-center">
