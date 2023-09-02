@@ -1,6 +1,6 @@
 import React from 'react'
-import NoteDisplay from '../Components/Notes/frontend/NoteDisplay'
 import Navbar from '../Components/Home/Navbar'
+import NoteDisplay from '../Components/Notes/NoteDisplay'
 
 function NotesPage() {
     return (

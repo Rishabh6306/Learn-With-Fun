@@ -2,30 +2,33 @@ import React, { useState } from 'react';
 import NoteBox from './NoteBox';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 function NotesPage() {
   const [headline, setHeadline] = useState('');
   const [content, setContent] = useState('');
   const [notes, setNotes] = useState([]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Fix the typo here
+
+    axios.post('http://localhost:3001/createUser', { headline, content }) // Fix the typo here
+      .then(result => {
+        console.log(result);
+        // Add the new note to the notes array
+        setNotes([...notes, { headline, content }]);
+        // Clear the input fields
+        setHeadline('');
+        setContent('');
+      })
+      .catch(error => console.log(error));
+
     if (headline.trim() === '' || content.trim() === '') {
       toast('Both Fields are required');
       return;
     }
+  }
 
-    const newNote = {
-      headline,
-      content,
-    };
-
-    // Add the new note to the notes array
-    setNotes([...notes, newNote]);
-
-    // Clear the input fields
-    setHeadline('');
-    setContent('');
-  };
 
   return (
     <div className="bg-[aqua]">
