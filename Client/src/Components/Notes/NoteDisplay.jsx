@@ -76,8 +76,7 @@ function NoteDisplay() {
           <ToastContainer />
         </div>
       </div>
-
-      <input type="text" placeholder='Search Notes By Headline' className='mx-12 my-3 p-2 rounded-lg bg-[#d4ffff] text-blue-500  w-11/12 outline-none border-green-300 border-2 ' />
+      
       {/* Pass the notes and fetchNotes function to the NoteBox component */}
       <NoteBox notes={notes} fetchNotes={fetchNotes} />
     </div>
