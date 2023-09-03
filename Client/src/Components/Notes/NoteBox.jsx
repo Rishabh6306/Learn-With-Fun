@@ -6,12 +6,24 @@ import 'react-toastify/dist/ReactToastify.css';
 import NoteEdit from './NoteEdit'; // Import the NoteEdit component
 import axios from 'axios'; // Import Axios for making API requests
 import Search from './Search';
+import NoteOverlay from './NoteOverlay';
+
 
 function NoteBox({ notes, fetchNotes }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedNote, setEditedNote] = useState({ headline: '', content: '' });
   const [searchQuery, setSearchQuery] = useState('');
   const debouncedSearchQuery = Search(searchQuery, 200); // Debounce the search query
+  const [selectedNote, setSelectedNote] = useState(null);
+
+  const openOverlay = (note) => {
+    setSelectedNote(note);
+  };
+
+  const closeOverlay = () => {
+    setSelectedNote(null);
+  };
+
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value)
@@ -63,7 +75,9 @@ function NoteBox({ notes, fetchNotes }) {
         {filteredNotes.length === 0 ? (
           <p className="text-center text-4xl py-6 text-red-500 font-bold">Not found</p>
         ) : (filteredNotes.map((note, index) => (
-          <div key={index} className="flex flex-col justify-between m-2 p-2 h-44 w-full sm:w-72 border-2 border-cyan-700 rounded-lg overflow-y-auto">
+          <div key={index}  
+            onClick={() => openOverlay(note)}
+          className="flex flex-col justify-between m-2 p-2 h-44 w-full sm:w-72 border-2 border-cyan-700 rounded-lg overflow-y-auto">
             <div>
               <h3 className="font-bold text-lg break-words text-[#2874A6]">
                 {note.headline}
@@ -103,6 +117,10 @@ function NoteBox({ notes, fetchNotes }) {
         )))}
         <ToastContainer />
       </div>
+
+      {selectedNote && (
+        <NoteOverlay note={selectedNote} onClose={closeOverlay} />
+      )}
     </>
   );
 }
