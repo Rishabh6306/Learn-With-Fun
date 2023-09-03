@@ -76,7 +76,7 @@ function NoteDisplay() {
           <ToastContainer />
         </div>
       </div>
-      
+
       {/* Pass the notes and fetchNotes function to the NoteBox component */}
       <NoteBox notes={notes} fetchNotes={fetchNotes} />
     </div>

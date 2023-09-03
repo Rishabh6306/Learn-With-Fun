@@ -38,6 +38,7 @@ function NoteBox({ notes, fetchNotes }) {
   const handleDeleteClick = async (note) => {
     try {
       await axios.delete(`http://localhost:3001/api/notes/${note._id}`);
+      setSelectedNote(null);
       fetchNotes();
       toast("Note Deleted Successfully");
     } catch (error) {
@@ -47,37 +48,34 @@ function NoteBox({ notes, fetchNotes }) {
   };
 
 
- const handleSaveClick = async () => {
-  try {
-    if (!editedNote._id) {
-      toast('Note ID is missing. Cannot update the note.', { type: 'error' });
-      return;
+  const handleSaveClick = async () => {
+    try {
+      if (!editedNote._id) {
+        toast('Note ID is missing. Cannot update the note.', { type: 'error' });
+        return;
+      }
+
+      const response = await axios.put(`http://localhost:3001/api/notes/${editedNote._id}`, editedNote);
+      const updatedNote = response.data;
+
+      if (!notes) {
+        // If notes is undefined, initialize it as an empty array
+        fetchNotes([]);
+      }
+
+      // Update the notes array with the updated note
+      const updatedNotes = notes.map((note) =>
+        note._id === updatedNote._id ? updatedNote : note
+      );
+
+      fetchNotes(updatedNotes); // Assuming fetchNotes is a function that updates the notes state
+      setIsEditing(false);
+      toast('Note Updated Successfully', { type: 'success' });
+    } catch (error) {
+      console.error('Error updating note:', error);
+      toast('Error updating note', { type: 'error' });
     }
-
-    const response = await axios.put(`http://localhost:3001/api/notes/${editedNote._id}`, editedNote);
-    const updatedNote = response.data;
-
-    if (!notes) {
-      // If notes is undefined, initialize it as an empty array
-      fetchNotes([]);
-    }
-
-    // Update the notes array with the updated note
-    const updatedNotes = notes.map((note) =>
-      note._id === updatedNote._id ? updatedNote : note
-    );
-
-    fetchNotes(updatedNotes); // Assuming fetchNotes is a function that updates the notes state
-    setIsEditing(false);
-    toast('Note Updated Successfully', { type: 'success' });
-  } catch (error) {
-    console.error('Error updating note:', error);
-    toast('Error updating note', { type: 'error' });
-  }
-};
-
-  
-
+  };
 
 
   const handleCancelEdit = () => {
@@ -102,7 +100,7 @@ function NoteBox({ notes, fetchNotes }) {
                 <h3 className="font-bold text-lg break-words text-[#2874A6]">
                   {note.headline}
                 </h3>
-                <p className="break-words">
+                <p className="break-words h-24 overflow-y-auto">
                   {isEditing && editedNote._id === note._id ? editedNote.content : note.content}
                 </p>
               </div>

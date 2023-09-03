@@ -16,33 +16,21 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
     });
   };
 
-  // const handleSaveClick = async () => {
-  //   try {
-  //     await onSave(editedNote); // Pass the edited note to the parent component for saving
-  //     setShowSavedToast(true); 
-  //     console.log(editedNote._id);
-  //     // Show the "Successfully Saved" toast
-  //   } catch (error) {
-  //     console.error('Error saving note:', error);
-  //     toast('Error saving note', { type: 'error' });
-  //   }
-  // };
-  
   const handleSaveClick = async () => {
     try {
       if (!editedNote._id) {
         toast('Note ID is missing. Cannot update the note.', { type: 'error' });
         return;
       }
-  
+
       const response = await axios.put(`http://localhost:3001/api/notes/${editedNote._id}`, editedNote);
       const updatedNote = response.data;
-  
+
       // Update the notes array with the updated note
       const updatedNotes = notes.map((note) =>
         note._id === updatedNote._id ? updatedNote : note
       );
-  
+
       fetchNotes(updatedNotes);
       setIsEditing(false);
       toast('Note Updated Successfully', { type: 'success' });
@@ -52,7 +40,7 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
       toast('Error updating note', { type: 'error' });
     }
   };
-  
+
   useEffect(() => {
     if (showSavedToast) {
       toast('Successfully Saved', { type: 'success' });
@@ -63,16 +51,16 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative bg-white p-8 rounded-lg shadow-lg overflow-y-auto w-full md:max-w-2xl max-h-96 mx-2">
+      <div className="relative bg-white p-8 rounded-lg shadow-lg overflow-y-auto w-full md:max-w-[70rem] h-[90%] mx-2">
         <button
           className="absolute top-2 right-9 text-4xl text-[#22ff00]"
           onClick={onClose}
         >
-          <span className='fixed'><AiFillCloseCircle/></span>
+          <span className='fixed'><AiFillCloseCircle /></span>
         </button>
         <input
           type='text'
-          className="text-xl font-semibold mb-4 text-center break-words"
+          className="text-xl w-full font-semibold mb-4 text-center break-words text-blue-700 outline-none active:border active:border-yellow-300 rounded"
           name="headline"
           value={editedNote.headline}
           onChange={handleInputChange}
@@ -82,7 +70,7 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
           value={editedNote.content}
           onChange={handleInputChange}
           rows="4"
-          className="w-full h-40 p-2 border border-gray-300 rounded"
+          className="w-full h-5/6 p-2 border border-yellow-300 rounded"
           placeholder="Edit Description..."
         ></textarea>
         <div className="flex justify-end mt-2">
