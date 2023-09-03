@@ -60,7 +60,9 @@ function NoteBox({ notes, fetchNotes }) {
       <input type="text" placeholder='Search Notes By Headline' onChange={handleSearch} className='mx-12 my-3 p-2 rounded-lg bg-[#d4ffff] text-blue-500 md:w-11/12 w-9/12 outline-none border-green-300 border-2 ' />
 
       <div className="flex flex-wrap justify-center p-3 my-5">
-        {filteredNotes.map((note, index) => (
+        {filteredNotes.length === 0 ? (
+          <p className="text-center text-4xl py-6 text-red-500 font-bold">Not found</p>
+        ) : filteredNotes.map((note, index) => (
           <div key={index} className="flex flex-col justify-between m-2 p-2 h-44 w-full sm:w-72 border-2 border-cyan-700 rounded-lg overflow-y-auto">
             <div>
               <h3 className="font-bold text-lg break-words text-[#2874A6]">
