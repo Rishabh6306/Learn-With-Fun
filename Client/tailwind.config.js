@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       screens: {
+        'ssm': '300px',
         'sm': '500px',   // Small screens (e.g. smartphones)
         'md': '768px',   // Medium screens (e.g. tablets)
         'lg': '1024px',  // Large screens (e.g. laptops)

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { ImQuotesLeft, ImQuotesRight } from 'react-icons/im';
-import Card from '../Components/Bookstore/Card';
 import Navbar from '../Components/Home/Navbar'
+import Card from '../Components/BookStore/Card';
 
 function Library() {
     const [search, setSearch] = useState("");
@@ -42,7 +42,7 @@ function Library() {
     useEffect(() => {
         const interval = setInterval(() => {
             setQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
-        }, 1000); // Change quote every 5 seconds
+        }, 4000); // Change quote every 5 seconds
 
         return () => clearInterval(interval);
     }, []);
@@ -55,7 +55,7 @@ function Library() {
                 <div className='w-full h-[34vh] md:h-[40vh] absolute top-14 flex flex-col justify-center items-center'>
                     <h1 className='text-5xl font-bold text-white'>Our Library</h1>
                     <img className='w-40 md:w-48' src="./src/Components/BookStore/images/bg2.png" alt="img" />
-                    <div className="w-full md:w-2/5 inline-block p-3 md:p-4 px-7 text-2xl rounded-[2.5rem] outline-none bg-white">
+                    <div className="w-10/12 ssm:w-11/12 md:w-2/5 inline-block p-0 ssm:p-3 md:p-4 px-7 text-2xl rounded-[2.5rem] outline-none bg-white">
                         <input
                             className='text-[#4a982d] text-2xl outline-none'
                             type="text"
