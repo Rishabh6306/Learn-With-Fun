@@ -46,6 +46,7 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
       fetchNotes(updatedNotes);
       setIsEditing(false);
       toast('Note Updated Successfully', { type: 'success' });
+      onClose();
     } catch (error) {
       console.error('Error updating note:', error);
       toast('Error updating note', { type: 'error' });
