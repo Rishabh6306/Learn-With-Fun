@@ -10,6 +10,10 @@ function NoteDisplay() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
+    fetchNotes(); // Fetch notes when the component mounts
+  }, []);
+
+  const fetchNotes = () => {
     axios.get('http://localhost:3001/') // Update the endpoint to the correct one
       .then(res => {
         console.log(res.data);
@@ -18,7 +22,7 @@ function NoteDisplay() {
       .catch(err => {
         console.error('Error fetching notes:', err); // Handle errors
       });
-  }, []);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,11 +35,15 @@ function NoteDisplay() {
     axios.post('http://localhost:3001/createUser', { headline, content })
       .then(result => {
         console.log(result);
-        setNotes([...notes, { headline, content }]);
+        fetchNotes();
         setHeadline('');
         setContent('');
+        toast("Notes Added Succefully")
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error)
+        toast('Error deleting note', { type: 'error' });
+      });
   }
 
   return (
@@ -69,8 +77,8 @@ function NoteDisplay() {
         </div>
       </div>
 
-      {/* Boxes par Notes  */}
-      <NoteBox notes={notes} />
+      {/* Pass the notes and fetchNotes function to the NoteBox component */}
+      <NoteBox notes={notes} fetchNotes={fetchNotes} />
     </div>
   );
 }

@@ -1,15 +1,29 @@
 import React, { useState } from 'react';
 import { FiEdit } from 'react-icons/fi';
 import { RiDeleteBin4Line } from 'react-icons/ri';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import NoteEdit from './NoteEdit'; // Import the NoteEdit component
+import axios from 'axios'; // Import Axios for making API requests
 
-function NoteBox({ notes }) {
-  const [isEditing, setIsEditing] = useState(false); // Initialize with false to indicate no editing
+function NoteBox({ notes, fetchNotes }) {
+  const [isEditing, setIsEditing] = useState(false);
   const [editedNote, setEditedNote] = useState({ headline: '', content: '' });
 
   const handleEditClick = (note) => {
     setIsEditing(true);
     setEditedNote(note);
+  };
+
+  const handleDeleteClick = async (note) => {
+    try {
+      await axios.delete(`http://localhost:3001/api/notes/${note._id}`); // Use the correct URL pattern
+      fetchNotes();
+      toast("Notes Deleted Succefully")
+    } catch (error) {
+      console.error('Error deleting note:', error);
+      toast('Error deleting note', { type: 'error' });
+    }
   };
 
   const handleSaveClick = (editedNote) => {
@@ -51,19 +65,25 @@ function NoteBox({ notes }) {
                 onCancel={handleCancelEdit}
               />
             ) : (
-              <span
-                className="text-red-600 cursor-pointer text-bold"
-                onClick={() => handleEditClick(note)}
-              >
-                <FiEdit />
-              </span>
+              <>
+                <span
+                  className="text-red-600 cursor-pointer text-bold"
+                  onClick={() => handleEditClick(note)}
+                >
+                  <FiEdit />
+                </span>
+                <span
+                  className="text-blue-700 cursor-pointer"
+                  onClick={() => handleDeleteClick(note)}
+                >
+                  <RiDeleteBin4Line />
+                </span>
+              </>
             )}
-            <span className="text-blue-700 cursor-pointer">
-              <RiDeleteBin4Line />
-            </span>
           </div>
         </div>
       ))}
+      <ToastContainer />
     </div>
   );
 }
