@@ -53,6 +53,45 @@ app.delete('/api/notes/:id', async (req, res) => {
   }
 });
 
+app.put('/api/notes/:id', async (req, res) => {
+  const noteId = req.params.id;
+  const updatedNote = req.body; // Assuming the request body contains the updated note data
+
+  try {
+    // Update the note in the database by its ID
+    const updated = await UserModel.findByIdAndUpdate(noteId, updatedNote, { new: true });
+
+    if (!updated) {
+      return res.status(404).json({ error: 'Note not found' });
+    }
+
+    res.json(updated);
+  } catch (err) {
+    console.error('Error updating note:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+// app.put('/api/notes/:id', async (req, res) => {
+//   const noteId = req.params.id;
+//   const updatedNote = req.body; // Assuming the request body contains the updated note data
+
+//   try {
+//     // Update the note in the database by its ID
+//     const updated = await UserModel.findByIdAndUpdate(noteId, updatedNote, { new: true });
+//     console.log(noteId, updatedNote);
+
+//     if (!updated) {
+//       return res.status(404).json({ error: 'Note not found' });
+//     }
+
+//     res.json(updated);
+//   } catch (err) {
+//     console.error('Error updating note:', err);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
 
 
 app.listen(port, () => {
