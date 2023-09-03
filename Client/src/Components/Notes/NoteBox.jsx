@@ -62,7 +62,7 @@ function NoteBox({ notes, fetchNotes }) {
       <div className="flex flex-wrap justify-center p-3 my-5">
         {filteredNotes.length === 0 ? (
           <p className="text-center text-4xl py-6 text-red-500 font-bold">Not found</p>
-        ) : filteredNotes.map((note, index) => (
+        ) : (filteredNotes.map((note, index) => (
           <div key={index} className="flex flex-col justify-between m-2 p-2 h-44 w-full sm:w-72 border-2 border-cyan-700 rounded-lg overflow-y-auto">
             <div>
               <h3 className="font-bold text-lg break-words text-[#2874A6]">
@@ -100,7 +100,7 @@ function NoteBox({ notes, fetchNotes }) {
               )}
             </div>
           </div>
-        ))}
+        )))}
         <ToastContainer />
       </div>
     </>
