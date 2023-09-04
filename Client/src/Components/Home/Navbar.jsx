@@ -88,7 +88,7 @@ function Navbar() {
           </Link>
         </li>
         <li className="mx-3 my-4 2xl:my-0">
-          <Link to="#" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="/contactUs" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
             Contact Us
           </Link>
         </li>
