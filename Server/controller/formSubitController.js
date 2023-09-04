@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   });
 
 const formSubmit = async (req, res) => {
-    const { name, email, message } = req.body;
+    const { name, email, message, subject } = req.body;
     if (!validator.isEmail(email)) {
         return res.status(400).json({ error: 'Invalid email address' });
     }
@@ -24,8 +24,8 @@ const formSubmit = async (req, res) => {
         await transporter.sendMail({
             from: email,
             to: process.env.GMAIL_ID,
-            subject: 'New Contact Form Submission',
-            html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
+            subject: subject,
+            html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Subject: ${subject}</p><p>Message: ${message}</p>`,
         });
 
         console.log('Email sent successfully');
