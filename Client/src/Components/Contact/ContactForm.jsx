@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import { FaLinkedin, FaGithub, FaInstagram, FaFacebook } from 'react-icons/fa';
 
@@ -59,10 +60,10 @@ function ContactForm() {
         <p className='text-center my-5 text-xl'>Hope everyone feels delighted!</p>
         <div className='flex space-x-4 text-3xl my-5 justify-center'>
           {/* Social media icons */}
-          <span className='text-blue-600'><FaLinkedin /></span>
-          <span className=''><FaGithub /></span>
-          <span className='text-red-600'><FaInstagram /></span>
-          <span className='text-blue-700'><FaFacebook /></span>
+          <Link to="https://www.linkedin.com/in/rishabh6306/" target='blank' className='text-blue-600'><FaLinkedin /></Link>
+          <Link to="https://github.com/Rishabh6306/" target='blank' className=''><FaGithub /></Link>
+          <Link to="https://www.instagram.com/rishabhsrivastava723/" target='blank' className='text-red-600'><FaInstagram /></Link>
+          <Link to="https://www.facebook.com/profile.php?id=100092759361139" target='blank' className='text-blue-700'><FaFacebook /></Link>
         </div>
       </div>
       {/* Contact form */}
