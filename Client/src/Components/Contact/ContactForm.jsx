@@ -21,7 +21,7 @@ function ContactForm() {
     e.preventDefault();
     try {
       // Send the form data to your Node.js backend
-      const response = await axios.post('/api/contact', formData);
+      const response = await axios.post('http://localhost:3001/api/contact', formData);
       console.log(response.data);
       toast.success('Form submitted successfully');
     } catch (error) {

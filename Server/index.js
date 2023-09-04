@@ -3,7 +3,7 @@ import dotenv from 'dotenv';        // Load environment variables from a .env fi
 import express from 'express';      // Express.js for building web applications
 import cors from 'cors';            // Cross-Origin Resource Sharing middleware
 import connectToDatabase from './db/db.js'; // Function to connect to the database
-import usersRoutes from './routes/UserRoutes.js'; // Import user-related routes
+import notesRoutes from './routes/NotesRoutes.js'; // Import user-related routes
 
 // Load environment variables from a .env file if present
 dotenv.config();
@@ -24,9 +24,9 @@ app.use(express.json());
 connectToDatabase();
 
 // Use user-related routes under their respective paths
-app.use('/', usersRoutes); // GET, POST, and other user-related routes
-app.delete('/:id', usersRoutes); // DELETE user route
-app.put('/:id', usersRoutes); // PUT (update) user route
+app.use('/', notesRoutes); // GET, POST, and other user-related routes
+app.delete('/:id', notesRoutes); // DELETE user route
+app.put('/:id', notesRoutes); // PUT (update) user route
 
 // Define other route groups and import their route files here if needed
 

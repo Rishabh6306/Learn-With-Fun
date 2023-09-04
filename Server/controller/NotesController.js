@@ -1,11 +1,11 @@
 // Import the 'UserModel' from the 'UserModels.js' file to interact with user data
-import UserModel from "../Models/UserModels.js";
+import NotesModel from "../Models/NotesModels.js";
 
 // Controller function to get all users
 const getAll = async (req, res) => {
     try {
         // Fetch all users from the database
-        const users = await UserModel.find({});
+        const users = await NotesModel.find({});
         res.json(users);
     } catch (err) {
         console.error('Error fetching users:', err);
@@ -17,7 +17,7 @@ const getAll = async (req, res) => {
 const createUser = async (req, res) => {
     try {
         // Create a new user with the data from the request body
-        const user = await UserModel.create(req.body);
+        const user = await NotesModel.create(req.body);
         res.json(user);
     } catch (err) {
         console.error('Error creating user:', err);
@@ -30,7 +30,7 @@ const deleteUser = async (req, res) => {
     const userId = req.params.id;
     try {
         // Find and remove a user by their ID
-        await UserModel.findByIdAndRemove(userId);
+        await NotesModel.findByIdAndRemove(userId);
         res.json({ message: 'User deleted successfully' });
     } catch (err) {
         console.error('Error deleting user:', err);
@@ -45,7 +45,7 @@ const updateUser = async (req, res) => {
 
     try {
         // Update the user in the database by their ID and return the updated user
-        const updated = await UserModel.findByIdAndUpdate(userId, updatedUser, { new: true });
+        const updated = await NotesModel.findByIdAndUpdate(userId, updatedUser, { new: true });
 
         if (!updated) {
             return res.status(404).json({ error: 'User not found' });

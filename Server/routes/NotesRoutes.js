@@ -2,7 +2,7 @@
 import express from 'express';
 
 // Import controller functions from 'UserController.js' for handling user-related actions
-import { createUser, deleteUser, getAll, updateUser } from '../controller/UserController.js';
+import { createUser, deleteUser, getAll, updateUser } from '../controller/NotesController.js';
 
 // Create an instance of an Express router
 const router = express.Router();
