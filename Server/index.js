@@ -1,99 +1,36 @@
-require('dotenv').config()
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const UserModel = require('./Models/UserModels.js');
+// Import necessary modules and libraries
+import dotenv from 'dotenv';        // Load environment variables from a .env file
+import express from 'express';      // Express.js for building web applications
+import cors from 'cors';            // Cross-Origin Resource Sharing middleware
+import connectToDatabase from './db/db.js'; // Function to connect to the database
+import usersRoutes from './routes/UserRoutes.js'; // Import user-related routes
+
+// Load environment variables from a .env file if present
+dotenv.config();
+
+// Define the port for the Express server
 const port = process.env.PORT || 3000;
 
+// Create an Express application
 const app = express();
+
+// Enable CORS (Cross-Origin Resource Sharing) for the app
 app.use(cors());
+
+// Parse incoming JSON data
 app.use(express.json());
 
-// Attempt to connect to the MongoDB database
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => {
-    console.log('Connected to MongoDB:', process.env.MONGODB_URI);
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
-  });
+// Call the function to connect to the database
+connectToDatabase();
 
-app.get('/', async (req, res) => {
-  try {
-    const user = await UserModel.find({});
-    res.json(user);
-  } catch (err) {
-    console.error('Error creating user:', err);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
+// Use user-related routes under their respective paths
+app.use('/', usersRoutes); // GET, POST, and other user-related routes
+app.delete('/:id', usersRoutes); // DELETE user route
+app.put('/:id', usersRoutes); // PUT (update) user route
 
-app.post('/createUser', async (req, res) => {
-  try {
-    const user = await UserModel.create(req.body);
-    res.json(user);
-  } catch (err) {
-    console.error('Error creating user:', err);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
+// Define other route groups and import their route files here if needed
 
-app.delete('/api/notes/:id', async (req, res) => {
-  const noteId = req.params.id;
-  try {
-    // Remove the note from the database by its ID
-    await UserModel.findByIdAndRemove(noteId);
-    res.json({ message: 'Note deleted successfully' });
-  } catch (err) {
-    console.error('Error deleting note:', err);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-app.put('/api/notes/:id', async (req, res) => {
-  const noteId = req.params.id;
-  const updatedNote = req.body; // Assuming the request body contains the updated note data
-
-  try {
-    // Update the note in the database by its ID
-    const updated = await UserModel.findByIdAndUpdate(noteId, updatedNote, { new: true });
-
-    if (!updated) {
-      return res.status(404).json({ error: 'Note not found' });
-    }
-
-    res.json(updated);
-  } catch (err) {
-    console.error('Error updating note:', err);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-
-// app.put('/api/notes/:id', async (req, res) => {
-//   const noteId = req.params.id;
-//   const updatedNote = req.body; // Assuming the request body contains the updated note data
-
-//   try {
-//     // Update the note in the database by its ID
-//     const updated = await UserModel.findByIdAndUpdate(noteId, updatedNote, { new: true });
-//     console.log(noteId, updatedNote);
-
-//     if (!updated) {
-//       return res.status(404).json({ error: 'Note not found' });
-//     }
-
-//     res.json(updated);
-//   } catch (err) {
-//     console.error('Error updating note:', err);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// });
-
-
+// Start the Express server and listen on the specified port
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });

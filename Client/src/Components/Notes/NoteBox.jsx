@@ -94,7 +94,7 @@ function NoteBox({ notes, fetchNotes }) {
             <div
               key={index}
               onClick={() => openOverlay(note)}
-              className="flex flex-col justify-between m-2 p-2 h-44 w-full sm:w-72 border-2 border-cyan-700 rounded-lg overflow-y-auto"
+              className="flex flex-col justify-between m-2 p-2 h-52 w-full sm:w-72 border-2 border-cyan-700 rounded-lg overflow-y-auto"
             >
               <div>
                 <h3 className="font-bold text-lg break-words text-[#2874A6]">
