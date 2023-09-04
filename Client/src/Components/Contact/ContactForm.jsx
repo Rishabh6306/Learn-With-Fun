@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
@@ -12,6 +12,9 @@ function ContactForm() {
     subject: '',
     message: '',
   });
+
+  // State to track if the video is loaded successfully
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   // Function to handle form input changes
   const handleChange = (e) => {
@@ -45,8 +48,18 @@ function ContactForm() {
     }
   };
 
+  // Use useEffect to check if the video loads successfully
+  useEffect(() => {
+    const video = document.querySelector('video');
+    if (video) {
+      video.addEventListener('canplaythrough', () => {
+        setVideoLoaded(true);
+      });
+    }
+  }, []);
+
   return (
-    <div className="flex max-w-screen-xl font-[Courgette] mx-auto mt-8 p-4 relative justify-around">
+    <div className={`flex max-w-screen-xl font-[Courgette] mx-auto mt-8 p-4 relative justify-around ${!videoLoaded ? 'bg-blue-500' : ''}`}>
       {/* Video background */}
       <video autoPlay muted loop className="fixed top-0 left-0 min-w-full min-h-[100vh] z-[-1] object-cover">
         <source src="./src/Components/Contact/assests/bg-1.mp4" type="video/mp4" />
