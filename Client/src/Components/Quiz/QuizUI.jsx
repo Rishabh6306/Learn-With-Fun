@@ -2,10 +2,10 @@ import React from 'react'
 
 function QuizUI() {
   return (
-    <div>
-      HELLO THIS IS QUIZ UI.
+    <div className='bg-[url(./src/Components/Quiz/assests/bg-2.jpg)] h-screen'>
+        hello quiz 
     </div>
   )
 }
 
-export default QuizUI
+export default QuizUI;

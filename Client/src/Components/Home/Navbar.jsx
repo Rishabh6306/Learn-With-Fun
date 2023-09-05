@@ -31,7 +31,7 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className={`bg-gradient-to-b from-green-500 to-cyan-500 p-2  xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
+    <nav className={`bg-[#285250] p-2  xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
      <div className="flex justify-between items-center">
         <span className="text-3xl font-[Poppins] font-bold cursor-pointer">
           <img
@@ -53,46 +53,46 @@ function Navbar() {
           } xl:flex xl:items-center z-[-1] xl:z-auto xl:static w-full xl:w-auto xl:py-0 py-2 xl:pl-0 pl-7 transition-max-h duration-700 ease-in-out overflow-hidden text-center`}
       >
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/" className="text-2xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="/" className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Home
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="#" className="text-2xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="#" className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Documentation
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/quiz" className="text-2xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="/quiz" className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Quiz
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/notes" className="text-2xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="/notes" className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Notes
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="#" className="text-2xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="#" className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Games
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/library" className="text-2xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="/library" className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Library
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="#" className="text-2xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="#" className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Code
           </Link>
         </li>
         <li className="mx-3 my-4 2xl:my-0">
-          <Link to="/contactUs" className="text-3xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+          <Link to="/contactUs" className="text-3xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Contact Us
           </Link>
         </li>
-        <button className="bg-violet-600 hover:bg-violet-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-10 mx-6 font-[Poppins] duration-700 rounded-lg ">
+        <button className="bg-orange-600 hover:bg-orange-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-7 mx-6 font-[Poppins] duration-700 rounded-lg ">
           Get Started
         </button>
       </ul>
