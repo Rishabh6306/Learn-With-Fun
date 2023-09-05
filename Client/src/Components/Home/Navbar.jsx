@@ -63,8 +63,8 @@ function Navbar() {
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="#" className="text-2xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
-            Features
+          <Link to="/quiz" className="text-2xl hover:text-indigo-800 hover:border-b-4 border-indigo-600 duration-500">
+            Quiz
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">

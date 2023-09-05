@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import DetailCard from './Components/BookStore/DetailCard';
 import NotesPage from './Pages/NotesPage';
 import ContactPage from './Pages/ContactPage';
+import QuizPage from './Pages/QuizPage'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/detailPage" element={<DetailCard/>} />
       <Route path="/notes" element={<NotesPage/>} />
       <Route path="/contactUs" element={<ContactPage/>} />
+      <Route path="/quiz" element={<QuizPage/>} />
     </Routes>
   )
 }
