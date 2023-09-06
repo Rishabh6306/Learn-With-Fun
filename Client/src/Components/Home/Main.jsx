@@ -3,7 +3,7 @@ import React from 'react'
 function Main() {
     return (
         <div className='bg-[#25ffff]'>
-        <div className='h-[86vh] bg-gradient-to-b from-[aqua] to-black flex justify-center p-6 rounded-br-[18rem] '>
+        <div className='h-[86vh] bg-gradient-to-b from-[aqua] to-black flex justify-center p-6 rounded-br-[10rem] md:rounded-br-[18rem]'>
             <div className='mt-14 md:mt-28 m-2 '>
                 <h1 className='text-yellow-300 my-4 text-4xl md:text-6xl font-bold leading-0 md:leading-4 tracking-wide'>Learn With Unlimited Fun</h1>
                 <hr className='m-10 w-4/5 md:w-3/5' />
