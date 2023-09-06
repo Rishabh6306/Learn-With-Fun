@@ -4,6 +4,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { ImQuotesLeft, ImQuotesRight } from 'react-icons/im';
 import Navbar from '../Components/Home/Navbar'
 import Card from '../Components/BookStore/Card';
+import Footer from '../Components/Footer/Footer'
 
 function Library() {
     const [search, setSearch] = useState("");
@@ -71,9 +72,10 @@ function Library() {
 
             <span className="bg-indigo-100 w-full h-36 p-1 sm:p-3 mx-auto text-center text-gray-700 text-xl md:text-2xl font-bold absolute font-poppins italic animate-color-change"><ImQuotesLeft /> {quotes[quoteIndex]} <span className='float-right pt-5'><ImQuotesRight /></span></span>
 
-            <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(240px,0.5fr))] gap-3 bg-[#14224a] relative top-36 sm:top-28 p-1 sm:p-10">
+            <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(240px,0.5fr))] gap-3 bg-[#14224a] relative top-36 sm:top-28 p-1 sm:p-10 mb-36 sm:mb-28">
                 <Card book={bookData} />
             </div>
+        <Footer />
         </>
     )
 }

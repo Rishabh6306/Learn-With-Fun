@@ -8,7 +8,7 @@ function Footer() {
   };
 
   return (
-    <div className='bg-[#060620] text-white p-7 mt-10'>
+    <div className='bg-[#060620] text-white relative'>
       <div onClick={scrollToTop} className='cursor-pointer float-right text-2xl hover:text-4xl text-yellow-500'>
         <FaArrowCircleUp />
       </div>
