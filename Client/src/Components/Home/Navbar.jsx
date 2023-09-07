@@ -83,8 +83,8 @@ function Navbar() {
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/scorecard" className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
-            Scorecard
+          <Link to="/leaderboard" className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+            LeaderBoard
           </Link>
         </li>
         <li className="mx-3 my-4 2xl:my-0">

@@ -38,9 +38,9 @@ function Programs() {
                     </div>
 
                     <div className="bg-[aqua] rounded-3xl p-5 flex flex-col justify-center items-center">
-                        <h1 className='mb-4 text-2xl font-bold tracking-widest'>Scorecard</h1>
-                        <p className='mb-4 font-medium text-gray-700'>Score Card displays your journey, records achievements, and helps you stay on track. Monitor your advancement and achieve your goals effortlessly.</p>
-                        <Link to="/scorecard" className='bg-orange-500 text-xl px-6 py-3 my-3 rounded-3xl'>Track Progress</Link>
+                        <h1 className='mb-4 text-2xl font-bold tracking-widest'>LeaderBoard</h1>
+                        <p className='mb-4 font-medium text-gray-700'>LeaderBoard displays your journey, records achievements, and helps you stay on track. Monitor your advancement and achieve your goals effortlessly.</p>
+                        <Link to="/leaderboard" className='bg-orange-500 text-xl px-6 py-3 my-3 rounded-3xl'>Track Progress</Link>
                     </div>
                 </div>
             </div>
