@@ -17,7 +17,7 @@ const DetailCard = ({ show, item, onClose }) => {
                             <h1 className='text-3xl'>{item.volumeInfo.title}</h1>
                             <h3 className='text-xl mt-5 text-green-700'>{item.volumeInfo.authors}</h3>
                             <h4 className='text-blue-700'>{item.volumeInfo.publisher}<span>{item.volumeInfo.publishedDate}</span></h4><br />
-                            <a href={item.volumeInfo.previewLink}><button className='outline-none border-none w-24 rounded-md bg-[#24a0ed] text-white font-bold px-1 py-2'>More</button></a>
+                            <a href={item.volumeInfo.previewLink} target='blank'><button className='outline-none border-none w-24 rounded-md bg-[#24a0ed] text-white font-bold px-1 py-2'>More</button></a>
                         </div>
                     </div>
                     <h4 className="mt-[2rem] text-justify text-[14px] sm:text-[17px]">{item.volumeInfo.description}</h4>
