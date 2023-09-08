@@ -9,7 +9,6 @@ import ContactPage from './Pages/ContactPage';
 import QuizPage from './Pages/QuizPage'
 import LeaderBoard from './Pages/LeaderBoardPage';
 import DocumentationPage from './Pages/DocumentationPage';
-import GettingStarted from './Components/Documentation/htmlComponents/GettingStarted';
 
 function App() {
   return (
@@ -23,7 +22,7 @@ function App() {
       <Route path="/leaderboard" element={<LeaderBoard/>} />
 
 
-      <Route path="/documentation" element={<DocumentationPage/>} />
+      <Route path="/documentation" element={<DocumentationPage/> } />
     </Routes>
   )
 }

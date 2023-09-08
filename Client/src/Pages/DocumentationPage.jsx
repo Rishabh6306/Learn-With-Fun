@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbar from '../Components/Home/Navbar';
 import Footer from '../Components/Footer/Footer';
-import HtmlDocs from '../Components/Documentation/htmlComponents/HtmlDocs';
+import MainDocsComponents from '../Components/Documentation/MainDocsComponents';
 
 function DocumentationPage() {
   return (
     <div>
       <Navbar />
-      <HtmlDocs />
+      <MainDocsComponents />
       <Footer />
     </div>
   )
