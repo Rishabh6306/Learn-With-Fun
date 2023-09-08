@@ -15,7 +15,7 @@ function MainDocsComponents() {
 
   return (
     <div>
-      <ul className='flex gap-4 justify-center items-center bg-purple-300 py-2 text-xl'>
+      <ul className='fixed w-full flex gap-4 justify-center items-center bg-purple-300 py-2 text-xl'>
         {tabs.map((tab) => (
           <li
             key={tab}
@@ -26,7 +26,7 @@ function MainDocsComponents() {
           </li>
         ))}
       </ul>
-      {activeTab === 'HTML' && <HtmlDocs/> }
+      {activeTab === 'HTML' && <HtmlDocs />}
       {activeTab === 'CSS' && <CssDocs />}
       {activeTab === 'JavaScript' && <JavaScriptDocs />}
       {activeTab === 'ReactJS' && <ReactJsDocs />}
