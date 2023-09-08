@@ -30,9 +30,8 @@ const cardData = [
   },
   {
     title: 'Join Us',
-    description:
-      'Interested in contributing to our mission? We\'re always on the lookout for talented individuals who share our passion for education. For shaping the future of learning, join us on LinkedIn.',
-  },
+    description: "Interested in contributing to our mission? We're always on the lookout for talented individuals who share our passion for education. For shaping the future of learning. "
+},
   {
     title: 'Our Goals',
     description:

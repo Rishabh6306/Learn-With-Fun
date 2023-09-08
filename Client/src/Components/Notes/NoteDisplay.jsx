@@ -42,7 +42,7 @@ function NoteDisplay() {
       })
       .catch(error => {
         console.log(error)
-        toast('Error deleting note', { type: 'error' });
+        toast('Error Added Notes', { type: 'error' });
       });
   }
 
