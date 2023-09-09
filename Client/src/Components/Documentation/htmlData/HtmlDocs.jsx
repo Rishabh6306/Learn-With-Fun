@@ -1,31 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import { BsCaretLeft } from 'react-icons/bs';
+import { useDocsState, useHtmlDocsFunctions } from '../utilsForDocs/docsUtils';
 import Header from '../Header';
 import Content from '../Content';
-import { BsCaretLeft } from 'react-icons/bs'
 
 function HtmlDocs() {
   const data = {
+    /* eslint-disable */
     'Getting Started': (
+      /* eslint-disable */
       <>
-        <p className='my-3'>
+        <div className='my-3'>
           <h1 className='text-5xl my-3 mb-5'>HTML</h1>
           HTML (HyperText Markup Language) is the standard markup language for creating web pages.
           It defines the structure of a web page by using a variety of elements and tags.
           These elements are used to enclose, or wrap, different parts of the content to make it
           appear or behave in a certain way.
-        </p>
+        </div>
         <p>
           To create an HTML document, you start with the <span className='text-orange-600'>&lt;!DOCTYPE html&gt;</span> declaration,
           which tells the web browser that the document is written in HTML5.
         </p>
-        <p>
+        <div>
           <h1 className='text-4xl my-3 mb-5'>Basic Structure</h1>
           The basic structure of an HTML document includes the <span className='text-orange-600'>&lt;html&gt;</span> element,
           which contains the <span className='text-orange-600'>&lt;head&gt;</span> and <span className='text-orange-600'>&lt;body&gt;</span> sections.
           The <span className='text-orange-600'>&lt;head&gt;</span> section typically contains metadata about the document,
           such as the title and character encoding, while the <span className='text-orange-600'>&lt;body&gt;</span> section
           contains the visible content of the page.
-        </p>
+        </div>
         <p className='my-3'>
           Within the <span className='text-orange-600'>&lt;body&gt;</span> section, you can use various HTML elements to create
           headings, paragraphs, lists, links, images, and more. These elements are defined by
@@ -78,30 +80,30 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           HTML, or HyperText Markup Language, has a rich and influential history that has played a pivotal role in shaping the World Wide Web as we know it today.
         </p>
-        <p className="mb-4 break-words">
-          - <strong>Birth of the Web (1989):</strong> The story begins with Tim Berners-Lee's visionary concept of the World Wide Web while working at CERN, laying the foundation for HTML.
-        </p>
-        <p className="mb-4 break-words">
-          - <strong>HTML 1.0 (1993):</strong> In 1993, HTML 1.0 emerged as the first version, providing a simple markup language for basic document sharing. It introduced fundamental elements like headings and links.
-        </p>
-        <p className="mb-4 break-words">
-          - <strong>HTML 2.0 (1995):</strong> HTML 2.0 expanded HTML's capabilities with the introduction of forms, tables, and support for inline images, making it more versatile for content presentation.
-        </p>
-        <p className="mb-4 break-words">
-          - <strong>HTML 4.0 (1997):</strong> HTML 4.0 marked a significant milestone, bringing support for JavaScript, Cascading Style Sheets (CSS), and advanced styling options. This separation of content and presentation enhanced the web's visual appeal.
-        </p>
-        <p className="mb-4 break-words">
-          - <strong>XHTML (Early 2000s):</strong> The early 2000s saw the emergence of XHTML (eXtensible HyperText Markup Language), which aimed to enforce cleaner code and compatibility with XML standards.
-        </p>
-        <p className="mb-4 break-words">
-          - <strong>HTML5 (2014):</strong> HTML5 was a game-changer, introducing multimedia support, the canvas element for graphics, and advanced APIs. It enhanced web application development and interactivity.
-        </p>
-        <p className="mb-4 break-words">
-          - <strong>HTML as a Living Standard:</strong> HTML has evolved into a living standard, continuously adapting to the ever-changing demands of the web. It is maintained by organizations like the World Wide Web Consortium (W3C) and the Web Hypertext Application Technology Working Group (WHATWG).
-        </p>
-        <p>
+        <div className="mb-4 break-words">
+          - <h1>Birth of the Web (1989):</h1> The story begins with Tim Berners-Lee's visionary concept of the World Wide Web while working at CERN, laying the foundation for HTML.
+        </div>
+        <div className="mb-4 break-words">
+          - <h1>HTML 1.0 (1993):</h1> In 1993, HTML 1.0 emerged as the first version, providing a simple markup language for basic document sharing. It introduced fundamental elements like headings and links.
+        </div>
+        <div className="mb-4 break-words">
+          - <h1>HTML 2.0 (1995):</h1> HTML 2.0 expanded HTML's capabilities with the introduction of forms, tables, and support for inline images, making it more versatile for content presentation.
+        </div>
+        <div className="mb-4 break-words">
+          - <h1>HTML 4.0 (1997):</h1> HTML 4.0 marked a significant milestone, bringing support for JavaScript, Cascading Style Sheets (CSS), and advanced styling options. This separation of content and presentation enhanced the web's visual appeal.
+        </div>
+        <div className="mb-4 break-words">
+          - <h1>XHTML (Early 2000s):</h1> The early 2000s saw the emergence of XHTML (eXtensible HyperText Markup Language), which aimed to enforce cleaner code and compatibility with XML standards.
+        </div>
+        <div className="mb-4 break-words">
+          - <h1>HTML5 (2014):</h1> HTML5 was a game-changer, introducing multimedia support, the canvas element for graphics, and advanced APIs. It enhanced web application development and interactivity.
+        </div>
+        <div className="mb-4 break-words">
+          - <h1>HTML as a Living Standard:</h1> HTML has evolved into a living standard, continuously adapting to the ever-changing demands of the web. It is maintained by organizations like the World Wide Web Consortium (W3C) and the Web Hypertext Application Technology Working Group (WHATWG).
+        </div>
+        <div>
           HTML's remarkable journey has transformed the web into a versatile platform for content delivery, interactive applications, and a vital part of our digital world.
-        </p>
+        </div>
       </>
     ),
     'HTML5': (
@@ -253,6 +255,9 @@ function HtmlDocs() {
 
         <div className="my-3">
           <form className="border p-4">
+            {/* <!-- Ignore autoComplete  attribute warning -->
+                 <input autoComplete ="off" type="text" id="text-input" name="text-input" className="border rounded p-2 w-full mb-3" placeholder="Enter text" />
+            */}
             {/* Form controls will go here */}
           </form>
         </div>
@@ -305,35 +310,40 @@ function HtmlDocs() {
 
         <div className="my-3">
           <form className="border p-4">
-            <label htmlFor="text-input" className="block mb-2">Text Input:</label>
-            <input type="text" id="text-input" name="text-input" className="border rounded p-2 w-full mb-3" placeholder="Enter text" />
+            {/* <!-- Ignore autoComplete  attribute warning -->
+                 <input autoComplete ="off" type="text" id="text-input" name="text-input" className="border rounded p-2 w-full mb-3" placeholder="Enter text" />
+             */}
 
-            <label htmlFor="radio-input" className="block mb-2">Radio Buttons:</label>
+            <label htmlFor="text-input" className="block mb-2">Text Input:</label>
+            <input autoComplete="off" type="text" id="text-input" name="text-input" className="border rounded p-2 w-full mb-3" placeholder="Enter text" />
+
+            <label htmlFor="radio-option1" className="block mb-2">Radio Buttons:</label>
             <div className="mb-3">
-              <input type="radio" id="radio-option1" name="radio-options" className="mr-2" />
+              <input autoComplete="off" type="radio" id="radio-option1" name="radio-options" className="mr-2" />
               <label htmlFor="radio-option1" className="mr-4">Option 1</label>
 
-              <input type="radio" id="radio-option2" name="radio-options" className="mr-2" />
+              <input autoComplete="off" type="radio" id="radio-option2" name="radio-options" className="mr-2" />
               <label htmlFor="radio-option2" className="mr-4">Option 2</label>
 
-              <input type="radio" id="radio-option3" name="radio-options" className="mr-2" />
+              <input autoComplete="off" type="radio" id="radio-option3" name="radio-options" className="mr-2" />
               <label htmlFor="radio-option3">Option 3</label>
             </div>
 
-            <label htmlFor="checkbox-input" className="block mb-2">Checkboxes:</label>
+            <label htmlFor="checkbox-option1" className="block mb-2">Checkboxes:</label>
             <div className="mb-3">
-              <input type="checkbox" id="checkbox-option1" className="mr-2" />
+              <input autoComplete="off" type="checkbox" id="checkbox-option1" className="mr-2" />
               <label htmlFor="checkbox-option1" className="mr-4">Option 1</label>
 
-              <input type="checkbox" id="checkbox-option2" className="mr-2" />
+              <input autoComplete="off" type="checkbox" id="checkbox-option2" className="mr-2" />
               <label htmlFor="checkbox-option2" className="mr-4">Option 2</label>
 
-              <input type="checkbox" id="checkbox-option3" className="mr-2" />
+              <input autoComplete="off" type="checkbox" id="checkbox-option3" className="mr-2" />
               <label htmlFor="checkbox-option3">Option 3</label>
             </div>
 
             <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit</button>
           </form>
+
         </div>
 
         <h2 className="text-4xl my-3 font-semibold">10. Divisions (&lt;div&gt;)</h2>
@@ -540,7 +550,7 @@ function HtmlDocs() {
         <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <p>
-            The event starts at <time datetime="2023-09-15">September 15, 2023</time>.
+            The event starts at <time dateTime="2023-09-15">September 15, 2023</time>.
           </p>
         `}
         </pre>
@@ -618,7 +628,7 @@ function HtmlDocs() {
         <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <label for="fruits">Choose a fruit:</label>
-          <input list="fruits" id="fruit" name="fruit" />
+          <input autoComplete ="fruits" list="fruits" id="fruit" name="fruit" />
           <datalist id="fruits">
             <option value="Apple" />
             <option value="Banana" />
@@ -634,7 +644,7 @@ function HtmlDocs() {
       </div>
     ),
     'HTML Tables': (
-      <>
+      <div>
         <h1 className="text-5xl my-3 mb-5 font-semibold">HTML Tables</h1>
 
         <p>
@@ -713,10 +723,10 @@ function HtmlDocs() {
         <p>
           There are various types of tables you can create, including data tables, pricing tables, and comparison tables. Each type serves a specific purpose and may have different structures and styles.
         </p>
-      </>
+      </div>
     ),
     'HTML List': (
-      <>
+      <div>
         <h1 className="text-5xl my-3 mb-5 font-semibold">HTML Lists Documentation</h1>
 
         <p>
@@ -821,11 +831,11 @@ function HtmlDocs() {
         <p>
           In summary, HTML lists are versatile and crucial for structuring content on the web. Understanding the different types, customization options, accessibility considerations, and best practices will help you present your information effectively.
         </p>
-      </>
+      </div>
 
     ),
     'HTMl Forms': (
-      <>
+      <div>
         <h1 className="text-5xl my-3 mb-5 font-semibold">HTML Forms Documentation</h1>
 
         <p>
@@ -840,6 +850,9 @@ function HtmlDocs() {
 
         <div className="my-3">
           <form className="border p-4">
+            {/* <!-- Ignore autoComplete  attribute warning -->
+                 <input autoComplete ="off" type="text" id="text-input" name="text-input" className="border rounded p-2 w-full mb-3" placeholder="Enter text" />
+            */}
             {/* Form controls will go here */}
           </form>
         </div>
@@ -852,7 +865,7 @@ function HtmlDocs() {
 
         <div className="my-3">
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" className="border p-2" />
+          <input autoComplete="name" type="text" id="name" name="name" className="border p-2" />
         </div>
 
         <h2 className="text-4xl my-3 font-semibold">3. Email Input (&lt;input type="email"&gt;)</h2>
@@ -863,7 +876,7 @@ function HtmlDocs() {
 
         <div className="my-3">
           <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" className="border p-2" />
+          <input autoComplete="email" type="email" id="email" name="email" className="border p-2" />
         </div>
 
         <h2 className="text-4xl my-3 font-semibold">4. Password Input (&lt;input type="password"&gt;)</h2>
@@ -874,7 +887,7 @@ function HtmlDocs() {
 
         <div className="my-3">
           <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" className="border p-2" />
+          <input autoComplete="password" type="password" id="password" name="password" className="border p-2" />
         </div>
 
         <h2 className="text-4xl my-3 font-semibold">5. Radio Buttons (&lt;input type="radio"&gt;)</h2>
@@ -886,10 +899,10 @@ function HtmlDocs() {
         <div className="my-3">
           <label>Gender:</label>
           <div className="flex items-center">
-            <input type="radio" id="male" name="gender" value="male" className="mr-2" />
+            <input autoComplete="radio" type="radio" id="male" name="gender" value="male" className="mr-2" />
             <label htmlFor="male" className="mr-4">Male</label>
 
-            <input type="radio" id="female" name="gender" value="female" className="mr-2" />
+            <input autoComplete="radio" type="radio" id="female" name="gender" value="female" className="mr-2" />
             <label htmlFor="female">Female</label>
           </div>
         </div>
@@ -903,10 +916,10 @@ function HtmlDocs() {
         <div className="my-3">
           <label>Interests:</label>
           <div className="flex items-center">
-            <input type="checkbox" id="coding" name="interests" value="coding" className="mr-2" />
+            <input autoComplete="checkbox" type="checkbox" id="coding" name="interests" value="coding" className="mr-2" />
             <label htmlFor="coding" className="mr-4">Coding</label>
 
-            <input type="checkbox" id="reading" name="interests" value="reading" className="mr-2" />
+            <input autoComplete="checkbox" type="checkbox" id="reading" name="interests" value="reading" className="mr-2" />
             <label htmlFor="reading">Reading</label>
           </div>
         </div>
@@ -955,10 +968,10 @@ function HtmlDocs() {
         <p>
           HTML form elements are crucial for collecting user input on the web. By using the appropriate form controls and attributes, you can create interactive and user-friendly web forms. When combined with React.js and styled with Tailwind CSS, you can build seamless user interfaces for various applications.
         </p>
-      </>
+      </div>
     ),
     'More Info': (
-      <>
+      <div>
         <h2 className="text-4xl my-3 font-semibold">Horizontal Rule (&lt;hr&gt;)</h2>
         <p>
           The &lt;hr&gt; element is used to create a thematic break or horizontal rule, often used to separate content within a page.
@@ -966,7 +979,7 @@ function HtmlDocs() {
 
         <div className="my-3">
           <p>This is some content above the horizontal rule.</p>
-          <hr className="my-4" />
+          <span><hr className="my-4" /></span>
           <p>This is some content below the horizontal rule.</p>
         </div>
 
@@ -1018,7 +1031,8 @@ function HtmlDocs() {
         </p>
 
         <div className="my-3">
-          <p>The meeting is scheduled for <time datetime="2023-09-15T15:00">3:00 PM on September 15, 2023</time>.</p>
+          {/*  eslint-disable-next-line */}
+          <p>The meeting is scheduled for <time dateTime="2023-09-15T15:00">3:00 PM on September 15, 2023</time>.</p>
         </div>
 
         <h2 className="text-4xl my-3 font-semibold"> Preformatted Text (&lt;pre&gt;)</h2>
@@ -1040,39 +1054,12 @@ function HtmlDocs() {
         <p>
           For more in-depth information on HTML elements and their usage, please visit the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">MDN Web Docs</a>.
         </p>
-      </>
+      </div>
     ),
   };
 
-  const [activeHeading, setActiveHeading] = useState('Getting Started');
-  const [showHeader, setShowHeader] = useState(window.innerWidth >= 768); // Initially, show header for wider screens
-
-  useEffect(() => {
-    const handleResize = () => {
-      setShowHeader(window.innerWidth >= 768);
-    };
-
-    // Add a resize event listener to handle changes in window width
-    window.addEventListener('resize', handleResize);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const handleHeadingClick = (heading) => {
-    // If the clicked heading is the same as the active heading, toggle the header visibility
-    setTimeout(() => {
-      setShowHeader(!showHeader);
-      setActiveHeading(heading);
-    }, 100);
-  };
-
-  // Function to toggle header visibility
-  const toggleHeader = () => {
-    setShowHeader(!showHeader);
-  };
+  const { activeHeading, showHeader, setActiveHeading, setShowHeader } = useDocsState();
+  const { handleHeadingClick, toggleHeader } = useHtmlDocsFunctions(data, showHeader, setShowHeader, activeHeading, setActiveHeading);
 
   return (
     <div className='flex pt-5 md:pt-12 flex-col md:flex-row'>

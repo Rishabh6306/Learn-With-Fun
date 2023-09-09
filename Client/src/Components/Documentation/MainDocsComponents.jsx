@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import HtmlDocs from '../Documentation/htmlComponents/HtmlDocs';
-import CssDocs from '../Documentation/cssComponents/CssDocs';
-import JavaScriptDocs from '../Documentation/JavascriptComponents/JavaScriptDocs';
-import ReactJsDocs from '../Documentation/ReactComponents/ReactJsDocs';
-import { BsCaretLeft } from 'react-icons/bs';
+import ReactJsDocs from './ReactData/ReactJsDocs';
+import JavaScriptDocs from './JavascriptData/JavaScriptDocs';
+import CssDocs from './cssData/CssDocs';
+import HtmlDocs from './htmlData/HtmlDocs';
 
 function MainDocsComponents() {
   const [activeTab, setActiveTab] = useState('HTML');

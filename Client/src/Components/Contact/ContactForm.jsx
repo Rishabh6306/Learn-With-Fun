@@ -90,6 +90,7 @@ function ContactForm() {
             type="text"
             id="name"
             name="name"
+            autoComplete='name'
             value={formData.name}
             onChange={handleChange}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -104,6 +105,7 @@ function ContactForm() {
             type="email"
             id="email"
             name="email"
+            autoComplete='email'
             value={formData.email}
             onChange={handleChange}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -117,6 +119,7 @@ function ContactForm() {
           <input
             type="text"
             id="subject"
+            autocomplete='off'
             name="subject"
             value={formData.subject}
             onChange={handleChange}
@@ -131,6 +134,7 @@ function ContactForm() {
           <textarea
             id="message"
             name="message"
+            autoComplete='off'
             value={formData.message}
             onChange={handleChange}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32"
