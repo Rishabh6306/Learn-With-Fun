@@ -368,29 +368,29 @@ function HtmlDocs() {
         <h2 className="text-3xl my-3 mb-5 font-semibold">Semantic Elements in HTML5</h2>
 
         <h3 className="text-2xl my-3 font-semibold">1. &lt;header&gt;</h3>
-        <p className="mb-4 break-words">
+        <p className="mb-4">
           The &lt;header&gt; element represents the introductory content or a set of navigational links at the beginning of a section or webpage. It typically includes elements like headings, logos, and navigation menus.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
-          <header>
-            <h1>Website Logo</h1>
-            <nav>
-              <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-              </ul>
-            </nav>
-          </header>
-        `}
+   <header>
+      <h1>Website Logo</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+  `}
         </pre>
 
         <h3 className="text-2xl my-3 font-semibold">2. &lt;nav&gt;</h3>
         <p className="mb-4 break-words">
           The &lt;nav&gt; element represents a section of a page that contains navigation links, making it easier for users to move around the website. It should include primary navigation menus or sets of related links.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <nav>
             <ul>
@@ -406,7 +406,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;main&gt; element represents the main content of the document. It should be unique to each page and not used for repeated content such as site navigation or headers. Using &lt;main&gt; improves accessibility as screen readers can easily identify the main content.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <main>
             <h1>Welcome to Our Website!</h1>
@@ -419,7 +419,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;article&gt; element represents a self-contained composition that can be independently distributed or syndicated. It's commonly used for blog posts, news articles, and forum posts.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <article>
             <h2>How to Bake Delicious Cookies</h2>
@@ -432,7 +432,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;section&gt; element represents a thematic grouping of content within a document. It helps in structuring the content and is often used for chapters, subsections, or any logically related content.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <section>
             <h2>Chapter 1: Introduction</h2>
@@ -445,7 +445,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;aside&gt; element represents content that is tangentially related to the content around it, such as sidebars, pull quotes, or advertisements. It should not be considered essential to understanding the main content.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <aside>
             <h3>Related Articles</h3>
@@ -461,7 +461,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;footer&gt; element represents the footer of a section or a webpage. It typically contains copyright information, author details, and links to related documents.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <footer>
             <p>&copy; 2023 WebDev Inc. All rights reserved.</p>
@@ -473,7 +473,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;figure&gt; element is used to encapsulate content that is referenced from the main content but can stand alone if needed. It's often used for images, illustrations, videos, or other media.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <figure>
             <img src="image.jpg" alt="A beautiful landscape" />
@@ -486,7 +486,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;figcaption&gt; element is used to provide a caption or description for the content within a &lt;figure&gt; element. It helps to associate a caption with an image or media element.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <figure>
             <img src="image.jpg" alt="A beautiful landscape" />
@@ -499,7 +499,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;details&gt; element represents a disclosure widget from which the user can obtain additional information or controls. It's often used to create collapsible sections on a webpage.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <details>
             <summary>Click to reveal more information</summary>
@@ -512,7 +512,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;summary&gt; element is used within a &lt;details&gt; element to provide a visible heading or label for the disclosure widget. It represents the clickable part that reveals or hides content.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <details>
             <summary>Click to reveal more information</summary>
@@ -525,7 +525,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;mark&gt; element is used to highlight or mark a specific portion <br /> of text within a document. It's often used to indicate search results or significant phrases.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <p>
             The <mark>HTML5</mark> specification introduces many new features and elements.
@@ -537,7 +537,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;time&gt; element represents a specific period in time or a range of time. <br /> It can be used to mark up dates, times, or durations, making it useful for events, schedules, and more.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <p>
             The event starts at <time datetime="2023-09-15">September 15, 2023</time>.
@@ -550,7 +550,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;abbr&gt; element is used to mark up an abbreviation or acronym.
         </p>
-        <pre className="bg-gray-100 break-words p-2 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <p>
             <abbr title="World Wide Web">WWW</abbr> is an essential part of the internet.
@@ -562,7 +562,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;address&gt; element represents contact information for its nearest &lt;article&gt; or &lt;body&gt; ancestor. It's typically used for author or article contact details.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <article>
             <h2>Author Info</h2>
@@ -579,7 +579,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;bdi&gt; (Bidirectional Isolate) element is used to isolate a part of text that might be formatted in a different direction from the surrounding text, such as in right-to-left languages.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <p>
             This text contains both English and <bdi dir="rtl">عربي</bdi> text.
@@ -591,7 +591,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;bdo&gt; (Bidirectional Override) element is used to explicitly specify the text direction (left-to-right or right-to-left) for its content, overriding the document's default direction.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <p>
             This text contains both English and <bdo dir="rtl">عربي</bdo> text.
@@ -603,7 +603,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;code&gt; element is used to represent a fragment of computer code. It is typically displayed in a monospaced font and can be used to highlight code snippets.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <p>
             To print "Hello, World!" in Python, use <code>print("Hello, World!")</code>.
@@ -615,7 +615,7 @@ function HtmlDocs() {
         <p className="mb-4 break-words">
           The &lt;datalist&gt; element provides a list of predefined options for &lt;input&gt; elements with a &lt;list&gt; attribute. Users can select options from a dropdown list.
         </p>
-        <pre className="bg-gray-100 break-words p-4 rounded-lg">
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           {`
           <label for="fruits">Choose a fruit:</label>
           <input list="fruits" id="fruit" name="fruit" />
@@ -1062,7 +1062,11 @@ function HtmlDocs() {
   }, []);
 
   const handleHeadingClick = (heading) => {
-    setActiveHeading(heading);
+    // If the clicked heading is the same as the active heading, toggle the header visibility
+    setTimeout(() => {
+      setShowHeader(!showHeader);
+      setActiveHeading(heading);
+    }, 100);
   };
 
   // Function to toggle header visibility

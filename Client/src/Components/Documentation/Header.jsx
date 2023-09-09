@@ -2,7 +2,7 @@ import React from 'react';
 
 function Header({ headings, activeHeading, handleHeadingClick }) {
   return (
-    <ul className='md:w-2/6 overflow-y-auto bg-red-400'>
+    <ul className='md:w-2/6 overflow-y-auto py-10 bg-red-400'>
       {headings.map((heading) => (
         <li
           key={heading}
