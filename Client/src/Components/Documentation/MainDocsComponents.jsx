@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import HtmlDocs from '../Documentation/htmlComponents/HtmlDocs'
-import CssDocs from '../Documentation/cssComponents/CssDocs'
-import JavaScriptDocs from '../Documentation/JavascriptComponents/JavaScriptDocs'
-import ReactJsDocs from '../Documentation/ReactComponents/ReactJsDocs'
+import React, { useState, useEffect } from 'react';
+import HtmlDocs from '../Documentation/htmlComponents/HtmlDocs';
+import CssDocs from '../Documentation/cssComponents/CssDocs';
+import JavaScriptDocs from '../Documentation/JavascriptComponents/JavaScriptDocs';
+import ReactJsDocs from '../Documentation/ReactComponents/ReactJsDocs';
+import { BsCaretLeft } from 'react-icons/bs';
 
 function MainDocsComponents() {
   const [activeTab, setActiveTab] = useState('HTML');
@@ -15,7 +16,7 @@ function MainDocsComponents() {
 
   return (
     <div>
-      <ul className='fixed w-full flex gap-4 justify-center items-center bg-purple-300 py-2 text-xl'>
+      <ul className='fixed overflow-y-auto w-full flex gap-4 p-4 ssm:p-4 ssm:justify-center items-center bg-purple-300 text-xl'>
         {tabs.map((tab) => (
           <li
             key={tab}
@@ -26,6 +27,7 @@ function MainDocsComponents() {
           </li>
         ))}
       </ul>
+
       {activeTab === 'HTML' && <HtmlDocs />}
       {activeTab === 'CSS' && <CssDocs />}
       {activeTab === 'JavaScript' && <JavaScriptDocs />}

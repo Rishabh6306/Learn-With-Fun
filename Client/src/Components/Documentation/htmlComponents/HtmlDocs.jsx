@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../Header';
 import Content from '../Content';
+import { BsCaretLeft } from 'react-icons/bs'
 
 function HtmlDocs() {
   const data = {
@@ -1044,14 +1045,42 @@ function HtmlDocs() {
   };
 
   const [activeHeading, setActiveHeading] = useState('Getting Started');
+  const [showHeader, setShowHeader] = useState(window.innerWidth >= 768); // Initially, show header for wider screens
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowHeader(window.innerWidth >= 768);
+    };
+
+    // Add a resize event listener to handle changes in window width
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleHeadingClick = (heading) => {
     setActiveHeading(heading);
   };
 
+  // Function to toggle header visibility
+  const toggleHeader = () => {
+    setShowHeader(!showHeader);
+  };
+
   return (
-    <div className='flex pt-12'>
-      <Header headings={Object.keys(data)} activeHeading={activeHeading} handleHeadingClick={handleHeadingClick} />
+    <div className='flex pt-5 md:pt-12 flex-col md:flex-row'>
+      {/* Conditionally render the icon if screen width is less than 768px */}
+      <span
+        className='text-red-600 relative top-10 ssm:bottom-4 text-3xl block md:hidden cursor-pointer' onClick={toggleHeader}
+      >
+        <BsCaretLeft />
+      </span>
+
+      {/* Conditionally render the Header component based on showHeader state */}
+      {showHeader && <Header headings={Object.keys(data)} activeHeading={activeHeading} handleHeadingClick={handleHeadingClick} />}
       <Content content={data} activeHeading={activeHeading} />
     </div>
   );
