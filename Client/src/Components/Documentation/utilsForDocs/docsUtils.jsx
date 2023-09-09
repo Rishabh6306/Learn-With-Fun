@@ -6,7 +6,12 @@ export const useDocsState = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setShowHeader(window.innerWidth >= 768);
+      const isScreenAbove768px = window.innerWidth >= 768;
+      
+      // Check if screen width has changed and showHeader is true
+      if (isScreenAbove768px !== showHeader) {
+        setShowHeader(isScreenAbove768px);
+      }
     };
 
     window.addEventListener('resize', handleResize);
@@ -14,7 +19,7 @@ export const useDocsState = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [showHeader]);
 
   return { activeHeading, showHeader, setActiveHeading, setShowHeader };
 };
@@ -26,10 +31,12 @@ export const useHtmlDocsFunctions = (data, showHeader, setShowHeader, activeHead
     }
     setActiveHeading(heading);
 
-    // Hide the header after 2 seconds
-    setTimeout(() => {
-      setShowHeader(false);
-    }, 1000);
+    // Hide the header after 2 seconds only if the screen width is below 768px
+    if (showHeader && window.innerWidth < 768) {
+      setTimeout(() => {
+        setShowHeader(false);
+      }, 1000);
+    }
   };
 
   const toggleHeader = () => {
