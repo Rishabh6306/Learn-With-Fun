@@ -1042,10 +1042,12 @@ function HtmlDocs() {
         </p>
 
         <div className="my-3">
-          <pre>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
+          {`
             function greet() {
               console.log("Hello, world!")
             }
+            `}
           </pre>
         </div>
 

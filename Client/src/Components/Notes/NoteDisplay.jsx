@@ -16,7 +16,6 @@ function NoteDisplay() {
   const fetchNotes = () => {
     axios.get('http://localhost:3001/') // Update the endpoint to the correct one
       .then(res => {
-        console.log(res.data);
         setNotes(res.data);
       })
       .catch(err => {
@@ -34,7 +33,6 @@ function NoteDisplay() {
 
     axios.post('http://localhost:3001/createUser', { headline, content })
       .then(result => {
-        console.log(result);
         fetchNotes();
         setHeadline('');
         setContent('');
