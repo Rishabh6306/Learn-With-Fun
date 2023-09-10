@@ -24,7 +24,7 @@ export const useDocsState = () => {
   return { activeHeading, showHeader, setActiveHeading, setShowHeader };
 };
 
-export const useHtmlDocsFunctions = (data, showHeader, setShowHeader, activeHeading, setActiveHeading) => {
+export const useDocsFunctions = (data, showHeader, setShowHeader, activeHeading, setActiveHeading) => {
   const handleHeadingClick = (heading) => {
     if (heading !== activeHeading) {
       setShowHeader(true);

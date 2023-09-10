@@ -3,6 +3,7 @@ import ReactJsDocs from './ReactData/ReactJsDocs';
 import JavaScriptDocs from './JavascriptData/JavaScriptDocs';
 import CssDocs from './cssData/CssDocs';
 import HtmlDocs from './htmlData/HtmlDocs';
+import PythonDocs from './PythonData/PythonDocs';
 
 function MainDocsComponents() {
   const [activeTab, setActiveTab] = useState('HTML');
@@ -11,7 +12,7 @@ function MainDocsComponents() {
     setActiveTab(tab);
   };
 
-  const tabs = ['HTML', 'CSS', 'JavaScript', 'ReactJS'];
+  const tabs = ['HTML', 'CSS', 'JavaScript', 'ReactJS', 'Python'];
 
   return (
     <div>
@@ -31,6 +32,7 @@ function MainDocsComponents() {
       {activeTab === 'CSS' && <CssDocs />}
       {activeTab === 'JavaScript' && <JavaScriptDocs />}
       {activeTab === 'ReactJS' && <ReactJsDocs />}
+      {activeTab === 'Python' && <PythonDocs />}
     </div>
   );
 }

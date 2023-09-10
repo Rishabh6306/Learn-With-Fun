@@ -1,5 +1,5 @@
 import { BsCaretLeft } from 'react-icons/bs';
-import { useDocsState, useHtmlDocsFunctions } from '../utilsForDocs/docsUtils';
+import { useDocsState, useDocsFunctions } from '../utilsForDocs/docsUtils';
 import Header from '../Header';
 import Content from '../Content';
 
@@ -1059,7 +1059,7 @@ function HtmlDocs() {
   };
 
   const { activeHeading, showHeader, setActiveHeading, setShowHeader } = useDocsState();
-  const { handleHeadingClick, toggleHeader } = useHtmlDocsFunctions(data, showHeader, setShowHeader, activeHeading, setActiveHeading);
+  const { handleHeadingClick, toggleHeader } = useDocsFunctions(data, showHeader, setShowHeader, activeHeading, setActiveHeading);
 
   return (
     <div className='flex pt-5 md:pt-12 flex-col md:flex-row'>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsCaretLeft } from 'react-icons/bs';
-import { useDocsState, useHtmlDocsFunctions } from '../utilsForDocs/docsUtils';
+import { useDocsState, useDocsFunctions } from '../utilsForDocs/docsUtils';
 import Header from '../Header';
 import Content from '../Content';
 
@@ -207,7 +207,7 @@ function CssDocs() {
           Type selectors target HTML elements based on their tag names. For example, to style all {`<p>`} elements on a page, you would use:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'p {'}<br />
             {'  /* Your styles here */'}<br />
@@ -221,7 +221,7 @@ function CssDocs() {
           Class selectors are prefixed with a dot (`.`) and target elements with a specific class attribute. They allow you to style elements with a shared class name. For example:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.btn {'}<br />
             {'  /* Your button styles here */'}<br />
@@ -239,7 +239,7 @@ function CssDocs() {
           ID selectors are prefixed with a hash (`#`) and target a single HTML element with a specific `id` attribute. IDs must be unique on a page. For example:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'#header {'}<br />
             {'  /* Your header styles here */'}<br />
@@ -257,7 +257,7 @@ function CssDocs() {
           Descendant selectors target elements that are descendants of a specific element. They use a space to separate the parent and descendant elements. For example, to style all {`<a>`} elements within a {`<nav>`} element:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'nav a {'}<br />
             {'  /* Your navigation link styles here */'}<br />
@@ -271,7 +271,7 @@ function CssDocs() {
           Child selectors, denoted by the {`>`} symbol, target elements that are direct children of a specific parent element. They provide a more specific way to select elements. For example, to style only the direct {`<li>`} children of a {`<ul>`}:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'ul > li {'}<br />
             {'  /* Your list item styles here */'}<br />
@@ -285,7 +285,7 @@ function CssDocs() {
           Pseudo-classes and pseudo-elements allow you to target elements based on their state or position within the document. Examples include `:hover`, `:active`, `:first-child`, `::before`, and `::after`. For instance, to style links when a user hovers over them:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'a:hover {'}<br />
             {'  /* Your hover styles here */'}<br />
@@ -299,7 +299,7 @@ function CssDocs() {
           Attribute selectors target elements with specific attributes and attribute values. For example, to style all input elements with a `type` attribute of "text":
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'input[type="text"] {'}<br />
             {'  /* Your input styles here */'}<br />
@@ -317,7 +317,7 @@ function CssDocs() {
           Combinators are used to combine multiple selectors to create complex selection rules. Common combinators include the space (descendant selector), {`>`} (child selector), and `+` (adjacent sibling selector). They provide powerful ways to target specific elements in a document's structure.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'header + section {'}<br />
             {'  /* Styles for a section immediately following a header */'}<br />
@@ -363,7 +363,7 @@ function CssDocs() {
           Block-level elements, such as {`<div>`}, {`<p>`}, {`<h1>`}, and {`<ul>`}, have a default `display` value of `block`. This means they generate a block-level box, occupying the full width of their parent container and stacking vertically. Block-level elements are often used for structural elements and content separation.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'div {'}<br />
             {'  display: block;'}<br />
@@ -377,7 +377,7 @@ function CssDocs() {
           Inline elements, such as {`<span>`}, {`<a>`}, {`<strong>`}, and {`<em>`} , have a default `display` value of `inline`. They flow within the text content, taking up only as much width as necessary. Inline elements do not create line breaks and are often used for text-level elements and links.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'a {'}<br />
             {'  display: inline;'}<br />
@@ -391,7 +391,7 @@ function CssDocs() {
           The `display` value `inline-block` combines characteristics of both block-level and inline elements. Elements with this value create a box that flows inline but can have block-level properties like setting a width and height or margins. It's often used for creating horizontal lists or navigation menus.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'li {'}<br />
             {'  display: inline-block;'}<br />
@@ -405,7 +405,7 @@ function CssDocs() {
           Setting the `display` value to `none` hides the element from the layout entirely. It's as if the element doesn't exist in the document flow. This property is commonly used for creating toggling effects or hiding elements conditionally with JavaScript.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'#hidden-element {'}<br />
             {'  display: none;'}<br />
@@ -419,7 +419,7 @@ function CssDocs() {
           The `display` property can also be set to `flex` or `grid`, enabling powerful layout options through CSS Flexbox and Grid Layout. These values allow for precise control over the arrangement and alignment of child elements within their parent containers.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'#flex-container {'}<br />
             {'  display: flex;'}<br />
@@ -433,7 +433,7 @@ function CssDocs() {
           The `display` property can be used to change inline elements to block-level elements or vice versa. For example, you can change an inline element like {`<span>`} to display as a block-level element.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'span-as-block {'}<br />
             {'  display: block;'}<br />
@@ -447,7 +447,7 @@ function CssDocs() {
           HTML table elements {`<table>`}, {`<tr>`}, {`<td>`} , etc have their own unique display values. Understanding these values is important for fine-tuning table layouts and responsive designs.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'table {'}<br />
             {'  display: table;'}<br />
@@ -498,7 +498,7 @@ function CssDocs() {
           Elements with `position: relative;` are positioned relative to their normal position in the document flow. You can use the `top`, `right`, `bottom`, and `left` properties to offset the element from its original position.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'#relative-box {'}<br />
             {'  position: relative;'}<br />
@@ -514,7 +514,7 @@ function CssDocs() {
           Elements with `position: absolute;` are positioned relative to their nearest positioned ancestor, which means you need to have a parent element with `position` set to `relative`, `absolute`, `fixed`, or `sticky`. Absolute positioning removes the element from the normal document flow, so other elements will not be affected by it.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'#absolute-box {'}<br />
             {'  position: absolute;'}<br />
@@ -530,7 +530,7 @@ function CssDocs() {
           Elements with `position: fixed;` are positioned relative to the viewport, meaning they remain in the same position even when the page is scrolled. This is commonly used for elements like navigation bars that should stay at the top of the page.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'#fixed-navbar {'}<br />
             {'  position: fixed;'}<br />
@@ -546,7 +546,7 @@ function CssDocs() {
           Elements with `position: sticky;` are positioned based on the user's scroll position. They behave like `relative` positioning until they reach a specified offset from the top (or bottom) of their containing element or the viewport. Sticky positioning is commonly used for headers or sidebars that should stick to the top or side of the screen as the user scrolls.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'#sticky-sidebar {'}<br />
             {'  position: sticky;'}<br />
@@ -561,7 +561,7 @@ function CssDocs() {
           The `z-index` property is used in combination with `position: relative`, `absolute`, `fixed`, or `sticky` to control the stacking order of elements. Elements with higher `z-index` values appear on top of elements with lower values.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'#higher-z-index {'}<br />
             {'  position: relative;'}<br />
@@ -611,7 +611,7 @@ function CssDocs() {
           Flex containers have several properties to customize their behavior. Some important ones include <code>display: flex</code> to create a flex container, <code>flex-direction</code> to set the main axis direction, and <code>justify-content</code> and <code>align-items</code> to control alignment along the main and cross axes, respectively.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.flex-container {'}<br />
             {'  display: flex;'}<br />
@@ -628,7 +628,7 @@ function CssDocs() {
           Flex items can also have specific properties. The <code>flex</code> property determines how much space an item takes relative to other items. You can use <code>order</code> to control the visual order of items and <code>align-self</code> to override the container's alignment for a specific item.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.flex-item {'}<br />
             {'  flex: 1;'}<br />
@@ -670,7 +670,7 @@ function CssDocs() {
           To create a grid layout, set the container's <code>display</code> property to <code>grid</code>. You can precisely define the grid structure using properties like <code>grid-template-columns</code> and <code>grid-template-rows</code>, allowing you to specify the size of columns and rows.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.grid-container {'}<br />
             {'  display: grid;'}<br />
@@ -686,7 +686,7 @@ function CssDocs() {
           Grid items are positioned within the grid using properties like <code>grid-column</code> and <code>grid-row</code>. These properties enable you to precisely control the placement of items in terms of columns and rows, creating intricate layouts.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.grid-item {'}<br />
             {'  grid-column: 2 / 4;'}<br />
@@ -701,7 +701,7 @@ function CssDocs() {
           CSS Grid provides options for defining gaps between grid rows and columns using properties like <code>grid-gap</code>. These gaps create space between grid items, improving the overall readability and visual appeal of the layout.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.grid-container {'}<br />
             {'  display: grid;'}<br />
@@ -742,7 +742,7 @@ function CssDocs() {
           CSS offers several fundamental transformations, including <strong>scale</strong> for resizing elements, <strong>rotate</strong> for spinning them around, <strong>skew</strong> for slanting, and <strong>translate</strong> for moving elements. These transformations can be applied individually or combined to create more complex effects.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.transform-element {'}<br />
             {'  transform: scale(1.5) rotate(45deg) skew(20deg) translate(50px, 20px);'}<br />
@@ -756,7 +756,7 @@ function CssDocs() {
           The <strong>transform-origin</strong> property allows you to define the point around which transformations occur. You can specify the origin as a percentage or pixel value, enabling precise control over the transformation pivot.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.transform-element {'}<br />
             {'  transform-origin: top left;'}<br />
@@ -770,7 +770,7 @@ function CssDocs() {
           CSS Transitions and Animations can be used in conjunction with transformations to create smooth and interactive effects. By defining transition properties, you can control the speed and timing of transformations.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.transform-element {'}<br />
             {'  transition: transform 0.3s ease-in-out;'}<br />
@@ -784,7 +784,7 @@ function CssDocs() {
           CSS supports 3D transformations, allowing you to manipulate elements in three-dimensional space. You can use properties like <strong>rotateX</strong> and <strong>rotateY</strong> to achieve 3D effects and create immersive user experiences.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.transform-element {'}<br />
             {'  transform: rotateX(45deg) rotateY(45deg);'}<br />
@@ -817,7 +817,7 @@ function CssDocs() {
           CSS offers the <strong>opacity</strong> property, which ranges from 0 (completely transparent) to 1 (fully opaque). Applying opacity to an element affects both the element itself and its children, allowing you to create various levels of transparency.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.transparent-element {'}<br />
             {'  opacity: 0.5; /* 50% transparency */'}<br />
@@ -831,7 +831,7 @@ function CssDocs() {
           Another way to control transparency is by using RGBA (Red, Green, Blue, Alpha) colors. The alpha channel, represented by the "A" in RGBA, specifies the level of transparency. Values range from 0 (fully transparent) to 1 (fully opaque).
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.transparent-element {'}<br />
             {'  background-color: rgba(255, 0, 0, 0.5); /* Semi-transparent red */'}<br />
@@ -845,7 +845,7 @@ function CssDocs() {
           CSS Transparency is often used for hover effects. By applying opacity changes on hover, you can create smooth transitions and highlight interactive elements when users interact with them.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.interactive-element {'}<br />
             {'  opacity: 1; /* Fully opaque by default */'}<br />
@@ -888,7 +888,7 @@ function CssDocs() {
           CSS Variables are declared using the <code>--</code> prefix followed by a name. For example, you can create a variable for the primary color like this:
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {':root {'}<br />
             {'  --primary-color: #007bff;'}<br />
@@ -902,7 +902,7 @@ function CssDocs() {
           To use a CSS Variable, you reference it with the <code>var()</code> function in your CSS declarations. This makes it easy to maintain consistent styles throughout your project.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.button {'}<br />
             {'  background-color: var(--primary-color);'}<br />
@@ -916,7 +916,7 @@ function CssDocs() {
           CSS Variables can be changed dynamically using JavaScript, making it possible to create themes, respond to user interactions, or adapt styles based on different conditions without modifying your CSS files.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`
               const root = document.documentElement;
@@ -956,7 +956,7 @@ function CssDocs() {
           Two commonly used Pseudo-Elements are <code>::before</code> and <code>::after</code>. They create virtual elements before and after the content of an HTML element, making it possible to insert decorative elements or additional content dynamically.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'.quote::before {'}<br />
             {'  content: "\\201C"; /* Left double quotation mark */'}<br />
@@ -1004,7 +1004,7 @@ function CssDocs() {
           One of the most common uses of Pseudo-classes is to apply styles when a user hovers over an element. This creates interactive and responsive designs, making your website more engaging.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'a:hover {'}<br />
             {'  /* Styles for when the mouse hovers over a link */'}<br />
@@ -1018,7 +1018,7 @@ function CssDocs() {
           Pseudo-classes like <code>:focus</code> and <code>:active</code> are used to style elements when they are clicked or in focus. This is crucial for styling form elements and interactive components.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'input:focus {'}<br />
             {'  /* Styles for focused input fields */'}<br />
@@ -1035,7 +1035,7 @@ function CssDocs() {
           Pseudo-classes like <code>:first-child</code> and <code>:last-child</code> allow you to target and style the first and last child elements within a parent container. This is useful for creating unique styles for list items and other structured content.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'ul li:first-child {'}<br />
             {'  /* Styles for the first list item */'}<br />
@@ -1052,7 +1052,7 @@ function CssDocs() {
           The <code>:nth-child()</code> Pseudo-class allows you to select and style elements based on their position within a parent container. It provides fine-grained control over styling multiple elements.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'ul li:nth-child(odd) {'}<br />
             {'  /* Styles for odd-numbered list items */'}<br />
@@ -1069,7 +1069,7 @@ function CssDocs() {
           The <code>:link</code> Pseudo-class allows you to style unvisited links differently from visited links, helping users navigate your website effectively.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {':link {'}<br />
             {'  /* Styles for unvisited links */'}<br />
@@ -1099,7 +1099,7 @@ function CssDocs() {
           At its core, a Media Query is a CSS rule that selectively applies styles to HTML elements based on specific conditions. These conditions are primarily related to the characteristics of the device or screen where the web content is displayed. For instance, you can use a Media Query to define different styles for screens with a maximum width of 768 pixels. This means that when a user accesses your website on a device with a smaller screen, the layout and styling will adjust automatically to ensure readability and accessibility.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'@media screen and (max-width: 768px) {'}<br />
             {'  /* Styles for screens with a maximum width of 768px */'}<br />
@@ -1113,7 +1113,7 @@ function CssDocs() {
           Media Queries are frequently employed to craft responsive layouts. By utilizing Media Queries, you can define different layout structures, adjust font sizes, and fine-tune spacing for varying screen sizes. This ensures that your website's content remains easily readable and accessible, regardless of whether it's viewed on a large desktop monitor or a compact smartphone screen.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'/* Adjust layout for small screens */'}<br />
             {'@media screen and (max-width: 768px) {'}<br />
@@ -1128,7 +1128,7 @@ function CssDocs() {
           Media Queries can also be tailored to target device orientation. This means that you can adapt your website's styles when a user switches their device between portrait and landscape modes. This is particularly valuable for optimizing how content is presented on mobile devices, ensuring that your website looks great in both orientations.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'/* Adjust styles for landscape orientation */'}<br />
             {'@media screen and (orientation: landscape) {'}<br />
@@ -1143,7 +1143,7 @@ function CssDocs() {
           Media Queries can even target high-resolution displays, such as Retina displays found in many modern devices. By doing so, you can deliver higher-quality images and graphics to users with such devices, enhancing the visual experience without compromising performance on standard displays.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'/* Deliver high-resolution images for Retina displays */'}<br />
             {'@media screen and (-webkit-min-device-pixel-ratio: 2) {'}<br />
@@ -1177,7 +1177,7 @@ function CssDocs() {
           CSS Keyframes provide a way to define complex animations by specifying a series of keyframes at various points in time. These keyframes define the animation's properties at different stages, and the browser interpolates the values in between to create a smooth animation effect. Keyframes animations are ideal for adding eye-catching effects to elements, such as fading, sliding, or scaling.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'@keyframes fadeIn {'}<br />
             {'  0% { opacity: 0; }'}<br />
@@ -1196,7 +1196,7 @@ function CssDocs() {
           CSS Transitions provide a simpler way to add animation effects when an element changes from one state to another. You can specify which properties should transition and the duration of the transition. Transitions are perfect for creating smooth hover effects or gradual changes in element styles.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'/* Define the transition */'}<br />
             {'element {'}<br />
@@ -1216,7 +1216,7 @@ function CssDocs() {
           You can combine CSS Keyframes and Transitions to create sophisticated animations with precise control. For example, you can use keyframes to define complex animations and transitions to trigger them when specific events occur, providing a seamless user experience.
         </p>
     
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {'/* Define the animation */'}<br />
             {'@keyframes slideIn {'}<br />
@@ -1299,7 +1299,7 @@ function CssDocs() {
   };
 
   const { activeHeading, showHeader, setActiveHeading, setShowHeader } = useDocsState();
-  const { handleHeadingClick, toggleHeader } = useHtmlDocsFunctions(data, showHeader, setShowHeader, activeHeading, setActiveHeading);
+  const { handleHeadingClick, toggleHeader } = useDocsFunctions(data, showHeader, setShowHeader, activeHeading, setActiveHeading);
 
   return (
     <div className='flex pt-5 md:pt-12 flex-col md:flex-row'>

@@ -4,10 +4,10 @@ import MainDocsComponents from '../Components/Documentation/MainDocsComponents';
 
 function DocumentationPage() {
   return (
-    <div>
+    <>
       <Navbar />
       <MainDocsComponents />
-    </div>
+    </>
   )
 }
 

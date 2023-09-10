@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsCaretLeft } from 'react-icons/bs';
-import { useDocsState, useHtmlDocsFunctions } from '../utilsForDocs/docsUtils';
+import { useDocsState, useDocsFunctions } from '../utilsForDocs/docsUtils';
 import Header from '../Header';
 import Content from '../Content';
 
@@ -25,7 +25,7 @@ function ReactJsDocs() {
           To start using React, you'll need Node.js and npm (Node Package Manager) installed on your computer. Here are the steps to create a new React project:  Let's get started with React.js!
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`# 1. Install Create React App globally (if not already installed)
                   npm install -g create-react-app
@@ -52,7 +52,7 @@ function ReactJsDocs() {
           React is all about building reusable components. Let's create your first React component:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`import React from 'react';
     
@@ -169,7 +169,7 @@ function ReactJsDocs() {
           React.js, a popular JavaScript library for building user interfaces, heavily relies on JSX. React components are often defined using JSX syntax. Here's a simple example of JSX code within a React component:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`function Welcome(props) {
       return <h1>Hello, {props.name}</h1>;
@@ -202,7 +202,7 @@ function ReactJsDocs() {
           Functional components are JavaScript functions that return JSX (JavaScript XML). They are a simple and concise way to create components. Here's an example:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`function Greeting(props) {
       return <h1>Hello, {props.name}!</h1>;
@@ -220,7 +220,7 @@ function ReactJsDocs() {
           Class components are JavaScript classes that extend <code>React.Component</code>. They have an internal state and lifecycle methods. Here's a class component example:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`class Counter extends React.Component {
       constructor(props) {
@@ -245,7 +245,7 @@ function ReactJsDocs() {
           Props are used to pass data from a parent component to a child component. They allow components to be configured dynamically. Here's an example of passing a prop to a functional component:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`function Greeting(props) {
       return <h1>Hello, {props.name}!</h1>;
@@ -262,7 +262,7 @@ function ReactJsDocs() {
           State is used to manage data that can change during a component's lifecycle. Class components use <code>this.state</code> to manage state, while functional components can use React Hooks. Here's a state example:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`class Counter extends React.Component {
       constructor(props) {
@@ -327,7 +327,7 @@ function ReactJsDocs() {
           In functional components, the <code>useState</code> hook allows you to declare a piece of state and a function to update it. Here's an example of using <code>useState</code> to create a simple counter:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`import React, { useState } from 'react';
     
@@ -389,7 +389,8 @@ function ReactJsDocs() {
           To pass props to a child component, you include them as attributes when rendering the child component. Here's an example of a parent component passing a "name" prop to a child component:
         </p>
 
-        <pre className='my-3'>
+       
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`// ParentComponent.js
     import React from 'react';
@@ -417,7 +418,7 @@ function ReactJsDocs() {
           Inside a component, you can access props through the function's argument. Functional components receive props as an argument, while class components access props using <code>this.props</code>. Here's how you can use props in both types of components:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`// Functional Component
     function ChildComponent(props) {
@@ -453,7 +454,7 @@ function ReactJsDocs() {
           React allows you to define default values for props, which are used when a prop is not provided. This can be useful to ensure your component behaves gracefully even when certain props are missing.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`function Greeting(props) {
       return (
@@ -514,7 +515,7 @@ function ReactJsDocs() {
           <code>useState</code> allows functional components to manage local component state. It returns an array with the current state value and a function to update it.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`import React, { useState } from 'react';
     
@@ -537,7 +538,7 @@ function ReactJsDocs() {
           <code>useEffect</code> allows you to perform side effects in functional components. It replaces lifecycle methods like <code>componentDidMount</code> and <code>componentDidUpdate</code>.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`import React, { useState, useEffect } from 'react';
     
@@ -563,7 +564,7 @@ function ReactJsDocs() {
           <code>useContext</code> allows you to access a context value in a functional component. It simplifies working with context in a more concise manner.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`import React, { useContext } from 'react';
     
@@ -583,7 +584,7 @@ function ReactJsDocs() {
           In addition to built-in hooks, you can create custom hooks to reuse stateful logic across different components. Custom hooks follow the naming convention of starting with "use."
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`import { useState } from 'react';
     
@@ -637,7 +638,7 @@ function ReactJsDocs() {
           React Router is one of the most widely used routing libraries for React. It provides a declarative way to define routes and manage navigation within your application. React Router offers features like nested routes, route parameters, and navigation guards.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
     
@@ -673,7 +674,7 @@ function ReactJsDocs() {
           Reach Router is another routing library designed for React. It focuses on accessibility and is known for its simple API. Reach Router allows you to create accessible route transitions and nested routes.
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`import { Router, Link } from '@reach/router';
     
@@ -765,7 +766,7 @@ function ReactJsDocs() {
           Here's a basic example of how to use the Context API:
         </p>
 
-        <pre className='my-3'>
+        <pre className="bg-gray-100 p-1 rounded-lg overflow-auto max-h-[280px] text-[12px]">
           <code>
             {`import React, { createContext, useContext, useState } from 'react';
     // Create a context object
@@ -849,7 +850,7 @@ function ReactJsDocs() {
   }
 
   const { activeHeading, showHeader, setActiveHeading, setShowHeader } = useDocsState();
-  const { handleHeadingClick, toggleHeader } = useHtmlDocsFunctions(data, showHeader, setShowHeader, activeHeading, setActiveHeading);
+  const { handleHeadingClick, toggleHeader } = useDocsFunctions(data, showHeader, setShowHeader, activeHeading, setActiveHeading);
 
   return (
     <div className='flex pt-5 md:pt-12 flex-col md:flex-row'>
