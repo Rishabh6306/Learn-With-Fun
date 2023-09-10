@@ -2,7 +2,7 @@ import React from 'react';
 
 function Content({ content, activeHeading }) {
   return (
-    <div className='w-full p-4 pb-8 overflow-x-hidden h-[calc(100vh-5px)] bg-violet-100'>
+    <div className='w-full p-4 pb-8 overflow-x-hidden h-[calc(100vh-3px)] bg-violet-100'>
       {Object.keys(content).map((heading) => (
         <div
           key={heading}

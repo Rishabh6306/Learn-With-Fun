@@ -1,6 +1,5 @@
 import React from 'react'
 import Navbar from '../Components/Home/Navbar';
-import Footer from '../Components/Footer/Footer';
 import MainDocsComponents from '../Components/Documentation/MainDocsComponents';
 
 function DocumentationPage() {
@@ -8,7 +7,6 @@ function DocumentationPage() {
     <div>
       <Navbar />
       <MainDocsComponents />
-      <Footer />
     </div>
   )
 }
