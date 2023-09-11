@@ -1,96 +1,40 @@
 import React from 'react';
-
-const questions = [
-  {
-    question: 'What is the full form of HTML?',
-    options: [
-      'Hyper Text Markup Language',
-      'Hyperlink and Text Markup Language',
-      'Highly Textual Markup Language',
-      'Hyper Transfer Markup Language',
-    ],
-    correctAnswer: 'Hyper Text Markup Language',
-  },
-  {
-    question: 'What does CSS stand for?',
-    options: [
-      'Cascading Style Sheet',
-      'Computer Style Sheet',
-      'Creative Style System',
-      'Colorful Style Sheet',
-    ],
-    correctAnswer: 'Cascading Style Sheet',
-  },
-  {
-    question: 'What is the full form of HTML?',
-    options: [
-      'Hyper Text Markup Language',
-      'Hyperlink and Text Markup Language',
-      'Highly Textual Markup Language',
-      'Hyper Transfer Markup Language',
-    ],
-    correctAnswer: 'Hyper Text Markup Language',
-  },
-  {
-    question: 'What does CSS stand for?',
-    options: [
-      'Cascading Style Sheet',
-      'Computer Style Sheet',
-      'Creative Style System',
-      'Colorful Style Sheet',
-    ],
-    correctAnswer: 'Cascading Style Sheet',
-  },
-  {
-    question: 'What is the full form of HTML?',
-    options: [
-      'Hyper Text Markup Language',
-      'Hyperlink and Text Markup Language',
-      'Highly Textual Markup Language',
-      'Hyper Transfer Markup Language',
-    ],
-    correctAnswer: 'Hyper Text Markup Language',
-  },
-  {
-    question: 'What does CSS stand for?',
-    options: [
-      'Cascading Style Sheet',
-      'Computer Style Sheet',
-      'Creative Style System',
-      'Colorful Style Sheet',
-    ],
-    correctAnswer: 'Cascading Style Sheet',
-  },
-];
+import { QuizSelection, useTimer } from './QuizUtils';
 
 function QuizUI() {
+  const initialTimeInSeconds = 2 * 60;
+  const { time, formatTime } = useTimer(initialTimeInSeconds);
+
+  const { selectedQuiz, selectQuiz, getQuestionsForSelectedQuiz } = QuizSelection(); // Destructure the values
+  const questions = getQuestionsForSelectedQuiz();
 
   return (
     <>
-      <div className='bg-[#a593fe] px-3 ssm:px-10 py-3 md:py-8 flex-wrap flex gap-4 md:gap-12 text-xl md:text-2xl border-b-[2px]'>
+      <div className='bg-[#a593fe] px-3 ssm:px-9 py-3 md:py-6 flex-wrap flex gap-3 md:gap-5 text-[1rem] md:text-2xl'>
         <div>
-          <label htmlFor='quix-select'>Select Quiz:</label>
-          <select className='rounded-sm mx-3' id='quiz-select'>
-            <option>HTML</option>
-            <option>CSS</option>
-            <option>JavaScript</option>
-            <option>ReactJS</option>
-            <option>Python</option>
+          <label htmlFor='quiz-select'>Select Quiz:</label>
+          <select className='rounded-sm mx-5 outline-none' id='quiz-select' onChange={(e) => selectQuiz(e.target.value)} value={selectedQuiz}>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="ReactJS">ReactJS</option>
+            <option value="Python">Python</option>
           </select>
         </div>
 
         <label>Score: <strong>2</strong></label>
         <h1 className='text-gray-100 font-bold tracking-widest mx-3 text-3xl sm:text-5xl'>Quiz App</h1>
+
+        <span>Time: {formatTime(time)}</span>
       </div>
 
-
-      <div className="flex flex-wrap gap-2 md:gap-5 bg-violet-200 pb-12">
+      <div className="flex flex-wrap justify-center gap-2 md:gap-4 bg-violet-200 sm:p-5 pb-12">
         {questions.map((Question, index) => (
-          <div key={index} className="m-3 ssm:m-7 md:ml-20">
-            <p className='my-3 leading-8 tracking-wider text-xl'>{index + 1}. {Question.question}</p>
+          <div key={index} className="m-3 ssm:m-7 md:ml-2">
+            <p className='my-3 leading-8 tracking-wider font-medium text-xl md:text-2xl'>{index + 1}. {Question.question}</p>
             {Question.options.map((option, optionIndex) => (
-              <div key={optionIndex}>
-                <input className='m-3 ml-1 sm:mx-5' type="radio" id={`q${index + 1}_option${optionIndex + 1}`} name={`q${index + 1}Options`} value={option} />
+              <div key={optionIndex} className='ssm:text-[1rem]'>
+                <input className='m-3 ml-0 sm:mr-5' type="radio" id={`q${index + 1}_option${optionIndex + 1}`} name={`q${index + 1}Options`} value={option} />
                 <label htmlFor={`q${index + 1}_option${optionIndex + 1}`}>{option}</label>
               </div>
             ))}
