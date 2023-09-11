@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import cssQuestions from './Questions/CssQuestions';
 import htmlquestions from './Questions/HtmlQuestions';
 
@@ -23,14 +23,16 @@ export const useTimer = (initialTimeInSeconds) => {
     return { time, formatTime };
 };
 
-
-
 export const QuizSelection = () => {
     const [selectedQuiz, setSelectedQuiz] = useState('HTML');
+    const [score, setScore] = useState(0);
+    const initialTimeInSeconds = 2 * 60; // 2 minutes
 
     const selectQuiz = (quiz) => {
         setSelectedQuiz(quiz);
-    };
+        // Reset the score to 0 when quiz selection changes
+        setScore(0);
+        }
 
     const getQuestionsForSelectedQuiz = () => {
         switch (selectedQuiz) {
@@ -44,5 +46,5 @@ export const QuizSelection = () => {
         }
     };
 
-    return { selectedQuiz, selectQuiz, getQuestionsForSelectedQuiz };
-}
+    return { selectedQuiz, selectQuiz, getQuestionsForSelectedQuiz, score, setScore, initialTimeInSeconds };
+};
