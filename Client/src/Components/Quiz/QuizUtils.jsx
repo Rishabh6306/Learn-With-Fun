@@ -20,7 +20,12 @@ export const useTimer = (initialTimeInSeconds) => {
         return `${format(minutes)}:${format(remainingSeconds)}`;
     };
 
-    return { time, formatTime };
+    const resetTimer = () => {
+        setTime(initialTimeInSeconds);
+    };
+
+
+    return { time, formatTime, resetTimer };
 };
 
 export const QuizSelection = () => {
@@ -32,7 +37,7 @@ export const QuizSelection = () => {
         setSelectedQuiz(quiz);
         // Reset the score to 0 when quiz selection changes
         setScore(0);
-        }
+    }
 
     const getQuestionsForSelectedQuiz = () => {
         switch (selectedQuiz) {
