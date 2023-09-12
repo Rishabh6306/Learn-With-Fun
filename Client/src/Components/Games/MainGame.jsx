@@ -1,9 +1,10 @@
 import React from 'react'
+import NumberGuessingGame from './NumberGuessing/NumberGuessingGame';
 
 function MainGame() {
   return (
     <div>
-      This is game page
+      <NumberGuessingGame/>
     </div>
   )
 }
