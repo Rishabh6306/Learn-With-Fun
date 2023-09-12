@@ -1,16 +1,52 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTimer, QuizSelection } from './QuizUtils';
 
 function QuizUI() {
-  const { time, getQuestionsForSelectedQuiz, initialTimeInSeconds, selectedQuiz, selectQuiz, score, setScore } = QuizSelection();
-  const { time: timerTime, formatTime } = useTimer(initialTimeInSeconds);
+  const {
+    time,
+    getQuestionsForSelectedQuiz,
+    initialTimeInSeconds,
+    selectedQuiz,
+    selectQuiz,
+    score,
+    setScore,
+  } = QuizSelection();
+  const { time: timerTime, formatTime, resetTimer } = useTimer(initialTimeInSeconds);
 
   const questions = getQuestionsForSelectedQuiz();
+  const [selectedAnswers, setSelectedAnswers] = useState(Array(questions.length).fill(null));
 
   useEffect(() => {
     // Reset the timer when the quiz selection changes
-    setScore(0); // Reset the score
-  }, [selectedQuiz]);
+    resetTimer();
+  }, [selectedQuiz, resetTimer]);
+  
+  useEffect(() => {
+    // Reset the score when questions change
+    setScore(0);
+  }, [questions]);
+  
+  useEffect(() => {
+    // Reset selected answers when questions change
+    setSelectedAnswers(Array(questions.length).fill(null));
+  }, [questions]);
+  
+
+  const handleOptionSelect = (questionIndex, optionIndex, selectedOption) => {
+    const updatedAnswers = [...selectedAnswers];
+    updatedAnswers[questionIndex] = selectedOption;
+    setSelectedAnswers(updatedAnswers);
+  };
+
+  const handleSubmitQuiz = () => {
+    let newScore = 0;
+    questions.forEach((question, index) => {
+      if (selectedAnswers[index] === question.correctAnswer) {
+        newScore++;
+      }
+    });
+    setScore(newScore);
+  };
 
   return (
     <div className='bg-violet-200'>
@@ -25,9 +61,7 @@ function QuizUI() {
           >
             <option value='HTML'>HTML</option>
             <option value='CSS'>CSS</option>
-            <option value='JavaScript'>JavaScript</option>
-            <option value='ReactJS'>ReactJS</option>
-            <option value='Python'>Python</option>
+            {/* Add options for other quizzes as needed */}
           </select>
         </div>
 
@@ -38,21 +72,29 @@ function QuizUI() {
       </div>
 
       <div className='flex flex-wrap justify-center gap-2 md:gap-4 bg-violet-200 sm:p-5 pb-12'>
-        {questions.map((Question, index) => (
-          <div key={index} className='m-3 ssm:m-7 md:ml-2'>
-            <p className='my-3 leading-8 tracking-wider font-medium text-xl md:text-2xl'>{index + 1}. {Question.question}</p>
-            {Question.options.map((option, optionIndex) => (
+        {questions.map((question, questionIndex) => (
+          <div key={questionIndex} className='m-3 ssm:m-7 md:ml-2'>
+            <p className='my-3 leading-8 tracking-wider font-medium text-xl md:text-2xl'>{questionIndex + 1}. {question.question}</p>
+            {question.options.map((option, optionIndex) => (
               <div key={optionIndex} className='ssm:text-[1rem]'>
-                <input className='m-3 ml-0 sm:mr-5' type='radio' id={`q${index + 1}_option${optionIndex + 1}`} name={`q${index + 1}Options`} value={option} />
-                <label htmlFor={`q${index + 1}_option${optionIndex + 1}`}>{option}</label>
+                <input
+                  className='m-3 ml-0 sm:mr-5'
+                  type='radio'
+                  id={`q${questionIndex + 1}_option${optionIndex + 1}`}
+                  name={`q${questionIndex + 1}Options`}
+                  value={option}
+                  checked={selectedAnswers[questionIndex] === option}
+                  onChange={() => handleOptionSelect(questionIndex, optionIndex, option)}
+                />
+                <label htmlFor={`q${questionIndex + 1}_option${optionIndex + 1}`}>{option}</label>
               </div>
             ))}
           </div>
         ))}
       </div>
-     <input className='text-center bg-indigo-600 text-stone-100 py-2 px-8 mx-20 my-5 rounded-xl' type="button" value="button" />
+      <button className='text-center bg-indigo-600 text-stone-100 py-2 px-8 mx-20 my-5 rounded-xl' onClick={handleSubmitQuiz}>Submit</button>
     </div>
   );
 }
 
-export default QuizUI; 
+export default QuizUI;
