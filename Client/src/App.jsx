@@ -11,6 +11,8 @@ import LeaderBoard from './Pages/LeaderBoardPage';
 import DocumentationPage from './Pages/DocumentationPage';
 import GamesPage from './Pages/GamesPage';
 
+import NumberGuessingGame from './Components/Games/NumberGuessing/NumberGuessingGame';
+
 function App() {
   return (
     <Routes >
@@ -22,7 +24,10 @@ function App() {
       <Route path="/quiz" element={<QuizPage />} />
       <Route path="/leaderboard" element={<LeaderBoard />} />
       <Route path="/documentation" element={<DocumentationPage />} />
+
+      {/* Games Pages  */}
       <Route path="/games" element={<GamesPage />} />
+      <Route path="/guessGame" element={<NumberGuessingGame />} />
     </Routes>
   )
 }
