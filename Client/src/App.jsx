@@ -12,6 +12,7 @@ import DocumentationPage from './Pages/DocumentationPage';
 import GamesPage from './Pages/GamesPage';
 
 import NumberGuessingGame from './Components/Games/NumberGuessing/NumberGuessingGame';
+import TypingGame from './Components/Games/SpeedTyping/TypingGame';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       {/* Games Pages  */}
       <Route path="/games" element={<GamesPage />} />
       <Route path="/guessGame" element={<NumberGuessingGame />} />
+      <Route path="/typingGame" element={<TypingGame />} />
     </Routes>
   )
 }
