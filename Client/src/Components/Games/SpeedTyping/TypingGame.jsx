@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { GiFastBackwardButton } from 'react-icons/gi'
 import music from "./WrongType.mp3"
+import TypingGmeUI from './TypingGmeUI';
 
 const possibleParagraphs = [
   "India is a vast country with a rich history and culture. It is the second-most populous country in the world, with over 1.3 billion people. India is home to many different religions, languages, and cultures. The official language of India is Hindi, but there are over 200 other languages spoken in the country. India is a land of contrasts. It is home to the world's highest mountains, the Himalayas, and the world's second-largest river system, the Ganges.  ",
@@ -24,6 +24,7 @@ function TypingGame() {
   const [currentWpm, setCurrentWpm] = useState(0);
   const [accuracy, setAccuracy] = useState(100); // Initially set to 100%
   const [playMistakeSound, setPlayMistakeSound] = useState(false);
+  const [hasPlayedMistakeSound, setHasPlayedMistakeSound] = useState(false); // New state
 
 
   const validKeysRegex = /^[a-zA-Z0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$/;
@@ -40,22 +41,26 @@ function TypingGame() {
     }
   }, []);
 
-
   useEffect(() => {
     const handleKeyPress = (e) => {
       const keyPressed = e.key;
       const currentChar = text[typedText.length];
 
       if (isValidKey(keyPressed) && validKeysRegex.test(keyPressed)) {
+        setHasPlayedMistakeSound(false);
         if (keyPressed === currentChar) {
           setTypedText((prevTypedText) => prevTypedText + currentChar);
+          setHasPlayedMistakeSound(false);
         } else {
-          setMistakes((prevMistakes) => prevMistakes + 1);
-          const audio = audioRef.current;
-          if (audio) {
-            audio.currentTime = 0;
-            audio.play();
+          if (!hasPlayedMistakeSound) {
+            const audio = audioRef.current;
+            if (audio) {
+              audio.currentTime = 0;
+              audio.play();
+            }
+            setHasPlayedMistakeSound(true); // Mark that the sound has been played
           }
+          setMistakes((prevMistakes) => prevMistakes + 1);
         }
       }
 
@@ -70,7 +75,8 @@ function TypingGame() {
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, [text, typedText, startTime]);
+  }, [text, typedText, startTime, hasPlayedMistakeSound]); // Added dependencies here
+
 
   useEffect(() => {
     // Calculate and update the current WPM every second
@@ -86,7 +92,7 @@ function TypingGame() {
     return () => {
       clearInterval(wpmInterval);
     };
-  }, [startTime, typedText]);
+  }, [startTime, typedText]); // Added dependencies here
 
   useEffect(() => {
     let timerInterval;
@@ -98,10 +104,11 @@ function TypingGame() {
     }
 
     // When the timer reaches 0, calculate final results and stop the timer
-    if (timeLeft === 0) {
+    if (timeLeft === 0 && endTime === null) {
       clearInterval(timerInterval);
       setEndTime(Date.now());
     }
+
 
     return () => {
       clearInterval(timerInterval);
@@ -116,7 +123,7 @@ function TypingGame() {
         ? 0
         : Math.max(Math.round((totalCharsTyped / typedText.length) * 100), 0);
     setAccuracy(newAccuracy);
-  }, [typedText, mistakes]);
+  }, [typedText, mistakes]); // Added dependencies here
 
   const isValidKey = (key) => !invalidKeys.has(key);
 
@@ -129,6 +136,7 @@ function TypingGame() {
     setTimeLeft(180);
     setCurrentWpm(0);
     setAccuracy(100); // Reset accuracy
+    setHasPlayedMistakeSound(false); // Reset the mistake sound flag
   };
 
 
@@ -160,46 +168,7 @@ function TypingGame() {
   };
 
   return (
-    <div className='bg-[url(./src/Components/Games/SpeedTyping/TypingBgc.jpg)] bg-center bg-cover h-[130vh] md:h-screen flex pt-4 sm:pt-0 sm:items-center justify-center'>
-      <div className='bg-black text-white rounded-xl sm:w-11/12 md:w-9/12 h-[92%] ssm:h-auto ssm:mx-5'>
-        <div className='flex items-center justify-between mx-3'>
-          <button onClick={goBack} className="bg-blue-800 text-white px-4 py-2 m-3 rounded-md"><GiFastBackwardButton /></button>
-          <h1 className='text-white text-3xl ssm:mr-10 sm:mr-40 lg:mr-52'>Typing Game</h1>
-        </div>
-
-        <div className='border-blue-700 border-2 m-2 ssm:m-5 p-2 ssm:p-4 rounded-2xl'>
-          <div className='border-b-2 border-blue-700 mb-1 sm:mb-6 flex justify-around py-4 flex-wrap'>
-            <span>
-              <strong>Time Left:</strong> {Math.floor(timeLeft / 60)}:
-              {String(Math.floor(timeLeft % 60)).padStart(2, '0')}
-            </span>
-            <span>
-              <strong>Mistakes:</strong> {mistakes}
-            </span>
-            <span>
-              <strong>WPM:</strong> {currentWpm}
-            </span>
-            <span>
-              <strong>Accuracy:</strong> {accuracy}%
-            </span>
-            <span>
-              <button
-                className='bg-blue-800 py-2 rounded-3xl px-8 mt-2 md:mt-0'
-                onClick={resetGame}
-              >
-                Try Again
-              </button>
-            </span>
-          </div>
-
-          <div className='text-gray-400 text-[15px] sm:text-xl tracking-wide mb-3'>
-            {renderTextWithHighlights()}
-          </div>
-          {/* Add an <audio> element to play the mistake sound */}
-          <audio src={music} autoPlay={playMistakeSound} onEnded={() => setPlayMistakeSound(false)} />
-        </div>
-      </div>
-    </div>
+    <TypingGmeUI goBack={goBack} timeLeft={timeLeft} mistakes={mistakes} currentWpm={currentWpm} accuracy={accuracy} resetGame={resetGame} renderTextWithHighlights={renderTextWithHighlights} music={music} playMistakeSound={playMistakeSound} setPlayMistakeSound={setPlayMistakeSound} />
   );
 }
 
