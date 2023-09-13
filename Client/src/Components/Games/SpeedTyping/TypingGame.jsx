@@ -1,11 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { GiFastBackwardButton } from 'react-icons/gi'
+import music from "./WrongType.mp3"
 
-const initialText =
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam esse beatae, accusamus hic similique mollitia iure. Quidem aspernatur minima et aliquam blanditiis dolor, ducimus, doloribus quam adipisci magni voluptate impedit nesciunt consectetur unde nisi exercitationem eius quae veritatis alias illo voluptatem? Accusamus recusandae in est, eum eligendi voluptatibus ad animi';
+const possibleParagraphs = [
+  "India is a vast country with a rich history and culture. It is the second-most populous country in the world, with over 1.3 billion people. India is home to many different religions, languages, and cultures. The official language of India is Hindi, but there are over 200 other languages spoken in the country. India is a land of contrasts. It is home to the world's highest mountains, the Himalayas, and the world's second-largest river system, the Ganges.  ",
+  'Alice was a curious girl who loved to explore. One day, she was walking in the woods when she came across a strange plant. She was drawn to the plant and started to touch it. As she did, she felt a strange tingling sensation and the symbols on the plant started to glow. Alice was amazed and closed her eyes. When she opened them, she was in a strange and beautiful world. She had been transported to another dimension by the strange plant.',
+  "Aman and Arjun were two young boys who loved to code. They would spend hours every day learning new technologies and building websites. They were both very passionate about their work, and they dreamed of one day becoming professional web developers. One day, Aman and Arjun decided to enter a coding competition. They worked hard on their project, and they were confident that they would win. On the day of the competition, they were nervous, but they gave it their best shot. In the end, Aman and Arjun won the competition! They were so excited, and they knew that this was just the beginning of their journey as web developers. They continued to work hard, and they eventually got their dream jobs as professional web developers.",
+  `Vikramaditya was a wise king who ruled over a vast empire in ancient India. He was known for his intelligence, his justice, and his generosity. One day, a wise man came to Vikramaditya's court. He told the king that he had a riddle that only the wisest person in the world could answer. He agreed to let the wise man ask him a riddle. The wise man said, "What is something that is always with you, but you can never see it?" Vikramaditya thought for a moment. Then he answered, "The answer is your shadow." The wise man was impressed. He said, "You are indeed a wise king." Vikramaditya was known for his wisdom and his justice.`,
+];
+
+function getRandomParagraph() {
+  const randomIndex = Math.floor(Math.random() * possibleParagraphs.length);
+  return possibleParagraphs[randomIndex];
+}
 
 function TypingGame() {
-  const [text, setText] = useState(initialText);
+  const [text, setText] = useState(getRandomParagraph());
   const [typedText, setTypedText] = useState('');
   const [mistakes, setMistakes] = useState(0);
   const [startTime, setStartTime] = useState(null);
@@ -13,14 +23,23 @@ function TypingGame() {
   const [timeLeft, setTimeLeft] = useState(180); // 3 minutes in seconds
   const [currentWpm, setCurrentWpm] = useState(0);
   const [accuracy, setAccuracy] = useState(100); // Initially set to 100%
+  const [playMistakeSound, setPlayMistakeSound] = useState(false);
+
 
   const validKeysRegex = /^[a-zA-Z0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$/;
   const invalidKeys = new Set([
-    'Backspace',
-    'Tab',
-    'Shift',
-    // ... (other invalid keys)
+    'Backspace', 'Tab', 'Shift', 'Control', 'NumLock', "MediaPlayPause", "MediaTrackPrevious", "AudioVolumeUp", "AudioVolumeDown", "AudioVolumeMute", "Meta", "Unidentified", 'Alt', 'CapsLock', 'Escape', 'Home', 'End', 'PageUp', 'PageDown', 'Delete', 'Insert', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12',
   ]);
+
+
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio(music);
+    }
+  }, []);
+
 
   useEffect(() => {
     const handleKeyPress = (e) => {
@@ -32,6 +51,11 @@ function TypingGame() {
           setTypedText((prevTypedText) => prevTypedText + currentChar);
         } else {
           setMistakes((prevMistakes) => prevMistakes + 1);
+          const audio = audioRef.current;
+          if (audio) {
+            audio.currentTime = 0;
+            audio.play();
+          }
         }
       }
 
@@ -97,7 +121,7 @@ function TypingGame() {
   const isValidKey = (key) => !invalidKeys.has(key);
 
   const resetGame = () => {
-    setText(initialText);
+    setText(getRandomParagraph());
     setTypedText('');
     setMistakes(0);
     setStartTime(null);
@@ -107,7 +131,7 @@ function TypingGame() {
     setAccuracy(100); // Reset accuracy
   };
 
-  
+
   function goBack() {
     window.history.back(); // This line takes the user back to the previous page
   }
@@ -136,17 +160,15 @@ function TypingGame() {
   };
 
   return (
-    <div className='bg-[url(./src/Components/Games/SpeedTyping/TypingBgc.jpg)] bg-center bg-cover h-screen flex items-center justify-center'>
-      <div className='bg-black text-white rounded-xl sm:w-11/12 md:w-9/12 lg:w-1/2 h-5/6 ssm:h-auto ssm:mx-5'>
-       <div className='flex items-center justify-between mx-3'>
-       <button onClick={goBack} className="bg-blue-800 text-white px-4 py-2 m-3 rounded-md"><GiFastBackwardButton /></button>
-       <h1 className='text-white text-3xl ssm:mr-10 sm:mr-40 lg:mr-52'>Typing Game</h1>
-       </div>
-        <div className='border-blue-700 border-2 m-2 ssm:m-7 p-2 ssm:p-5 rounded-2xl'>
-          <div className='text-gray-400 sm:text-xl tracking-wide mb-3'>
-            {renderTextWithHighlights()}
-          </div>
-          <div className='border-t-2 border-blue-700 mt-1 sm:mt-6 flex justify-around pt-6 flex-wrap'>
+    <div className='bg-[url(./src/Components/Games/SpeedTyping/TypingBgc.jpg)] bg-center bg-cover h-[130vh] md:h-screen flex pt-4 sm:pt-0 sm:items-center justify-center'>
+      <div className='bg-black text-white rounded-xl sm:w-11/12 md:w-9/12 h-[92%] ssm:h-auto ssm:mx-5'>
+        <div className='flex items-center justify-between mx-3'>
+          <button onClick={goBack} className="bg-blue-800 text-white px-4 py-2 m-3 rounded-md"><GiFastBackwardButton /></button>
+          <h1 className='text-white text-3xl ssm:mr-10 sm:mr-40 lg:mr-52'>Typing Game</h1>
+        </div>
+
+        <div className='border-blue-700 border-2 m-2 ssm:m-5 p-2 ssm:p-4 rounded-2xl'>
+          <div className='border-b-2 border-blue-700 mb-1 sm:mb-6 flex justify-around py-4 flex-wrap'>
             <span>
               <strong>Time Left:</strong> {Math.floor(timeLeft / 60)}:
               {String(Math.floor(timeLeft % 60)).padStart(2, '0')}
@@ -155,7 +177,7 @@ function TypingGame() {
               <strong>Mistakes:</strong> {mistakes}
             </span>
             <span>
-              <strong>Current WPM:</strong> {currentWpm}
+              <strong>WPM:</strong> {currentWpm}
             </span>
             <span>
               <strong>Accuracy:</strong> {accuracy}%
@@ -169,6 +191,12 @@ function TypingGame() {
               </button>
             </span>
           </div>
+
+          <div className='text-gray-400 text-[15px] sm:text-xl tracking-wide mb-3'>
+            {renderTextWithHighlights()}
+          </div>
+          {/* Add an <audio> element to play the mistake sound */}
+          <audio src={music} autoPlay={playMistakeSound} onEnded={() => setPlayMistakeSound(false)} />
         </div>
       </div>
     </div>
