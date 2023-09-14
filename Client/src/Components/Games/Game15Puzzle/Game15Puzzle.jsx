@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Game15PuzzleUI from './Game15PuzzleUI';
 
 const SIZE = 4; // Size of the game board (4x4 for a 15 Puzzle)
 const TOTAL_TILES = SIZE * SIZE;
@@ -107,34 +108,7 @@ function Game15Puzzle() {
   }
 
   return (
-    <div className='flex w-full font-[Courgette]'>
-      <img className='w-1/2 hidden md:block' src="./src/Components/Games/Game15Puzzle/images.png" alt="IMG" />
-      <div className="w-full md:w-1/2 min-h-screen flex items-center justify-center bg-[url(./src/Components/Games/Game15Puzzle/bg2.jpg)]">
-        <div className="bg-green-200 rounded-lg p-4 shadow-lg">
-          <h1 className="text-3xl mb-4 text-emerald-500 text-center font-[Courgette]">15Puzzle Game</h1>
-          <p>Moves: {moves}</p>
-          <div className="grid grid-cols-4 gap-2">
-            {board.map((row, rowIndex) => (
-              row.map((col, colIndex) => (
-                <div
-                  key={rowIndex * SIZE + colIndex}
-                  className={`bg-blue-500 rounded-lg p-4 text-white font-bold text-xl flex items-center justify-center cursor-pointer hover:bg-blue-600 ${col === null ? 'bg-gray-100 cursor-not-allowed' : ''}`}
-                  onClick={() => handleTileClick(rowIndex, colIndex)}
-                >
-                  {col}
-                </div>
-              ))
-            ))}
-          </div>
-          <button
-            className="bg-green-500 font-sans text-white font-semibold py-2 px-4 rounded-full mt-4 hover:bg-green-600"
-            onClick={() => setBoard(generateBoard())}
-          >
-            Shuffle
-          </button>
-        </div>
-      </div>
-    </div>
+   <Game15PuzzleUI moves={moves} board={board} SIZE={SIZE} setBoard={setBoard} generateBoard={generateBoard} handleTileClick={handleTileClick}/>
   );
 }
 
