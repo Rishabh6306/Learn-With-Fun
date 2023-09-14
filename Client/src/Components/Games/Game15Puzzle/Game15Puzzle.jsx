@@ -5,8 +5,8 @@ const SIZE = 4; // Size of the game board (4x4 for a 15 Puzzle)
 const TOTAL_TILES = SIZE * SIZE;
 
 function Game15Puzzle() {
-  const [board, setBoard] = useState(generateBoard());
   const [moves, setMoves] = useState(0);
+  const [board, setBoard] = useState(generateBoard());
 
   useEffect(() => {
     checkWin();
@@ -60,6 +60,7 @@ function Game15Puzzle() {
       }
     }
 
+    
     return shuffledBoard;
   }
 
@@ -70,6 +71,7 @@ function Game15Puzzle() {
       if (flatBoard[i] !== i + 1) return;
     }
     alert(`You won in ${moves} moves!`);
+    setMoves(0);
   }
 
   function handleTileClick(row, col) {
