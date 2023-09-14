@@ -13,6 +13,7 @@ import GamesPage from './Pages/GamesPage';
 
 import NumberGuessingGame from './Components/Games/NumberGuessing/NumberGuessingGame';
 import TypingGame from './Components/Games/SpeedTyping/TypingGame';
+import Game15Puzzle from './Components/Games/Game15Puzzle/Game15Puzzle';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <Route path="/games" element={<GamesPage />} />
       <Route path="/guessGame" element={<NumberGuessingGame />} />
       <Route path="/typingGame" element={<TypingGame />} />
+      <Route path="/15puzzle" element={<Game15Puzzle /> } />
     </Routes>
   )
 }
