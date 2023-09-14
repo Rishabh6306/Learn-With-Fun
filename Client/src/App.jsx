@@ -14,6 +14,7 @@ import GamesPage from './Pages/GamesPage';
 import NumberGuessingGame from './Components/Games/NumberGuessing/NumberGuessingGame';
 import TypingGame from './Components/Games/SpeedTyping/TypingGame';
 import Game15Puzzle from './Components/Games/Game15Puzzle/Game15Puzzle';
+import GetStarted from './Pages/GetStarted';
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
       <Route path="/guessGame" element={<NumberGuessingGame />} />
       <Route path="/typingGame" element={<TypingGame />} />
       <Route path="/15puzzle" element={<Game15Puzzle /> } />
+
+      {/* GET STARTED BUTTON  */}
+      <Route path="/getStarted" element={<GetStarted /> } />
     </Routes>
   )
 }
