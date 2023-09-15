@@ -24,7 +24,7 @@ function AllGames() {
 
       <div className="p-5 border-2 border-sky-500 flex flex-col items-center rounded-lg">
         <h1 className='text-3xl md:text-4xl font-bold mb-3'>Bubble Game</h1>
-        <p>In this engaging game, the goal is to pop bubbles within a challenging 60-second time limit. Click on bubbles that match the 'hit number' to accumulate points and aim for victory at 300 points. It's not only entertaining but also a great exercise for testing and improving your concentration skills. <br /> Enjoy a quick and enjoyable break from the daily routine while challenging your focus and reflexes.</p>
+        <p>In this game, the goal is to pop bubbles within a challenging 60-second time limit. Click on bubbles that match the 'hit number' to accumulate points and aim for victory at 200 points. If you click any box which does not match the 'hit number' that time your score decreased by 10.<br /> Enjoy a quick and enjoyable break from the daily routine while challenging your focus.</p>
         <Link to="/bubbleGame" className='text-3xl text-white my-5 rounded-3xl py-3 px-10 bg-orange-400'>Play</Link>
       </div>
     </div>
