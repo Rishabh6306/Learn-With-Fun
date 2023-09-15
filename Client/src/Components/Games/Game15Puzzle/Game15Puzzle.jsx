@@ -109,8 +109,12 @@ function Game15Puzzle() {
     }
   }
 
+  function goBack() {
+    window.history.back(); // This line takes the user back to the previous page
+  }
+
   return (
-   <Game15PuzzleUI moves={moves} board={board} SIZE={SIZE} setBoard={setBoard} generateBoard={generateBoard} handleTileClick={handleTileClick}/>
+   <Game15PuzzleUI goBack={goBack} moves={moves} board={board} SIZE={SIZE} setBoard={setBoard} generateBoard={generateBoard} handleTileClick={handleTileClick}/>
   );
 }
 

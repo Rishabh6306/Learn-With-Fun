@@ -1,10 +1,12 @@
 import React from 'react'
+import { GiFastBackwardButton } from 'react-icons/gi'
 
-function Game15PuzzleUI({ moves, board, SIZE, setBoard, generateBoard, handleTileClick }) {
+function Game15PuzzleUI({ goBack, moves, board, SIZE, setBoard, generateBoard, handleTileClick }) {
     return (
         <div className='flex w-full font-[Courgette]'>
             <img className='w-1/2 hidden md:block' src="./src/Components/Games/Game15Puzzle/images.png" alt="IMG" />
-            <div className="w-full md:w-1/2 min-h-screen flex items-center justify-center bg-[url(./src/Components/Games/Game15Puzzle/bg2.jpg)]">
+            <div className="w-full md:w-1/2 min-h-screen flex flex-col items-center justify-center bg-[url(./src/Components/Games/Game15Puzzle/bg2.jpg)]">
+                    <button onClick={goBack} className="bg-blue-800 text-white px-4 py-2 m-3 rounded-md"><GiFastBackwardButton /></button>
                 <div className="bg-green-200 rounded-lg p-4 shadow-lg">
                     <h1 className="text-3xl mb-4 text-emerald-500 text-center font-[Courgette]">15Puzzle Game</h1>
                     <p>Moves: {moves}</p>

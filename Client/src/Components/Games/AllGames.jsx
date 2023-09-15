@@ -21,6 +21,12 @@ function AllGames() {
         <p>15Puzzle, a captivating grid-based game, tests your mental agility as you strategically arrange numbers 1-15 in a 4x4 grid, enhancing problem-solving skills and spatial intelligence, making it a fun brain exercise. It's an engaging way to boost cognitive abilities and challenge your mind. <br />It is not only a game but also a problem solving skill.</p>
         <Link to="/15puzzle" className='text-3xl text-white my-5 rounded-3xl py-3 px-10 bg-orange-400'>Play</Link>
       </div>
+
+      <div className="p-5 border-2 border-sky-500 flex flex-col items-center rounded-lg">
+        <h1 className='text-3xl md:text-4xl font-bold mb-3'>Bubble Game</h1>
+        <p>BubbleGame, a captivating grid-based game, tests your mental agility as you strategically arrange numbers 1-15 in a 4x4 grid, enhancing problem-solving skills and spatial intelligence, making it a fun brain exercise. It's an engaging way to boost cognitive abilities and challenge your mind. <br />It is not only a game but also a problem solving skill.</p>
+        <Link to="/bubbleGame" className='text-3xl text-white my-5 rounded-3xl py-3 px-10 bg-orange-400'>Play</Link>
+      </div>
     </div>
   )
 }
