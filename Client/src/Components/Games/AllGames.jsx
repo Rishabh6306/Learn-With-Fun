@@ -24,7 +24,7 @@ function AllGames() {
 
       <div className="p-5 border-2 border-sky-500 flex flex-col items-center rounded-lg">
         <h1 className='text-3xl md:text-4xl font-bold mb-3'>Bubble Game</h1>
-        <p>BubbleGame, a captivating grid-based game, tests your mental agility as you strategically arrange numbers 1-15 in a 4x4 grid, enhancing problem-solving skills and spatial intelligence, making it a fun brain exercise. It's an engaging way to boost cognitive abilities and challenge your mind. <br />It is not only a game but also a problem solving skill.</p>
+        <p>In this engaging game, the goal is to pop bubbles within a challenging 60-second time limit. Click on bubbles that match the 'hit number' to accumulate points and aim for victory at 300 points. It's not only entertaining but also a great exercise for testing and improving your concentration skills. <br /> Enjoy a quick and enjoyable break from the daily routine while challenging your focus and reflexes.</p>
         <Link to="/bubbleGame" className='text-3xl text-white my-5 rounded-3xl py-3 px-10 bg-orange-400'>Play</Link>
       </div>
     </div>
