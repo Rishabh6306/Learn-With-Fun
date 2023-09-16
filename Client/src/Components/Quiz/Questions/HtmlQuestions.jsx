@@ -1,4 +1,5 @@
-const htmlquestions = [
+
+export const htmlquestions = [
     {
         question: 'What is the full form of HTML?',
         options: [
@@ -61,4 +62,69 @@ const htmlquestions = [
     },
 ];
 
-export default htmlquestions;
+export const cssquestions = [
+    {
+        question: 'What does CSS stand for?',
+        options: [
+            'Cascading Style Sheet',
+            'Computer Style Sheet',
+            'Creative Style System',
+            'Colorful Style Sheet',
+        ],
+        correctAnswer: 'Cascading Style Sheet',
+    },
+    {
+        question: 'What does CSS stand for?',
+        options: [
+            'Cascading Style Sheet',
+            'Computer Style Sheet',
+            'Creative Style System',
+            'Colorful Style Sheet',
+        ],
+        correctAnswer: 'Cascading Style Sheet',
+    },
+    {
+        question: 'What does CSS stand for?',
+        options: [
+            'Cascading Style Sheet',
+            'Computer Style Sheet',
+            'Creative Style System',
+            'Colorful Style Sheet',
+        ],
+        correctAnswer: 'Cascading Style Sheet',
+    },
+]
+
+
+export const javaScriptquestions = [
+    {
+        question: 'What does JavaScript stand for?',
+        options: [
+            'Cascading Style Sheet',
+            'Computer Style Sheet',
+            'Creative Style System',
+            'Colorful Style Sheet',
+        ],
+        correctAnswer: 'Cascading Style Sheet',
+    },
+    {
+        question: 'What does CSS stand for?',
+        options: [
+            'Cascading Style Sheet',
+            'Computer Style Sheet',
+            'Creative Style System',
+            'Colorful Style Sheet',
+        ],
+        correctAnswer: 'Cascading Style Sheet',
+    },
+    {
+        question: 'What does CSS stand for?',
+        options: [
+            'Cascading Style Sheet',
+            'Computer Style Sheet',
+            'Creative Style System',
+            'Colorful Style Sheet',
+        ],
+        correctAnswer: 'Cascading Style Sheet',
+    },
+]
