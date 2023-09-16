@@ -31,7 +31,7 @@ const cardData = [
   {
     title: 'Join Us',
     description: "Interested in contributing to our mission? We're always on the lookout for talented individuals who share our passion for education. For shaping the future of learning. "
-},
+  },
   {
     title: 'Our Goals',
     description:
@@ -44,7 +44,6 @@ function About() {
   const [visibleCards, setVisibleCards] = useState([]);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
- 
   useEffect(() => {
     const updateVisibleCards = () => {
       let numVisibleCards;
@@ -87,21 +86,21 @@ function About() {
   };
 
   return (
-    <div className="flex flex-col bg-[url(./src/Components/Home/assests/bg-3.jpg)] bg-center">
-    <h1 className="text-center text-5xl leading-tight tracking-wider  my-5 text-amber-400">About Us</h1>
-    <div className="flex items-center justify-between ">
-      <div className="text-xl text-gray-400 md:text-5xl cursor-pointer" onClick={handleLeftClick}>
-        <BsChevronLeft />
+    <div className="flex flex-col bg-[url(./src/Components/Home/assests/AboutBgc.jpg)] bg-cover bg-center">
+      <h1 className="text-center text-5xl leading-tight tracking-wider  my-5 text-amber-400">About Us</h1>
+      <div className="flex items-center justify-between ">
+        <div className="text-xl text-gray-400 md:text-5xl cursor-pointer" onClick={handleLeftClick}>
+          <BsChevronLeft />
+        </div>
+        <div className=" flex items-center gap-5 md:gap-20 justify-center h-96">
+          {visibleCards.map((card, index) => (
+            <Card key={index} heading={card.title} paragraph={card.description} />
+          ))}
+        </div>
+        <div className="text-xl text-gray-400 md:text-5xl cursor-pointer" onClick={handleRightClick}>
+          <BsChevronRight />
+        </div>
       </div>
-      <div className=" flex items-center gap-5 md:gap-20 justify-center h-96">
-       {visibleCards.map((card, index) => (
-          <Card key={index} heading={card.title} paragraph={card.description} />
-        ))}
-      </div>
-      <div className="text-xl text-gray-400 md:text-5xl cursor-pointer" onClick={handleRightClick}>
-        <BsChevronRight />
-      </div>
-    </div>
     </div>
   );
 }

@@ -7,8 +7,8 @@ function Programs() {
     };
 
     return (
-        <div className='bg-[#25ffff]'>
-            <div className="bg-[#0e320ec0] h-full rounded-tl-[10rem] md:rounded-tl-[20rem] rounded-br-[10rem] md:rounded-br-[18rem]  flex flex-col justify-center p-8">
+        <div className='bg-blue-400'>
+            <div className="bg-[url(./src/Components/Home/assests/ProgramBgc.jpg)] bg-cover h-full rounded-tl-[10rem] md:rounded-tl-[20rem] rounded-br-[10rem] md:rounded-br-[18rem]  flex flex-col justify-center p-8">
                 <h1 className='text-center text-4xl md:text-5xl leading-tight tracking-wider text-amber-400 my-5'>Programs</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-20 m-2 md:m-24">
                     <div className="bg-[#e9e926] rounded-3xl p-5 flex flex-col justify-center items-center">

@@ -35,8 +35,8 @@ function Navbar() {
   };
 
   return (
-    <nav className={`bg-[#285250] p-2  xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
-     <div className="flex justify-between items-center">
+    <nav className={` bg-[url(./src/Components/Home/assests/bgImage.png)] bg-center p-2  xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
+      <div className="flex justify-between items-center">
         <span className="text-3xl font-[Poppins] font-bold cursor-pointer">
           <img
             className="w-20 inline ml-4 rounded-full"
@@ -62,37 +62,37 @@ function Navbar() {
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/documentation" onClick={scrollToTop}  className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/documentation" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Documentation
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/quiz" onClick={scrollToTop}  className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/quiz" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Quiz
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/notes" onClick={scrollToTop}  className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/notes" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Notes
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/games" onClick={scrollToTop}  className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/games" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Games
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/library" onClick={scrollToTop}  className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/library" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Library
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/leaderboard" onClick={scrollToTop}  className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/leaderboard" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             LeaderBoard
           </Link>
         </li>
         <li className="mx-3 my-4 2xl:my-0">
-          <Link to="/contactUs" onClick={scrollToTop}  className="text-3xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/contactUs" onClick={scrollToTop} className="text-3xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
             Contact Us
           </Link>
         </li>
