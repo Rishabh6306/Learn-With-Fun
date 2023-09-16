@@ -35,7 +35,7 @@ function Navbar() {
   };
 
   return (
-    <nav className={` bg-[url(./src/Components/Home/assests/bgImage.png)] bg-center p-2  xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
+    <nav className={` bg-[url(./src/Components/Home/assests/NavbarBgc.png)] bg-center p-2  xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
       <div className="flex justify-between items-center">
         <span className="text-3xl font-[Poppins] font-bold cursor-pointer">
           <img
