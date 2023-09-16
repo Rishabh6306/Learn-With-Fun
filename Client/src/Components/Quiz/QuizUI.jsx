@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import QuizSelection from './QuizSelection';
-import { htmlquestions, cssquestions, javaScriptquestions } from './Questions/HtmlQuestions';
+import { htmlquestions, cssquestions, javaScriptquestions } from './Questions/AllQuestions';
 
 function QuizUI() {
   const [questions, setQuestions] = useState(htmlquestions);
@@ -33,6 +33,11 @@ function QuizUI() {
     const updatedFlags = [...isOptionSelectedForQuestion];
     updatedFlags[currentQuestionIndex] = selectedOption;
     setIsOptionSelectedForQuestion(updatedFlags);
+
+    // Check if the selected option is correct and update the score
+    if (selectedOption === questions[currentQuestionIndex].correctAnswer) {
+      setScore(score + 2); // Award 2 points for a correct answer
+    }
   };
 
   const handleSectionClick = (section) => {
@@ -68,7 +73,6 @@ function QuizUI() {
     }
   };
 
-
   const handleRestartQuiz = () => {
     setIsQuizOver(false);
     setCurrentQuestionIndex(0);
@@ -90,13 +94,27 @@ function QuizUI() {
     }
   }, [isQuizOver, score]);
 
+  // Define the passing threshold (e.g., 60%)
+  const passThreshold = 60;
+
+  // Calculate the passing score based on the number of questions and the threshold
+  const passingScore = (questions.length * passThreshold) / 100;
+
+  // Determine if the user has passed or failed
+  const hasPassed = score >= passingScore;
+
+  // Helper function to convert index to letter (0 to a, 1 to b, etc.)
+  const indexToLetter = (index) => String.fromCharCode(97 + index);
+
   return (
     <>
       <QuizSelection handleSectionClick={handleSectionClick} />
-      <div className='bg-[url(./src/Components/Quiz/assests/bgc-5.jpg)] h-[74vh] bg-center bg-cover flex flex-col items-center justify-center'>
+      <div className='bg-[url(./src/Components/Quiz/assests/bgc-5.jpg)] h-auto py-6 bg-center bg-cover flex flex-col items-center justify-center'>
         {isQuizOver ? (
-          <div className='border-2 rounded-xl text-center text-4xl p-5 w-7/12'>
-            <h1>Your Score: {score}</h1>
+          <div className={`border-2 rounded-xl text-center text-4xl p-5 w-7/12 ${hasPassed ? 'text-[#3dd53d]' : 'text-red-500'}`}>
+            <p>{hasPassed ? 'Congratulations you Passed the Quiz' : 'Failed'}</p>
+            <h1 className='text-violet-200 mr-6'>Your Score: {score}</h1>
+            <p className='text-[#801a00]'>Correct: {score / 2} out of {questions.length}</p>
             <button
               className='bg-blue-700 my-4 text-white text-2xl rounded-2xl p-4'
               onClick={handleRestartQuiz}
@@ -113,7 +131,7 @@ function QuizUI() {
               <p className='text-3xl font-semibold '>
                 {currentQuestionIndex + 1}. {questions[currentQuestionIndex].question}
               </p>
-              <ul>
+              <ol>
                 {questions[currentQuestionIndex].options.map((option, index) => (
                   <li
                     key={index}
@@ -125,15 +143,16 @@ function QuizUI() {
                           : isOptionSelectedForQuestion[currentQuestionIndex] === option
                           ? 'bg-red-500'
                           : ''
-                        : isOptionSelectedForQuestion[currentQuestionIndex] === option
-                        ? 'bg-purple-500'
-                        : ''
+                          : isOptionSelectedForQuestion[currentQuestionIndex] === option
+                          ? 'bg-purple-500'
+                          : ''
+                         
                     } cursor-pointer p-2 m-2`}
                   >
-                    {option}
+                    {indexToLetter(index)}. {option}
                   </li>
                 ))}
-              </ul>
+              </ol>
               <button
                 className='bg-blue-700 duration-500 float-right text-white rounded-2xl p-4'
                 onClick={handleNextQuestion}
