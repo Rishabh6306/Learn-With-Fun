@@ -19,21 +19,3 @@ function Score() {
 }
 
 export default Score;
-
-
-// import React from 'react';
-// import ProgressBar from './ProgressBar';
-
-// function Score() {
-//   return (
-//     <div className="h-screen bg-[url(./src/Components/ScoreCard/assests/bg-scorecard.jpg)] bg-center">
-//     <div className="h-[85vh] p-28">
-//       <ProgressBar label="HTML" maximumPercentage={80} interval={40} />
-//       <ProgressBar label="CSS" maximumPercentage={60} interval={60} />
-//       <ProgressBar label="JavaScript" maximumPercentage={40} interval={80} />
-//     </div>
-//     </div>
-//   );
-// }
-
-// export default Score;

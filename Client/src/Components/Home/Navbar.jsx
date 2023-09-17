@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+
+// const location = useLocation();
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(true) // Default value set to true
@@ -35,7 +37,7 @@ function Navbar() {
   };
 
   return (
-    <nav className={` bg-[url(./src/Components/Home/assests/NavbarBgc.png)] bg-center p-2  xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
+    <nav className={` bg-[url(./src/Components/Home/assests/NavbarBgc.png)] bg-center p-2 xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
       <div className="flex justify-between items-center">
         <span className="text-3xl font-[Poppins] font-bold cursor-pointer">
           <img
@@ -57,42 +59,42 @@ function Navbar() {
           } xl:flex xl:items-center z-[-1] xl:z-auto xl:static w-full xl:w-auto xl:py-0 py-2 xl:pl-0 pl-7 transition-max-h duration-700 ease-in-out overflow-hidden text-center`}
       >
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/" onClick={scrollToTop} className={`text-2xl  hover:border-b-2 border-yellow-400 duration-500 ${location.pathname === '/' ? 'text-yellow-300' : ''}`}>
             Home
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/documentation" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/documentation" onClick={scrollToTop} className={`text-2xl  hover:border-b-2 border-yellow-400 duration-500 ${location.pathname === '/documentation' ? 'text-yellow-300' : ''}`}>
             Documentation
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/quiz" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/quiz" onClick={scrollToTop} className={`text-2xl  hover:border-b-2 border-yellow-400 duration-500 ${location.pathname === '/quiz' ? 'text-yellow-300' : ''}`}>
             Quiz
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/notes" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/notes" onClick={scrollToTop} className={`text-2xl  hover:border-b-2 border-yellow-400 duration-500 ${location.pathname === '/notes' ? 'text-yellow-300' : ''}`}>
             Notes
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/games" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/games" onClick={scrollToTop} className={`text-2xl  hover:border-b-2 border-yellow-400 duration-500 ${location.pathname === '/games' ? 'text-yellow-300' : ''}`}>
             Games
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/library" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/library" onClick={scrollToTop} className={`text-2xl  hover:border-b-2 border-yellow-400 duration-500 ${location.pathname === '/library' ? 'text-yellow-300' : ''}`}>
             Library
           </Link>
         </li>
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/leaderboard" onClick={scrollToTop} className="text-2xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/leaderboard" onClick={scrollToTop} className={`text-2xl  hover:border-b-2 border-yellow-400 duration-500 ${location.pathname === '/leaderboard' ? 'text-yellow-300' : ''}`}>
             LeaderBoard
           </Link>
         </li>
         <li className="mx-3 my-4 2xl:my-0">
-          <Link to="/contactUs" onClick={scrollToTop} className="text-3xl hover:text-[#FFE600] hover:border-b-2 border-yellow-400 duration-500">
+          <Link to="/contactUs" onClick={scrollToTop} className={`text-3xl  hover:border-b-2 border-yellow-400 duration-500 ${location.pathname === '/contactUs' ? 'text-yellow-300' : ''}`}>
             Contact Us
           </Link>
         </li>

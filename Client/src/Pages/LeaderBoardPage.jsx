@@ -6,9 +6,9 @@ import Navbar from '../Components/Home/Navbar';
 function ScoreCardPage() {
   return (
     <>
-    <Navbar/>
-      <Score/>
-      <Footer/>
+      <Navbar />
+      <Score />
+      <Footer />
     </>
   )
 }

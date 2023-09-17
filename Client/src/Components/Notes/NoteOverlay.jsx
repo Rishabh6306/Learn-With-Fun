@@ -8,6 +8,7 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
   const [editedNote, setEditedNote] = useState(note);
   const [showSavedToast, setShowSavedToast] = useState(false);
 
+  // Handle input changes (headline and content)
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditedNote({
@@ -16,6 +17,7 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
     });
   };
 
+  // Handle Save button click
   const handleSaveClick = async () => {
     try {
       if (!editedNote._id) {
@@ -41,6 +43,7 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
     }
   };
 
+  // Handle showing a success toast when the note is successfully saved
   useEffect(() => {
     if (showSavedToast) {
       toast('Successfully Saved', { type: 'success' });
@@ -51,13 +54,14 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative bg-white p-8 rounded-lg shadow-lg overflow-y-auto w-full md:max-w-[70rem] h-[90%] mx-2">
+      <div className="relative bg-blue-300 text-green-700 p-8 rounded-lg shadow-lg overflow-y-auto w-full md:max-w-[70rem] h-[90%] mx-2">
         <button
           className="absolute top-2 right-9 text-4xl text-[#22ff00]"
           onClick={onClose}
         >
           <span className='fixed'><AiFillCloseCircle /></span>
         </button>
+        {/* Input for editing headline */}
         <input
           type='text'
           className="text-xl w-full font-semibold mb-4 text-center break-words text-blue-700 outline-none active:border active:border-yellow-300 rounded"
@@ -65,6 +69,7 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
           value={editedNote.headline}
           onChange={handleInputChange}
         />
+        {/* Textarea for editing content */}
         <textarea
           name="content"
           value={editedNote.content}
@@ -73,6 +78,7 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
           className="w-full h-5/6 p-2 border border-yellow-300 rounded"
           placeholder="Edit Description..."
         ></textarea>
+        {/* Save and Cancel buttons */}
         <div className="flex justify-end mt-2">
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded mr-2"

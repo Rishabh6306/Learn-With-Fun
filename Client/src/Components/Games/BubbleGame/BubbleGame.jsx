@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import BubbleGameUI from './BubbleGameUI';
 
+// Function to get a random bubble color
 const getRandomBubbleColor = () => {
     const colors = ['bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500', 'bg-pink-500', 'bg-purple-500', 'bg-indigo-500', 'bg-teal-500'];
     return colors[Math.floor(Math.random() * colors.length)];
 };
 
+// Function to shuffle a 2D array
 const shuffleArray = (array) => {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -19,6 +21,7 @@ const shuffleArray = (array) => {
 };
 
 const BubbleGame = () => {
+    // State variables
     const [timer, setTimer] = useState(60);
     const [score, setScore] = useState(0);
     const [hitNum, setHitNum] = useState(0);
@@ -27,6 +30,7 @@ const BubbleGame = () => {
     const [isWinner, setIsWinner] = useState(false);
     const [isGameOver, setIsGameOver] = useState(false);
 
+    // Function to increase the score
     const increaseScore = () => {
         const newScore = score + 10;
         setScore(newScore);
@@ -36,8 +40,10 @@ const BubbleGame = () => {
         }
     };
 
+    // Function to generate a new hit number
     const newHit = () => setHitNum(Math.floor(Math.random() * 10));
 
+    // Function to create the initial bubble grid
     const makeBubbleGrid = () => {
         const grid = Array.from({ length: 8 }, () =>
             Array.from({ length: 11 }, () => ({
@@ -49,6 +55,7 @@ const BubbleGame = () => {
         setBubbleGrid(shuffleArray(grid));
     };
 
+    // Effect to start the timer and handle game over
     useEffect(() => {
         let interval;
         if (timer > 0 && gameStarted) {
@@ -60,6 +67,7 @@ const BubbleGame = () => {
         return () => clearInterval(interval);
     }, [timer, gameStarted]);
 
+    // Function to handle bubble click
     const handleBubbleClick = (row, col) => {
         const clickedBubble = bubbleGrid[row][col];
 
@@ -93,6 +101,7 @@ const BubbleGame = () => {
         }
     };
 
+    // Function to start a new game
     const startGame = () => {
         setIsWinner(false);
         setIsGameOver(false);
@@ -103,6 +112,7 @@ const BubbleGame = () => {
         setScore(0);
     };
 
+    // Function to restart the game
     const restartGame = () => {
         setIsWinner(false);
         setIsGameOver(false);
@@ -113,9 +123,9 @@ const BubbleGame = () => {
         makeBubbleGrid();
     };
 
+    // Function to go back to the previous page
     const goBack = () => window.history.back();
 
-    
     return (
       <BubbleGameUI startGame={startGame} gameStarted={gameStarted} goBack={goBack} restartGame={restartGame} isGameOver={isGameOver} isWinner={isWinner} hitNum={hitNum} timer={timer} score={score} bubbleGrid={bubbleGrid} handleBubbleClick={handleBubbleClick}/>
     );

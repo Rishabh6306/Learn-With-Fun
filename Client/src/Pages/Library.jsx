@@ -11,6 +11,7 @@ function Library() {
     const [bookData, setBookData] = useState([]);
     const [quoteIndex, setQuoteIndex] = useState(0);
 
+    // Function to search for books when the user presses Enter
     const searchBook = async () => {
         try {
             const response = await axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&key=AIzaSyA6SaT23KNiiA6DnUfUQTvFeyAcQEkwnSU' + '&maxResults=40')
@@ -20,6 +21,7 @@ function Library() {
         }
     }
 
+    // Function to handle Enter key press for search
     const handleKeyPress = (event) => {
         if (event.key === "Enter") {
             searchBook();
@@ -41,10 +43,12 @@ function Library() {
     ]
 
     useEffect(() => {
+        // Set up an interval to change the displayed quote every 4 seconds
         const interval = setInterval(() => {
             setQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
-        }, 4000); // Change quote every 5 seconds
+        }, 4000); // Change quote every 4 seconds
 
+        // Clean up the interval when the component unmounts
         return () => clearInterval(interval);
     }, []);
 
@@ -70,12 +74,15 @@ function Library() {
                 </div>
             </div>
 
-            <span className="bg-indigo-100 w-full h-36 p-1 sm:p-3 mx-auto text-center text-gray-700 text-xl md:text-2xl font-bold absolute font-poppins italic animate-color-change"><ImQuotesLeft /> {quotes[quoteIndex]} <span className='float-right pt-5'><ImQuotesRight /></span></span>
+            {/* Display a rotating quote */}
+            <span className="bg-indigo-100 w-full h-36 p-1 sm:p-3 mx-auto text-center text-gray-700 text-xl md:text-2xl font-bold absolute font-poppins italic animate-color-change">
+                <ImQuotesLeft /> {quotes[quoteIndex]} <span className='float-right pt-5'><ImQuotesRight /></span>
+            </span>
 
             <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(240px,0.5fr))] gap-3 bg-[#14224a] relative top-36 sm:top-28 p-1 sm:p-10 mb-36 sm:mb-28">
                 <Card book={bookData} />
             </div>
-        <Footer />
+            <Footer />
         </>
     )
 }

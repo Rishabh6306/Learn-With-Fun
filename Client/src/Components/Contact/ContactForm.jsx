@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaLinkedin, FaGithub, FaInstagram, FaFacebook } from 'react-icons/fa';
 
@@ -97,6 +98,7 @@ function ContactForm() {
             required
           />
         </div>
+        {/* Email input */}
         <div className="mb-3">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
             Email
@@ -112,6 +114,7 @@ function ContactForm() {
             required
           />
         </div>
+        {/* Subject input */}
         <div className="mb-3">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="subject">
             Subject
@@ -119,14 +122,15 @@ function ContactForm() {
           <input
             type="text"
             id="subject"
-            autoComplete='off'
             name="subject"
+            autoComplete='subject'
             value={formData.subject}
             onChange={handleChange}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
+        {/* Message input */}
         <div className="mb-3">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
             Message
@@ -134,10 +138,9 @@ function ContactForm() {
           <textarea
             id="message"
             name="message"
-            autoComplete='off'
             value={formData.message}
             onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32 resize-none"
             required
           />
         </div>

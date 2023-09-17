@@ -60,7 +60,6 @@ function Game15Puzzle() {
       }
     }
 
-    
     return shuffledBoard;
   }
 

@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import NumberGussingGameUI from "./NumberGussingGameUI";
 
 function NumberGuessingGame() {
+  // State variables
   const [targetNumber, setTargetNumber] = useState(generateRandomNumber());
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [message, setMessage] = useState("");
 
+  // Function to generate a random target number between 1 and 100
   function generateRandomNumber() {
     return Math.floor(Math.random() * 100) + 1;
   }
 
+  // Function to calculate the progress based on the current guess
   function calculateProgress() {
     const guess = parseInt(currentGuess);
 
@@ -25,6 +28,7 @@ function NumberGuessingGame() {
     return 0;
   }
 
+  // Function to handle a guess
   function handleGuess() {
     const guess = parseInt(currentGuess);
 
@@ -36,6 +40,8 @@ function NumberGuessingGame() {
 
       if (guess === targetNumber) {
         setMessage("Congratulations! You guessed the correct number.");
+
+        // Reset the game after a delay
         setTimeout(() => {
           setTargetNumber(generateRandomNumber());
           setGuesses([]);
@@ -49,19 +55,30 @@ function NumberGuessingGame() {
     setCurrentGuess("");
   }
 
+  // Function to handle key press (Enter key) for submitting a guess
   function handleKeyPress(event) {
     if (event.key === "Enter") {
       handleGuess();
     }
   }
 
-
+  // Function to go back to the previous page
   function goBack() {
-    window.history.back(); // This line takes the user back to the previous page
+    window.history.back();
   }
 
+  // Render the NumberGussingGameUI component with props
   return (
-   <NumberGussingGameUI goBack={goBack} currentGuess={currentGuess} handleKeyPress={handleKeyPress} setCurrentGuess={setCurrentGuess} guesses={guesses} handleGuess={handleGuess} message={message} calculateProgress={calculateProgress}/>
+    <NumberGussingGameUI
+      goBack={goBack}
+      currentGuess={currentGuess}
+      handleKeyPress={handleKeyPress}
+      setCurrentGuess={setCurrentGuess}
+      guesses={guesses}
+      handleGuess={handleGuess}
+      message={message}
+      calculateProgress={calculateProgress}
+    />
   );
 }
 

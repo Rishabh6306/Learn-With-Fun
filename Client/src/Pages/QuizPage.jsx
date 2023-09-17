@@ -6,9 +6,9 @@ import Footer from '../Components/Footer/Footer';
 function QuizPage() {
   return (
     <div>
-      <Navbar/>
-      <QuizUI/>
-      <Footer/>
+      <Navbar />
+      <QuizUI />
+      <Footer />
     </div>
   )
 }

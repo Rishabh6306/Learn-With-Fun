@@ -40,11 +40,15 @@ const cardData = [
 ];
 
 function About() {
+  // State to manage the start index for visible cards
   const [startIndex, setStartIndex] = useState(0);
+  // State to store the currently visible cards
   const [visibleCards, setVisibleCards] = useState([]);
+  // State to track the screen width
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
+    // Function to update the visible cards based on screen width and start index
     const updateVisibleCards = () => {
       let numVisibleCards;
       if (screenWidth >= 1280) {
@@ -60,25 +64,31 @@ function About() {
       setVisibleCards(newVisibleCards);
     };
 
+    // Initial update of visible cards
     updateVisibleCards();
 
+    // Function to handle window resize and update screen width
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
     };
 
+    // Add event listener for window resize
     window.addEventListener('resize', handleResize);
 
+    // Cleanup: remove event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [startIndex, screenWidth]);
 
+  // Function to handle left arrow click
   const handleLeftClick = () => {
     if (startIndex > 0) {
       setStartIndex(startIndex - 1);
     }
   };
 
+  // Function to handle right arrow click
   const handleRightClick = () => {
     if (startIndex + 1 < cardData.length) {
       setStartIndex(startIndex + 1);
@@ -86,13 +96,15 @@ function About() {
   };
 
   return (
-    <div className="flex flex-col bg-[url(./src/Components/Home/assests/AboutBgc.jpg)] bg-cover bg-center">
+    <div className="flex flex-col bg-gradient-to-tr from-[#0b5de3] to-[#f537f2]">
+      {/* <div className="flex flex-col bg-[url(./src/Components/Home/assests/AboutBgc.jpg)] bg-cover bg-center"> */}
       <h1 className="text-center text-5xl leading-tight tracking-wider  my-5 text-amber-400">About Us</h1>
       <div className="flex items-center justify-between ">
         <div className="text-xl text-gray-400 md:text-5xl cursor-pointer" onClick={handleLeftClick}>
           <BsChevronLeft />
         </div>
         <div className=" flex items-center gap-5 md:gap-20 justify-center h-96">
+          {/* Map through visibleCards and render Card components */}
           {visibleCards.map((card, index) => (
             <Card key={index} heading={card.title} paragraph={card.description} />
           ))}

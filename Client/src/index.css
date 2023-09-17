@@ -8,7 +8,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* Define a keyframes animation named 'colorChange' */
+/* Define a keyframes animation named 'colorChange' for library page */
 @keyframes colorChange {
   0%, 100% {
     color: blue;
@@ -39,7 +39,7 @@
   }
 }
 
-/* Apply the 'colorChange' animation using a utility class */
+/* Apply the 'colorChange' for library page animation using a utility class */
 .animate-color-change {
   animation: colorChange 20s infinite alternate;
 }
