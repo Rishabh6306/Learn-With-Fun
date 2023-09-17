@@ -4,8 +4,8 @@ import ProgressBar from './ProgressBar';
 function Score() {
     const [scores, setScores] = useState({});
 
+    // Read scores from localStorage and set them in the state when the component mounts.
     useEffect(() => {
-        // Read scores from localStorage and set them in the state.
         const storedScores = {
             HTML: parseInt(localStorage.getItem('quizScoreHTML')) || 0,
             CSS: parseInt(localStorage.getItem('quizScoreCSS')) || 0,
@@ -16,11 +16,12 @@ function Score() {
         setScores(storedScores);
     }, []);
 
-    // Calculate the maximum score (adjust as needed)
-    const maximumScore = 42;
+    // Define the maximum possible score for each section (adjust as needed)
+    const maximumScore = 42; // Change this value based on your requirements
 
     // Calculate the percentage for each section
     const percentages = Object.entries(scores).reduce((acc, [section, score]) => {
+        // Calculate the percentage based on the section's score and maximum score
         acc[section] = (score / maximumScore) * 100;
         return acc;
     }, {});
@@ -34,6 +35,7 @@ function Score() {
                 <div className="h-[85vh] p-10 md:px-28">
                     {Object.entries(scores).map(([section, score], index) => (
                         <div key={index}>
+                            {/* Render ProgressBar component with label, maximumPercentage, and interval */}
                             <ProgressBar
                                 label={section}
                                 maximumPercentage={percentages[section]}

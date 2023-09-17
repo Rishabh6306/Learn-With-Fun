@@ -5,6 +5,7 @@ import QuizUI from './QuizUI';
 function Quiz() {
   const initialSection = 'HTML';
 
+  // State variables to manage the quiz
   const [questions, setQuestions] = useState(htmlquestions);
   const [score, setScore] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -14,8 +15,10 @@ function Quiz() {
   const [selectedSection, setSelectedSection] = useState(initialSection);
   const [showCorrectAnswers, setShowCorrectAnswers] = useState(false);
 
+  // Function to get a localStorage key for a section
   const getLocalStorageKey = (section) => `quizScore${section}`;
 
+  // Effect to decrement the timer and end the quiz when it reaches zero
   useEffect(() => {
     const interval = setInterval(() => {
       if (timer > 0) {
@@ -31,12 +34,14 @@ function Quiz() {
     };
   }, [timer]);
 
+  // Effect to save the score in localStorage when the quiz is over
   useEffect(() => {
     if (isQuizOver && selectedSection) {
       localStorage.setItem(getLocalStorageKey(selectedSection), score);
     }
   }, [isQuizOver, score, selectedSection]);
 
+  // Function to handle option selection and score calculation
   const handleOptionSelect = (selectedOption) => {
     const updatedFlags = [...isOptionSelectedForQuestion];
     updatedFlags[currentQuestionIndex] = selectedOption;
@@ -47,11 +52,12 @@ function Quiz() {
     }
   };
 
-
+  // Function to handle section selection and quiz reset
   const handleSectionClick = (section) => {
     let selectedQuestions = [];
 
     switch (section) {
+      // Select questions based on the chosen section
       case 'HTML':
         selectedQuestions = htmlquestions.map((q) => ({ ...q, section: 'HTML' }));
         break;
@@ -72,6 +78,7 @@ function Quiz() {
         break;
     }
 
+    // Reset quiz state
     setQuestions(selectedQuestions);
     setSelectedSection(section);
     setIsQuizOver(false);
@@ -84,6 +91,7 @@ function Quiz() {
     setIsOptionSelectedForQuestion(resetFlags);
   };
 
+  // Function to navigate to the next question or end the quiz
   const handleNextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -93,6 +101,7 @@ function Quiz() {
     }
   };
 
+  // Function to restart the quiz
   const handleRestartQuiz = () => {
     setIsQuizOver(false);
     setCurrentQuestionIndex(0);
@@ -107,10 +116,12 @@ function Quiz() {
     setIsOptionSelectedForQuestion(resetFlags);
   };
 
+  // Calculate passing threshold and check if the user has passed
   const passThreshold = 60;
   const passingScore = (questions.length * passThreshold) / 100;
   const hasPassed = score >= passingScore;
 
+  // Function to convert index to letter (used for options)
   const indexToLetter = (index) => String.fromCharCode(97 + index);
 
   return (
