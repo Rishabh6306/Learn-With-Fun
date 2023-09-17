@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbar from '../Components/Home/Navbar'
-import QuizUI from '../Components/Quiz/QuizUI';
 import Footer from '../Components/Footer/Footer';
+import Quiz from '../Components/Quiz/Quiz.Jsx';
 
 function QuizPage() {
   return (
     <div>
       <Navbar />
-      <QuizUI />
+      <Quiz />
       <Footer />
     </div>
   )
