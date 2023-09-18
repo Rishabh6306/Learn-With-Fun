@@ -101,6 +101,9 @@ function Navbar() {
         <Link to="/getStarted" onClick={scrollToTop} className="bg-orange-600 hover:bg-orange-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-7 mx-6 font-[Poppins] duration-700 rounded-lg ">
           Get Started
         </Link>
+        <Link to="/username" onClick={scrollToTop} className="bg-orange-600 hover:bg-orange-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-7 mx-6 font-[Poppins] duration-700 rounded-lg ">
+          UserName
+        </Link>
       </ul>
     </nav>
   );

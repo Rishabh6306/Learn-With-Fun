@@ -2,6 +2,14 @@ import React, { Suspense } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
+const Username = React.lazy(() => import('./Components/Login&Signup/Username'));
+const Register = React.lazy(() => import('./Components/Login&Signup/Register'));
+const Password = React.lazy(() => import('./Components/Login&Signup/Password'));
+const Profile = React.lazy(() => import('./Components/Login&Signup/Profile'));
+const PageNotFound = React.lazy(() => import('./Components/Login&Signup/PageNotFound'));
+const Recovery = React.lazy(() => import('./Components/Login&Signup/Recovery'));
+const Reset = React.lazy(() => import('./Components/Login&Signup/Reset'));
+
 // Lazy-loaded components
 const HomePage = React.lazy(() => import('./Pages/HomePage'));
 const Library = React.lazy(() => import('./Pages/Library'));
@@ -29,6 +37,17 @@ function App() {
     }>
       {/* Define your routes using the <Routes> and <Route> components */}
       <Routes>
+
+        {/* Added Authentication Page  */}
+        <Route path="/" element={<Username />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/password" element={<Password />} />
+        <Route path="/reset" element={<Reset />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/recovery" element={<Recovery />} />
+        <Route path="*" element={<PageNotFound />} />
+
+
         <Route path="/" element={<HomePage />} />
         <Route path="/library" element={<Library />} />
         <Route path="/detailPage" element={<DetailCard />} />
