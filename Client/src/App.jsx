@@ -48,7 +48,7 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
 
 
-        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/library" element={<Library />} />
         <Route path="/detailPage" element={<DetailCard />} />
         <Route path="/notes" element={<NotesPage />} />

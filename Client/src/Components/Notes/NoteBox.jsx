@@ -17,7 +17,7 @@ function NoteBox({ notes, fetchNotes }) {
 
   // Filter notes based on the search query
   const filteredNotes = notes.filter((note) =>
-    note.headline.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
+    note.headline && note.headline.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
   );
 
   // Function to open the note overlay

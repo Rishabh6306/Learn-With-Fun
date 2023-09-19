@@ -59,7 +59,7 @@ function Navbar() {
           } xl:flex xl:items-center z-[-1] xl:z-auto xl:static w-full xl:w-auto xl:py-0 py-2 xl:pl-0 pl-7 transition-max-h duration-700 ease-in-out overflow-hidden text-center`}
       >
         <li className="mx-2 my-4 2xl:my-0">
-          <Link to="/" onClick={scrollToTop} className={`text-2xl  hover:border-b-2 border-yellow-400 duration-500 ${location.pathname === '/' ? 'text-yellow-300' : ''}`}>
+          <Link to="/home" onClick={scrollToTop} className={`text-2xl  hover:border-b-2 border-yellow-400 duration-500 ${location.pathname === '/' ? 'text-yellow-300' : ''}`}>
             Home
           </Link>
         </li>

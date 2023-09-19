@@ -1,42 +1,41 @@
-// Import necessary modules and libraries
-import dotenv from 'dotenv';        // Load environment variables from a .env file
-import express from 'express';      // Express.js for building web applications
-import cors from 'cors';            // Cross-Origin Resource Sharing middleware
-import connectToDatabase from './db/db.js'; // Function to connect to the database
-import notesRoutes from './routes/NotesRoutes.js'; // Import user-related routes
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import dotenv from 'dotenv';
+import connectToDatabase from './db/db.js'; // Use the same database connection function for both
+import authRouter from './routes/AuthRoutes.js';
+import notesRoutes from './routes/NotesRoutes.js';
+import formSubmitController from './controller/formSubitController.js';
 
-import formSubitController from './controller/formSubitController.js' // import formSubitController
-
-
-// Load environment variables from a .env file if present
 dotenv.config();
 
-// Define the port for the Express server
-const port = process.env.PORT || 3000;
-
-// Create an Express application
 const app = express();
+const port = process.env.PORT || 3001;
 
-// Enable CORS (Cross-Origin Resource Sharing) for the app
-app.use(cors());
-
-// Parse incoming JSON data
 app.use(express.json());
+app.use(cors());
+app.use(morgan('tiny'));
+app.disable('x-powered-by');
 
-// Call the function to connect to the database
-connectToDatabase();
+app.use('/api', authRouter);
 
-// Use user-related routes under their respective paths
-app.use('/', notesRoutes); // GET, POST, and other user-related routes
-app.delete('/:id', notesRoutes); // DELETE user route
-app.put('/:id', notesRoutes); // PUT (update) user route
+// Connect to the main database
+connectToDatabase()
+  .then(() => {
+    console.log('Database Connected');
 
+    // Use user-related routes under their respective paths
+    app.use('/', notesRoutes);
+    app.delete('/:id', notesRoutes);
+    app.put('/:id', notesRoutes);
+    // Form submit routes with controller
+    app.post('/api/contact', formSubmitController);
 
-// Form subit routes with controller
-app.post('/api/contact', formSubitController);
-
-
-// Start the Express server and listen on the specified port
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+    // Start the Express server and listen on the specified port
+    app.listen(port, () => {
+      console.log(`Server is running at http://localhost:${port}`);
+    });
+  })
+  .catch((error) => {
+    console.log('Invalid database connection:', error);
+  });
