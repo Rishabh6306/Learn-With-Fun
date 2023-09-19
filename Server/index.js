@@ -1,22 +1,29 @@
-import express from 'express';
-import cors from 'cors';
-import morgan from 'morgan';
-import dotenv from 'dotenv';
-import connectToDatabase from './db/db.js'; // Use the same database connection function for both
-import authRouter from './routes/AuthRoutes.js';
-import notesRoutes from './routes/NotesRoutes.js';
-import formSubmitController from './controller/formSubitController.js';
+// Import required libraries and modules
+import express from 'express'; // Import Express.js for creating the server
+import cors from 'cors'; // Import CORS for handling Cross-Origin Resource Sharing
+import morgan from 'morgan'; // Import Morgan for HTTP request logging
+import dotenv from 'dotenv'; // Import dotenv for handling environment variables
+import connectToDatabase from './db/db.js'; // Import the function to connect to the database
+import authRouter from './routes/AuthRoutes.js'; // Import authentication routes
+import notesRoutes from './routes/NotesRoutes.js'; // Import notes routes
+import formSubmitController from './controller/formSubitController.js'; // Import the form submission controller
 
+// Load environment variables from a .env file
 dotenv.config();
 
+// Create an instance of the Express application
 const app = express();
+
+// Set the port for the server, defaulting to 3001 if not provided
 const port = process.env.PORT || 3001;
 
-app.use(express.json());
-app.use(cors());
-app.use(morgan('tiny'));
-app.disable('x-powered-by');
+// Configure middleware for the Express app
+app.use(express.json()); // Parse incoming JSON requests
+app.use(cors()); // Enable CORS for cross-origin requests
+app.use(morgan('tiny')); // Use Morgan for request logging
+app.disable('x-powered-by'); // Disable 'x-powered-by' header
 
+// Use authentication routes under the '/api' path
 app.use('/api', authRouter);
 
 // Connect to the main database
@@ -25,10 +32,11 @@ connectToDatabase()
     console.log('Database Connected');
 
     // Use user-related routes under their respective paths
-    app.use('/', notesRoutes);
-    app.delete('/:id', notesRoutes);
-    app.put('/:id', notesRoutes);
-    // Form submit routes with controller
+    app.use('/', notesRoutes); // Handle routes for user-related notes
+    app.delete('/:id', notesRoutes); // Handle delete requests for user-related notes
+    app.put('/:id', notesRoutes); // Handle update requests for user-related notes
+
+    // Define routes for form submission with the specified controller
     app.post('/api/contact', formSubmitController);
 
     // Start the Express server and listen on the specified port

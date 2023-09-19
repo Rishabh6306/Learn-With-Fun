@@ -1,21 +1,28 @@
-import nodemailer from 'nodemailer';
-import Mailgen from 'mailgen';
-import dotenv from 'dotenv';
+// Import necessary libraries and modules
+import nodemailer from 'nodemailer'; // Import nodemailer for sending emails
+import Mailgen from 'mailgen'; // Import Mailgen for generating HTML emails
+import dotenv from 'dotenv'; // Import dotenv for handling environment variables
+
+// Load environment variables from a .env file
 dotenv.config();
 
-// https://ethereal.email/create
+// Configure nodemailer with SMTP server details
 let nodeConfig = {
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    host: 'smtp.ethereal.email' , // SMTP server host
+    port: 587, // SMTP server port
+    secure: false, // Set to true for secure (SSL) connections, false for other ports
     auth: {
-        user: 'rishabhsrivastava.6306@gmail.com',
-        pass: process.env.PASSWORD, // generated ethereal password
+        user: process.env.ETHEREAL_USERNAME, // SMTP server username (your email)
+        pass: process.env.ETHEREAL_PASSWORD, // SMTP server password (from environment variable)
     }
 }
 
-let transporter = nodemailer.createTransport(nodeConfig);
 
+// Create a nodemailer transporter with the configured settings
+let transporter = nodemailer.createTransport(nodeConfig);
+transporter.on('log', console.log);
+
+// Create a Mailgen instance for generating HTML emails
 let MailGenerator = new Mailgen({
     theme: "default",
     product: {
@@ -24,18 +31,11 @@ let MailGenerator = new Mailgen({
     }
 })
 
-/** POST: http://localhost:8080/api/registerMail 
- * @param: {
-  "username" : "example123",
-  "userEmail" : "admin123",
-  "text" : "",
-  "subject" : "",
-}
-*/
+/** POST: http://localhost:3001/api/registerMail */
 export const registerMail = async (req, res) => {
     const { username, userEmail, text, subject } = req.body;
 
-    // body of the email
+    // Body of the email
     var email = {
         body: {
             name: username,
@@ -44,20 +44,25 @@ export const registerMail = async (req, res) => {
         }
     }
 
+    // Generate HTML email body using Mailgen
     var emailBody = MailGenerator.generate(email);
 
+    // Define the email message
     let message = {
-        from: 'rishabhsrivastava.6306@gmail.com',
-        to: userEmail,
-        subject: subject || "Signup Successful",
-        html: emailBody
+        from: process.env.ETHEREAL_USERNAME, // Sender's email
+        to: userEmail, // Recipient's email
+        subject: subject || "Signup Successful", // Email subject (default: "Signup Successful")
+        html: emailBody // HTML content of the email body
     }
 
-    // send mail
+    // Send the email using the nodemailer transporter
     transporter.sendMail(message)
         .then(() => {
+            // Return a success response if the email was sent successfully
             return res.status(200).send({ msg: "You should receive an email from us." })
         })
-        .catch(error => res.status(500).send({ error }))
-
+        .catch(error => {
+            // Return an error response if there was an issue sending the email
+            res.status(500).send({ error })
+        })
 }
