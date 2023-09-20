@@ -1,17 +1,18 @@
 import toast from 'react-hot-toast'
+import { authenticate } from '../ApiRequest/ApiRequest';
 
 /** validate login page username */
 export async function usernameValidate(values) {
     const errors = usernameVerify({}, values);
 
-    // if (values.username) {
-    //     // check user exist or not
-    //     const { status } = await authenticate(values.username);
+    if (values.username) {
+        // check user exist or not
+        const { status } = await authenticate(values.username);
 
-    //     if (status !== 200) {
-    //         errors.exist = toast.error('User does not exist...!')
-    //     }
-    // }
+        if (status !== 200) {
+            errors.exist = toast.error('User does not exist...!')
+        }
+    }
 
     return errors;
 }
@@ -49,9 +50,8 @@ export async function profileValidation(values) {
     return errors;
 }
 
-
 /** validate password */
-function passwordVerify(errors = {}, values) {
+export async function passwordVerify(errors = {}, values) {
     /* eslint-disable no-useless-escape */
     const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
@@ -67,7 +67,6 @@ function passwordVerify(errors = {}, values) {
 
     return errors;
 }
-
 
 /** validate username */
 function usernameVerify(error = {}, values) {

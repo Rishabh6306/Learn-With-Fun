@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { Link, useLocation } from 'react-router-dom';
+import { RxAvatar } from 'react-icons/rx'
 
 // const location = useLocation();
 
@@ -37,6 +38,7 @@ function Navbar() {
   };
 
   return (
+    // <nav className={`bg-[url(./src/Components/Home/assests/NavbarBgc.png)] bg-center p-2 xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
     <nav className={` bg-[url(./src/Components/Home/assests/NavbarBgc.png)] bg-center p-2 xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
       <div className="flex justify-between items-center">
         <span className="text-3xl font-[Poppins] font-bold cursor-pointer">
@@ -98,13 +100,18 @@ function Navbar() {
             Contact Us
           </Link>
         </li>
-        <Link to="/getStarted" onClick={scrollToTop} className="bg-orange-600 hover:bg-orange-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-7 mx-6 font-[Poppins] duration-700 rounded-lg ">
+        <Link to="/getStarted" onClick={scrollToTop} className="bg-orange-600 hover:bg-orange-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-7 mr-0 mx-6 font-[Poppins] duration-700 rounded-lg ">
           Get Started
         </Link>
-        <Link to="/username" onClick={scrollToTop} className="bg-orange-600 hover:bg-orange-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-7 mx-6 font-[Poppins] duration-700 rounded-lg ">
-          UserName
-        </Link>
+          <Link to="/profile" className="text-slate-950 mr-2 block xl:hidden">
+            <RxAvatar size={54} />
+          </Link>
+
       </ul>
+
+      <Link to="/profile" className="text-slate-950 mr-2 hidden xl:block">
+        <RxAvatar size={54} />
+      </Link>
     </nav>
   );
 }

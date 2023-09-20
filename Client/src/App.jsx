@@ -6,7 +6,6 @@ const Username = React.lazy(() => import('./Components/Login&Signup/Username'));
 const Register = React.lazy(() => import('./Components/Login&Signup/Register'));
 const Password = React.lazy(() => import('./Components/Login&Signup/Password'));
 const Profile = React.lazy(() => import('./Components/Login&Signup/Profile'));
-const PageNotFound = React.lazy(() => import('./Components/Login&Signup/PageNotFound'));
 const Recovery = React.lazy(() => import('./Components/Login&Signup/Recovery'));
 const Reset = React.lazy(() => import('./Components/Login&Signup/Reset'));
 
@@ -45,8 +44,6 @@ function App() {
         <Route path="/reset" element={<Reset />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/recovery" element={<Recovery />} />
-        <Route path="*" element={<PageNotFound />} />
-
 
         <Route path="/home" element={<HomePage />} />
         <Route path="/library" element={<Library />} />

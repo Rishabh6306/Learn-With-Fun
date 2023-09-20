@@ -11,6 +11,7 @@ export const AuthUserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, "Please provide a password"], // Password field with validation message
+        unique: true,
     },
     email: {
         type: String,
@@ -19,7 +20,10 @@ export const AuthUserSchema = new mongoose.Schema({
     },
     firstName: { type: String }, // First name field
     lastName: { type: String }, // Last name field
-    profile: { type: String } // Profile field
+    profile: { type: String }, // Profile field
+    mobile: { type: Number },  // MObile field
+    address: { type: String },  // Address field
+
 });
 
 // Create a model named 'AuthUser' using the AuthUserSchema
