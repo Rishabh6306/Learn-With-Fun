@@ -20,8 +20,8 @@ export default function Reset() {
   // Formik configuration for the reset form
   const formik = useFormik({
     initialValues: {
-      password: 'admin@123',
-      confirm_pwd: 'admin@123'
+      password: '',
+      confirm_pwd: ''
     },
     validate: resetPasswordValidation, // Reset password validation function
     validateOnBlur: false,
@@ -45,34 +45,31 @@ export default function Reset() {
   });
 
   // Render different content based on loading, server error, or status
-  if (isLoading) return <h1 className='text-2xl font-bold'>isLoading</h1>;
-  if (serverError) return <h1 className='text-xl text-red-500'>{serverError.message}</h1>;
+  if (isLoading) return <div className='bg-blue-950 flex items-center justify-center h-screen'><h1 className='text-2xl text-white font-bold'>Please Wait...</h1></div>;
+  if (serverError) return <div className='bg-blue-950 flex items-center justify-center h-screen'><h1 className='text-2xl text-red-500'>{serverError.message}</h1></div>;
   if (status && status !== 201) return <Navigate to={'/password'} replace={true}></Navigate>;
 
   // JSX for the Reset component
   return (
-    <div className="container mx-auto">
+    <div className='flex justify-center  bg-[url(./src/Components/Login&Signup/assests/Background.jpg)] bg-center border-8  items-center h-screen'>
       <Toaster position='top-center' reverseOrder={false}></Toaster>
+      <div className='border-y-4 border-white shadow-lg w-11/12 sm:w-8/12 md:w-5/12 lg:w-4/12 2xl:w-3/12 rounded-3xl p-2 sm:p-5 min-w-max bg-blue-500 border-solid border-[#ffff9b4d]'>
 
-      <div className='flex justify-center items-center h-screen'>
-        <div className='border-4 border-gray-50 shrink-0 h-3/4 w-[30%] rounded-3xl py-20 px-7 min-w-max rouded-2xl bg-[#ffffff8c] border-solid border-[#ffff9b4d]' style={{ width: "50%" }}>
-
-          <div className="title flex flex-col items-center">
-            <h4 className='text-5xl font-bold'>Reset</h4>
-            <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
-              Enter a new password.
-            </span>
-          </div>
-
-          <form className='py-20' onSubmit={formik.handleSubmit}>
-            <div className="textbox flex flex-col items-center gap-6">
-              <input {...formik.getFieldProps('password')} className='border-0 px-5 py-4 rounded-xl w-3/4 shadow-sm text-lg focus:outline-none' type="text" placeholder='New Password' />
-              <input {...formik.getFieldProps('confirm_pwd')} className='border-0 px-5 py-4 rounded-xl w-3/4 shadow-sm text-lg focus:outline-none' type="text" placeholder='Repeat Password' />
-              <button className='border bg-indigo-500 w-3/4 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center hover:bg-[#ff6a6a]' type='submit'>Reset</button>
-            </div>
-          </form>
-
+        <div className="title flex flex-col items-center">
+          <h4 className='text-4xl font-bold mt-3'>Reset</h4>
+          <span className='py-4 text-xl w-full text-center text-gray-600'>
+            Enter a new password.
+          </span>
         </div>
+
+        <form className='py-10' onSubmit={formik.handleSubmit}>
+          <div className="flex flex-col items-center gap-6">
+            <input {...formik.getFieldProps('password')} className='border-0 px-5 py-4 rounded-xl w-full shadow-sm text-lg focus:outline-none' type="password" placeholder='New Password' />
+            <input {...formik.getFieldProps('confirm_pwd')} className='border-0 px-5 py-4 rounded-xl w-full shadow-sm text-lg focus:outline-none' type="password" placeholder='Repeat Password' />
+            <button className='border-none bg-indigo-700  py-4 rounded-lg text-gray-50 text-xl w-full shadow-sm text-center hover:bg-[#ff6a6a]' type='submit'>Reset</button>
+          </div>
+        </form>
+
       </div>
     </div>
   );

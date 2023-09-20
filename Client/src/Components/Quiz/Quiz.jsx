@@ -9,7 +9,7 @@ function Quiz() {
   const [questions, setQuestions] = useState(htmlquestions);
   const [score, setScore] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [timer, setTimer] = useState(120);
+  const [timer, setTimer] = useState(300);
   const [isQuizOver, setIsQuizOver] = useState(false);
   const [isOptionSelectedForQuestion, setIsOptionSelectedForQuestion] = useState(Array(htmlquestions.length).fill(null));
   const [selectedSection, setSelectedSection] = useState(initialSection);
@@ -106,7 +106,7 @@ function Quiz() {
     setIsQuizOver(false);
     setCurrentQuestionIndex(0);
     setScore(0);
-    setTimer(120);
+    setTimer(300);
     setShowCorrectAnswers(false);
 
     const clearedQuestions = questions.map((q) => ({ ...q, selectedAnswer: null }));

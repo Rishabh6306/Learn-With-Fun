@@ -43,7 +43,7 @@ function Programs() {
                     {/* Games Section */}
                     <div className="bg-[#e9e926] rounded-3xl p-5 flex flex-col justify-center items-center">
                         <h1 className='mb-4 text-2xl font-bold tracking-widest'>Games</h1>
-                        <p className='mb-4 font-medium text-gray-700'>Unlock games after the quiz; achieve 50% or above quiz score. Embark on a gaming adventure, push your boundaries and unlocked games.</p>
+                        <p className='mb-4 font-medium text-gray-700'>Embark on a gaming adventure that will push your boundaries and play games, With a variety of games to choose from, you'll not only have fun but also continue to learn and grow. So, start your journey now and explore the games that await you</p>
                         <Link to="/games" onClick={scrollToTop} className='bg-orange-500 text-xl px-6 py-3 my-3 rounded-3xl'>Play Games</Link>
                     </div>
 

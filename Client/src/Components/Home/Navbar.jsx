@@ -103,13 +103,13 @@ function Navbar() {
         <Link to="/getStarted" onClick={scrollToTop} className="bg-orange-600 hover:bg-orange-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-7 mr-0 mx-6 font-[Poppins] duration-700 rounded-lg ">
           Get Started
         </Link>
-          <Link to="/profile" className="text-slate-950 mr-2 block xl:hidden">
+          <Link to="/profile" className="text-orange-500 mr-2 block xl:hidden">
             <RxAvatar size={54} />
           </Link>
 
       </ul>
 
-      <Link to="/profile" className="text-slate-950 mr-2 hidden xl:block">
+      <Link to="/profile" className="text-orange-500 mr-2 hidden xl:block">
         <RxAvatar size={54} />
       </Link>
     </nav>

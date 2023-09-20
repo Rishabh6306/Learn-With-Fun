@@ -18,7 +18,8 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // Configure middleware for the Express app
-app.use(express.json()); // Parse incoming JSON requests
+// app.use(express.json()); // Parse incoming JSON requests
+app.use(express.json({ limit: '10mb' }));
 app.use(morgan('tiny')); // Use Morgan for request logging
 app.disable('x-powered-by'); // Disable 'x-powered-by' header
 app.use(cors()); // Enable CORS for cross-origin requests
