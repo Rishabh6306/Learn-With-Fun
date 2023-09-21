@@ -14,6 +14,8 @@ function NoteBox({ notes, fetchNotes }) {
   const [searchQuery, setSearchQuery] = useState('');
   const debouncedSearchQuery = Search(searchQuery, 200); // Debounce the search query
   const [selectedNote, setSelectedNote] = useState(null);
+  // Define the server port or default to 3000
+  const port = import.meta.env.VITE_REACT_APP_SERVER_PORT || 10000;
 
   // Filter notes based on the search query
   const filteredNotes = notes.filter((note) =>
@@ -44,7 +46,7 @@ function NoteBox({ notes, fetchNotes }) {
   // Function to handle delete button click
   const handleDeleteClick = async (note) => {
     try {
-      await axios.delete(`http://localhost:3001/api/notes/${note._id}`);
+      await axios.delete(`http://localhost:${port}/api/notes/${note._id}`);
       setSelectedNote(null);
       fetchNotes();
       toast("Note Deleted Successfully");
@@ -62,7 +64,7 @@ function NoteBox({ notes, fetchNotes }) {
         return;
       }
 
-      const response = await axios.put(`http://localhost:3001/api/notes/${editedNote._id}`, editedNote);
+      const response = await axios.put(`http://localhost:${port}/api/notes/${editedNote._id}`, editedNote);
       const updatedNote = response.data;
 
       if (!notes) {

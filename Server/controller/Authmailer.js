@@ -23,7 +23,7 @@ let MailGenerator = new Mailgen({
     }
 });
 
-/** POST: http://localhost:3001/api/registerMail */
+/** POST: http://localhost:10000/api/registerMail */
 export const registerMail = async (req, res) => {
     const { username, userEmail, text, subject } = req.body;
 

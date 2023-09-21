@@ -2,7 +2,7 @@ import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 
 // Define the server port or default to 3000
-const port = import.meta.env.VITE_REACT_APP_SERVER_PORT || 3001;
+const port = import.meta.env.VITE_REACT_APP_SERVER_PORT || 10000;
 axios.defaults.baseURL = `http://localhost:${port}`;
 
 /** To get username from Token */

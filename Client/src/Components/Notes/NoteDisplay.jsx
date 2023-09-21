@@ -9,6 +9,8 @@ function NoteDisplay() {
   const [headline, setHeadline] = useState('');
   const [content, setContent] = useState('');
   const [notes, setNotes] = useState([]);
+  // Define the server port or default to 3000
+const port = import.meta.env.VITE_REACT_APP_SERVER_PORT || 10000;
 
   // useEffect to fetch notes when the component mounts
   useEffect(() => {
@@ -17,7 +19,7 @@ function NoteDisplay() {
 
   // Function to fetch notes from the server
   const fetchNotes = () => {
-    axios.get('http://localhost:3001/') // Update the endpoint to the correct one
+    axios.get(`http://localhost:${port}/`) // Update the endpoint to the correct one
       .then(res => {
         setNotes(res.data);
       })
@@ -37,7 +39,7 @@ function NoteDisplay() {
     }
 
     // Send a POST request to add a new note
-    axios.post('http://localhost:3001/createUser', { headline, content })
+    axios.post(`http://localhost:${port}/createUser`, { headline, content })
       .then(result => {
         // After successful addition, fetch notes again to update the list
         fetchNotes();

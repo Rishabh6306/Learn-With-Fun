@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaLinkedin, FaGithub, FaInstagram, FaFacebook } from 'react-icons/fa';
+// Define the server port or default to 3000
+const port = import.meta.env.VITE_REACT_APP_SERVER_PORT || 10000;
 
 function ContactForm() {
   // State to hold form data
@@ -31,7 +33,7 @@ function ContactForm() {
     e.preventDefault();
     try {
       // Send the form data to your Node.js backend
-      const response = await axios.post('http://localhost:3001/api/contact', formData);
+      const response = await axios.post(`http://localhost:${port}/api/contact`, formData);
       // Display a success toast message
       toast.success("Form submitted successfully. We'll contact you soon.");
       console.log(response.data);

@@ -14,8 +14,8 @@ dotenv.config();
 // Create an instance of the Express application
 const app = express();
 
-// Set the port for the server, defaulting to 3001 if not provided
-const port = process.env.PORT || 3001;
+// Set the port for the server, defaulting to 10000 if not provided
+const port = process.env.PORT || 10000;
 
 // Configure middleware for the Express app
 // app.use(express.json()); // Parse incoming JSON requests
@@ -42,7 +42,7 @@ connectToDatabase()
 
     // Start the Express server and listen on the specified port
     app.listen(port, () => {
-      console.log(`Server is running at http://localhost:${port}`);
+      console.log(`Server is running at http://0.0.0.0:${port}`);
     });
   })
   .catch((error) => {

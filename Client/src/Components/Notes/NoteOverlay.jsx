@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing }) {
   const [editedNote, setEditedNote] = useState(note);
   const [showSavedToast, setShowSavedToast] = useState(false);
+    // Define the server port or default to 3000
+const port = import.meta.env.VITE_REACT_APP_SERVER_PORT || 10000;
 
   // Handle input changes (headline and content)
   const handleInputChange = (event) => {
@@ -25,7 +27,7 @@ function NoteOverlay({ note, onClose, onSave, notes, fetchNotes, setIsEditing })
         return;
       }
 
-      const response = await axios.put(`http://localhost:3001/api/notes/${editedNote._id}`, editedNote);
+      const response = await axios.put(`http://localhost:${port}/api/notes/${editedNote._id}`, editedNote);
       const updatedNote = response.data;
 
       // Update the notes array with the updated note

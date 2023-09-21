@@ -50,12 +50,12 @@ Let's get you started with **LEARN WITH FUN!** Follow these steps to install and
 
    - In the "Client" directory, create a `.env` file with the following content:
      ```
-     VITE_REACT_APP_SERVER_PORT=3001
+     VITE_REACT_APP_SERVER_PORT=10000
      ```
 
 - In the "Server" directory, create a `.env` file with the following content:
      ```
-     PORT=3001
+     PORT=10000
      MONGODB_URI=<Your MongoDB Atlas URI>
      PASSWORD=<Your Google App Password>
      GMAIL_ID=<Your Gmail ID>
@@ -71,7 +71,7 @@ Let's get you started with **LEARN WITH FUN!** Follow these steps to install and
 
 To run **LEARN WITH FUN!**, you'll need to set up certain environment variables in the `.env` files for both the "Client" and "Server" directories. Here's how to obtain these values:
 
-1. **PORT=3001**: You can choose any available port for your server, but it's commonly set to 3001. Make sure the client and server `.env` files have the same port.
+1. **PORT=10000**: You can choose any available port for your server, but it's commonly set to 10000. Make sure the client and server `.env` files have the same port.
 
 2. **MONGODB_URI=<Your MongoDB Atlas URI>**: To obtain the MongoDB URI, follow these steps:
    - Sign in to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
