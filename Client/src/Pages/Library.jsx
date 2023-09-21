@@ -56,10 +56,10 @@ function Library() {
         <>
             <Navbar />
             <div className='bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-purple-500 to-70% relative'>
-                <img className='w-full h-[53vh] md:h-[59vh]' src="./src/Components/BookStore/images/bg-image.jpg" alt="img" />
+                <img className='w-full h-[53vh] md:h-[59vh]' src="/library.jpg" alt="img" />
                 <div className='w-full h-[34vh] md:h-[40vh] absolute top-14 flex flex-col justify-center items-center'>
                     <h1 className='text-5xl font-bold text-white'>Our Library</h1>
-                    <img className='w-40 md:w-48' src="./src/Components/BookStore/images/bg2.png" alt="img" />
+                    <img className='w-40 md:w-48' src="/bookimg.png" alt="img" />
                     <div className="w-10/12 ssm:w-11/12 md:w-2/5 inline-block p-0 ssm:p-3 md:p-4 px-7 text-2xl rounded-[2.5rem] outline-none bg-white">
                         <input
                             className='text-[#4a982d] text-2xl outline-none'

@@ -7,8 +7,6 @@ import convertToBase64 from './Utils/ConvertImage';
 import useFetch from './Hooks/fetchDetails';
 import { updateUser } from './ApiRequest/ApiRequest';
 import { useNavigate } from 'react-router-dom';
-import { GiFastBackwardButton } from 'react-icons/gi'
-
 
 export default function Profile() {
   const [file, setFile] = useState();
@@ -61,9 +59,9 @@ export default function Profile() {
 
   // JSX for the Profile component
   return (
-    <div className='flex  justify-center bg-[url(./src/Components/Login&Signup/assests/Background.jpg)] bg-center border-8 items-center py-10'>
-          <Toaster position='top-center' reverseOrder={false}></Toaster>
-   
+    <div className='flex  justify-center bg-center border-8 items-center py-10' style={{backgroundImage: 'url(/Background.jpg)' }}>
+      <Toaster position='top-center' reverseOrder={false}></Toaster>
+
 
       <div className='border-y-4 border-white shadow-lg w-11/12 sm:w-8/12 md:w-5/12 lg:w-4/12 2xl:w-3/12 rounded-3xl p-2 sm:p-5 min-w-max bg-blue-500 border-solid border-[#ffff9b4d]'>
 
@@ -90,7 +88,7 @@ export default function Profile() {
             </div>
 
             <div className="flex flex-col md:flex-row gap-6 md:gap-2 w-full">
-              <input {...formik.getFieldProps('mobile')} className='border-0  px-5 py-4 rounded-xl w-full shadow-sm text-lg focus:outline-none' type="tel" minlength="10" maxlength="10" placeholder='Mobile No.' />
+              <input {...formik.getFieldProps('mobile')} className='border-0  px-5 py-4 rounded-xl w-full shadow-sm text-lg focus:outline-none' type="tel" minLength="10" maxLength="10" placeholder='Mobile No.' />
               <input {...formik.getFieldProps('email')} className='border-0  px-5 py-4 rounded-xl w-full shadow-sm text-lg focus:outline-none' type="email" placeholder='Email*' />
             </div>
 

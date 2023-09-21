@@ -97,7 +97,6 @@ function About() {
 
   return (
     <div className="flex flex-col bg-gradient-to-tr from-[#0b5de3] to-[#f537f2]">
-      {/* <div className="flex flex-col bg-[url(./src/Components/Home/assests/AboutBgc.jpg)] bg-cover bg-center"> */}
       <h1 className="text-center text-5xl leading-tight tracking-wider  my-5 text-amber-400">About Us</h1>
       <div className="flex items-center justify-between ">
         <div className="text-xl text-gray-400 md:text-5xl cursor-pointer" onClick={handleLeftClick}>

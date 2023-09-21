@@ -98,7 +98,7 @@ Now you have successfully set up the environment variables required to run **LEA
 
 5. **Run the Application**:
 - In the "Client" directory, run: `npm run dev`
-- In the "Server" directory, run: `nodemon index.js`
+- In the "Server" directory, run: `npm run start`
 
 Ensure that the port and names in both `.env` files match.
 

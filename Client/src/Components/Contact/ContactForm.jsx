@@ -63,7 +63,7 @@ function ContactForm() {
     <div className={`flex max-w-screen-xl font-[Courgette] mx-auto mt-8 p-4 relative justify-around ${!videoLoaded ? 'bg-blue-500' : ''}`}>
       {/* Video background */}
       <video autoPlay muted loop className="fixed top-0 left-0 min-w-full min-h-[100vh] z-[-1] object-cover">
-        <source src="./src/Components/Contact/assests/bg-1.mp4" type="video/mp4" />
+        <source src="/contactbgc.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <ToastContainer />
@@ -81,7 +81,7 @@ function ContactForm() {
         </div>
       </div>
       {/* Contact form */}
-      <form className="relative z-10 w-96 bg-[url('./src/Components/Contact/assests/imge-bg.jpg')] bg-cover rounded-xl p-4" onSubmit={handleSubmit}>
+      <form className="relative z-10 w-96 bg-cover rounded-xl p-4" onSubmit={handleSubmit} style={{backgroundImage: 'url(/contact.jpg)'}}>
         <div className="mb-3">
           <h1 className="font-[Courgette] text-5xl my-5 block md:hidden mt text-[aqua] font-bold text-center">Get In Touch</h1>
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">

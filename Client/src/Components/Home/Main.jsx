@@ -4,7 +4,7 @@ function Main() {
     return (
         <div className='bg-blue-400'>
             {/* Background Image Section */}
-            <div className='h-[82vh] md:h-[86vh] bg-[url(./src/Components/Home/assests/MainBgc.jpg)] bg-cover flex flex-col gap-4 lg:gap-0 lg:flex-row justify-center p-6 md:pl-14 rounded-br-[10rem] md:rounded-br-[18rem]'>
+            <div className='h-[82vh] md:h-[86vh] bg-cover flex flex-col gap-4 lg:gap-0 lg:flex-row justify-center p-6 md:pl-14 rounded-br-[10rem] md:rounded-br-[18rem]' style={{backgroundImage: 'url(/MainBgc.jpg)'}}>
                 <div className='mt-7 sm:mt-44 md:mt-20 xl:mt-28 m-2 '>
                     {/* Main Heading */}
                     <h1 className='text-yellow-300 my-4 text-4xl lg:text-5xl font-bold md:leading-4 tracking-normal'>

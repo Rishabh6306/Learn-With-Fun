@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function AllGames() {
   return (
-    <div className='bg-[url(./src/Components/Games/mainBgc.png)] bg-center bg-cover grid grid-cols-1 md:grid-cols-2 gap-6 text-center p-3 md:p-10 text-white overflow-hidden '>
+    <div className='bg-center bg-cover grid grid-cols-1 md:grid-cols-2 gap-6 text-center p-3 md:p-10 text-white overflow-hidden' style={{backgroundImage: 'url(/mainBgc.png)'}}>
       {/* Guess Number Game Section */}
       <div className="p-5 border-2 border-sky-500 flex flex-col items-center rounded-lg">
         <h1 className='text-3xl md:text-4xl font-bold mb-3'>Guess Number Game</h1>

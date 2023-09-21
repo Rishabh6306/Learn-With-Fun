@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { getUsername } from "../ApiRequest/ApiRequest";
 
-const port = import.meta.env.VITE_REACT_APP_SERVER_PORT || 3000;
+const port = import.meta.env.VITE_REACT_APP_SERVER_PORT || 3001;
 axios.defaults.baseURL = `http://localhost:${port}`;
 
 export default function useFetch(query) {

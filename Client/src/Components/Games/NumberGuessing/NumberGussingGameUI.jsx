@@ -3,7 +3,7 @@ import { GiFastBackwardButton } from 'react-icons/gi'
 
 function NumberGussingGameUI({ goBack, currentGuess, handleKeyPress, setCurrentGuess, handleGuess, message, calculateProgress, guesses }) {
   return (
-    <div className="h-screen bg-[url(./src/Components/Games/NumberGuessing/bgc.jpg)] bg-center bg-cover">
+    <div className="h-screen bg-center bg-cover" style={{backgroundImage: 'url(/numberGuessingBgc.jpg)'}}>
       {/* Go back button */}
       <button onClick={goBack} className="bg-blue-800 text-white px-4 py-2 m-3 rounded-md"><GiFastBackwardButton /></button>
 

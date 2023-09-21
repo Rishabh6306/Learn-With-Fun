@@ -3,7 +3,7 @@ import { GiFastBackwardButton } from 'react-icons/gi';
 
 function BubbleGameUI({ startGame, gameStarted, goBack, restartGame, isGameOver, isWinner, hitNum, timer, score, bubbleGrid, handleBubbleClick }) {
     return (
-        <div className="bg-[url(./src/Components/Games/BubbleGame/bgc1.jpg)] bg-cover bg-center w-full h-screen flex flex-col items-center justify-center relative">
+        <div className="bg-cover bg-center w-full h-screen flex flex-col items-center justify-center relative" style={{backgroundImage: 'url(/bubbleGamebgc.jpg)'}}>
             {gameStarted ? (
                 <>
                     {/* Game Controls and Information */}
@@ -18,7 +18,7 @@ function BubbleGameUI({ startGame, gameStarted, goBack, restartGame, isGameOver,
                             RESTART
                         </button>
                     </span>
-                    <div className="overflow-hidden h-[80%] w-fit bg-[url(./src/Components/Games/BubbleGame/bgc5.png)] bg-cover rounded-2xl">
+                    <div className="overflow-hidden h-[80%] w-fit bg-cover rounded-2xl" style={{backgroundImage: 'url(/bgcbubble.png)'}}>
                         {/* Game Info */}
                         <div className="py-3 flex items-center justify-around text-white bg-[#240e74]">
                             <span><strong>Hit: </strong>{hitNum}</span>
@@ -43,7 +43,7 @@ function BubbleGameUI({ startGame, gameStarted, goBack, restartGame, isGameOver,
                 </>
             ) : (
                 // Start Game Screen
-                <div className="flex items-center justify-center flex-col bg-[url(./src/Components/Games/BubbleGame/StartBgc.png)] bg-center bg-cover w-full h-full">
+                <div className="flex items-center justify-center flex-col bg-center bg-cover w-full h-full" style={{backgroundImage: 'url(/StartbubbleBgc.png)'}}>
                     {isGameOver && !isWinner && (
                         <div className="text-4xl mb-4 text-white">Game Over!</div>
                     )}

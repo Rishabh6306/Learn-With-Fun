@@ -5,7 +5,7 @@ function TypingGmeUI({ goBack, timeLeft, mistakes, currentWpm, accuracy, resetGa
     return (
         <>
             {/* Background */}
-            <div className='bg-[url(./src/Components/Games/SpeedTyping/TypingBgc.jpg)] bg-center bg-cover h-[130vh] md:h-screen flex pt-4 sm:pt-0 sm:items-center justify-center'>
+            <div className='bg-center bg-cover h-[130vh] md:h-screen flex pt-4 sm:pt-0 sm:items-center justify-center' style={{backgroundImage: 'url(/TypingBgc.jpg)'}}>
                 {/* Main Content */}
                 <div className='bg-black text-white rounded-xl sm:w-11/12 md:w-9/12 h-[92%] ssm:h-auto ssm:mx-5'>
                     {/* Header */}

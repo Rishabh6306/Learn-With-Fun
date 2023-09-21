@@ -6,7 +6,7 @@ function QuizUI({ handleNextQuestion, handleOptionSelect, handleRestartQuiz, han
     <>
       {/* Render the QuizSelection component */}
       <QuizSelection handleSectionClick={handleSectionClick} />
-      <div className='bg-[url(./src/Components/Quiz/assests/bgc-5.jpg)] h-auto py-6 bg-center bg-cover flex flex-col items-center justify-center'>
+      <div className='h-auto py-6 bg-center bg-cover flex flex-col items-center justify-center' style={{ backgroundImage: 'url(/QuizBgc.jpg)' }}>
         {isQuizOver ? (
           /* Display quiz result if the quiz is over */
           <div className={`border-2 rounded-xl text-center text-4xl p-5 w-full sm:w-7/12 ${hasPassed ? 'text-[#3dd53d]' : 'text-red-500'}`}>

@@ -48,7 +48,7 @@ export default function Recovery() {
   }
 
   return (
-    <div className='flex justify-center  bg-[url(./src/Components/Login&Signup/assests/Background.jpg)] bg-center border-8 items-center h-screen'>
+    <div className='flex justify-center bg-center border-8 items-center h-screen' style={{backgroundImage: 'url(/Background.jpg)' }}>
       <Toaster position='top-center' reverseOrder={false}></Toaster>
       <div className='border-y-4 border-white shadow-lg w-11/12 sm:w-8/12 md:w-5/12 lg:w-4/12 2xl:w-3/12 rounded-3xl p-2 sm:p-5 min-w-max bg-blue-500 border-solid border-[#ffff9b4d]'>
 

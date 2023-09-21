@@ -5,10 +5,10 @@ function Game15PuzzleUI({ goBack, checkWin, moves, board, SIZE, setBoard, genera
     return (
         <div className='flex w-full font-[Courgette]'>
             {/* Left section with an image */}
-            <img className='w-1/2 hidden md:block' src="./src/Components/Games/Game15Puzzle/images.png" alt="IMG" />
+            <img className='w-1/2 hidden md:block' src="/15puzzle.png" alt="IMG" />
 
             {/* Right section containing the game */}
-            <div className="w-full md:w-1/2 min-h-screen flex flex-col items-center justify-center bg-[url(./src/Components/Games/Game15Puzzle/bg2.jpg)]">
+            <div className="w-full md:w-1/2 min-h-screen flex flex-col items-center justify-center" style={{backgroundImage: 'url(/15puzzlebgc)'}}>
                 {/* Button to go back */}
                 <button onClick={goBack} className="bg-blue-800 text-white px-4 py-2 m-3 rounded-md"><GiFastBackwardButton /></button>
 

@@ -38,13 +38,12 @@ function Navbar() {
   };
 
   return (
-    // <nav className={`bg-[url(./src/Components/Home/assests/NavbarBgc.png)] bg-center p-2 xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
-    <nav className={` bg-[url(./src/Components/Home/assests/NavbarBgc.png)] bg-center p-2 xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`}>
+    <nav className={`bg-center p-2 xl:flex xl:justify-between xl:items-center text-white ${isMenuOpen ? 'shadow-md' : ''} z-[11] sticky top-0 items-center`} style={{backgroundImage: 'url(/NavbarBgc.png)'}}>
       <div className="flex justify-between items-center">
         <span className="text-3xl font-[Poppins] font-bold cursor-pointer">
           <img
             className="w-20 inline ml-4 rounded-full"
-            src='./src/assets/LOGO.png'
+            src='/LOGO.png'
             alt="logo"
           />
         </span>
@@ -103,9 +102,9 @@ function Navbar() {
         <Link to="/getStarted" onClick={scrollToTop} className="bg-orange-600 hover:bg-orange-500 active:bg-red-500 ease-in-out text-white text-xl py-3 px-7 mr-0 mx-6 font-[Poppins] duration-700 rounded-lg ">
           Get Started
         </Link>
-          <Link to="/profile" className="text-orange-500 mr-2 block xl:hidden">
-            <RxAvatar size={54} />
-          </Link>
+        <Link to="/profile" className="text-orange-500 mr-2 block xl:hidden">
+          <RxAvatar size={54} />
+        </Link>
 
       </ul>
 
