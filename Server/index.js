@@ -18,11 +18,17 @@ const app = express();
 const port = process.env.PORT || 10000;
 
 // Configure middleware for the Express app
-// app.use(express.json()); // Parse incoming JSON requests
+app.use(cors({
+  origin: 'https://learn-with-fun-new.netlify.app', // Replace with your actual frontend URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  credentials: true, // If you need to support cookies or authentication headers
+}));
+
 app.use(express.json({ limit: '10mb' }));
 app.use(morgan('tiny')); // Use Morgan for request logging
 app.disable('x-powered-by'); // Disable 'x-powered-by' header
-app.use(cors()); // Enable CORS for cross-origin requests
 
 // Use authentication routes under the '/api' path
 app.use('/api', authRouter);
@@ -39,6 +45,11 @@ connectToDatabase()
 
     // Define routes for form submission with the specified controller
     app.post('/api/contact', formSubmitController);
+
+    app.use((err, req, res, next) => {
+      console.error(err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    });
 
     // Start the Express server and listen on the specified port
     app.listen(port, () => {
