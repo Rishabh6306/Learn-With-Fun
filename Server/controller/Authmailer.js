@@ -38,7 +38,7 @@ export const registerMail = async (req, res) => {
     var emailBody = MailGenerator.generate(email);
 
     let message = {
-        from: process.env.GMAIL_ID, // Sender's Gmail email
+        from: `Learn_with_Fun ${process.env.GMAIL_ID}`, // Sender's Gmail email
         to: userEmail, // Recipient's email
         subject: subject || 'Signup Successful',
         html: emailBody

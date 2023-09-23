@@ -19,12 +19,13 @@ const port = process.env.PORT || 10000;
 
 // Configure middleware for the Express app
 app.use(cors({
-  origin: 'https://learn-with-fun-new.netlify.app', // Replace with your actual frontend URL
+  origin: ['https://learn-with-fun-new.netlify.app', 'http://localhost:5173'], // Add your frontend URL and localhost URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
   optionsSuccessStatus: 204,
   credentials: true, // If you need to support cookies or authentication headers
 }));
+
 
 app.use(express.json({ limit: '10mb' }));
 app.use(morgan('tiny')); // Use Morgan for request logging

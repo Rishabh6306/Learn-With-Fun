@@ -53,7 +53,8 @@ export async function profileValidation(values) {
 /** validate password */
 export async function passwordVerify(errors = {}, values) {
     /* eslint-disable no-useless-escape */
-    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    // const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const specialChars = /^(?=.*[1-9])(?=.*[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]).*$/;
 
     if (!values.password) {
         errors.password = toast.error("Password Required...!");
@@ -62,7 +63,7 @@ export async function passwordVerify(errors = {}, values) {
     } else if (values.password.length < 4) {
         errors.password = toast.error("Password must be more than 4 characters long");
     } else if (!specialChars.test(values.password)) {
-        errors.password = toast.error("Password must have special character");
+        errors.password = toast.error("Password must have special character and a Number.");
     }
 
     return errors;

@@ -106,7 +106,7 @@ Ensure that the port and names in both `.env` files match.
 
 **LEARN WITH FUN!** provides a range of authentication options to enhance your experience:
 
-- **Registration**: Visit our [Netlify](https://www.netlify.com/) registration page and click "Register Now" to create an account. You'll receive a confirmation email upon registration.
+- **Registration**: Visit our [Netlify](https://learn-with-fun-new.netlify.app/) registration page and click "Register Now" to create an account. You'll receive a confirmation email upon registration.
 ![Registration](./Screenshots/SignUpPage.png)
 
 - **Login**: Use your registered username and password to log in securely.
@@ -207,15 +207,12 @@ Have questions or feedback? Feel free to reach out to us via email or LinkedIn. 
 ![Contact Us](./Screenshots/Contact.png)
 
 
-
-
 #### Features:
 - Submit queries, feedback, or collaboration proposals.
 - Receive prompt responses and assistance.
 - Connect with us for project collaborations.
 
 In addition to these features, our website boasts a user-friendly navigation system, ensuring you have easy access to all the resources you need.
-
 
 
 ## Contact Us
