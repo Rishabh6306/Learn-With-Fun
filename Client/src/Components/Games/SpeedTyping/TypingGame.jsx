@@ -1,14 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import music from "./WrongType.mp3"
 import TypingGmeUI from './TypingGmeUI';
+import GameResultPopup from './GameResultPopup'
 
 const possibleParagraphs = [
-  // An array of possible paragraphs for the typing game.
-  "India is a vast country with a rich history and culture. It is the second-most populous country in the world, with over 1.3 billion people. India is home to many different religions, languages, and cultures. The official language of India is Hindi, but there are over 200 other languages spoken in the country. India is a land of contrasts. It is home to the world's highest mountains, the Himalayas, and the world's second-largest river system, the Ganges.  ",
-  'Alice was a curious girl who loved to explore. One day, she was walking in the woods when she came across a strange plant. She was drawn to the plant and started to touch it. As she did, she felt a strange tingling sensation and the symbols on the plant started to glow. Alice was amazed and closed her eyes. When she opened them, she was in a strange and beautiful world. She had been transported to another dimension by the strange plant.',
-  "Aman and Arjun were two young boys who loved to code. They would spend hours every day learning new technologies and building websites. They were both very passionate about their work, and they dreamed of one day becoming professional web developers. One day, Aman and Arjun decided to enter a coding competition. They worked hard on their project, and they were confident that they would win. On the day of the competition, they were nervous, but they gave it their best shot. In the end, Aman and Arjun won the competition! They were so excited, and they knew that this was just the beginning of their journey as web developers. They continued to work hard, and they eventually got their dream jobs as professional web developers.",
-  `Vikramaditya was a wise king who ruled over a vast empire in ancient India. He was known for his intelligence, his justice, and his generosity. One day, a wise man came to Vikramaditya's court. He told the king that he had a riddle that only the wisest person in the world could answer. He agreed to let the wise man ask him a riddle. The wise man said, "What is something that is always with you, but you can never see it?" Vikramaditya thought for a moment. Then he answered, "The answer is your shadow." The wise man was impressed. He said, "You are indeed a wise king." Vikramaditya was known for his wisdom and his justice.`,
+  "In recent years, the importance of mental health has gained significant recognition in society. People are increasingly aware of the need to prioritize their mental well-being just as they would their physical health. This shift has led to a greater openness about discussing mental health issues, breaking the stigma that often surrounds them. Various strategies, such as mindfulness, therapy, and support groups, have emerged to help individuals cope with stress, anxiety, and depression. As more people seek help and share their experiences, society moves toward a more supportive and understanding environment for those struggling with mental health challenges.",
+  "The advancement of technology has drastically changed the landscape of education. Online learning platforms have emerged, making education more accessible than ever before. Students from various backgrounds can now attend classes virtually, breaking geographical barriers that once limited their opportunities. However, this shift also comes with challenges, such as the need for self-discipline and the potential for distractions in a home environment. Teachers have had to adapt their methods to engage students in a virtual setting, employing tools like interactive quizzes and video discussions to maintain interest. Despite these challenges, online education has opened doors for countless individuals, offering flexibility and a chance to learn at their own pace.",
+  "Traveling is one of the most enriching experiences a person can undertake. It offers the opportunity to explore new cultures, meet diverse people, and gain a broader perspective on life. From wandering through the bustling markets of Marrakech to relaxing on the serene beaches of Bali, each destination has its unique charm and allure. Travel not only allows individuals to escape their daily routines but also fosters personal growth. Navigating foreign cities, trying new cuisines, and overcoming language barriers can boost confidence and adaptability. However, responsible travel is crucial. Tourists should be mindful of their impact on local communities and the environment, ensuring that their adventures leave a positive legacy.",
+  "The significance of environmental conservation cannot be overstated, especially in today's rapidly changing world. As climate change poses a significant threat to our planet, collective action is essential to preserve our ecosystems. Individuals, communities, and governments must work together to reduce carbon emissions, promote sustainable practices, and protect endangered species. Grassroots movements have gained momentum, with people advocating for policy changes that prioritize the environment. Simple actions, such as reducing plastic use, conserving water, and supporting local businesses, can contribute to a larger movement for sustainability. By making conscious choices, everyone can play a role in safeguarding the planet for future generations.",
+  "Food is more than just sustenance; it is a cultural expression and a means of connection among people. Each region of the world boasts its unique culinary traditions that reflect its history, climate, and available resources. For example, Italian cuisine is renowned for its use of fresh ingredients and bold flavors, while Japanese cuisine emphasizes simplicity and seasonal elements. Food brings people together, whether through family gatherings, community festivals, or dining in restaurants. Moreover, the rise of food tourism has allowed travelers to experience local cuisines in authentic settings, creating lasting memories and fostering appreciation for diverse cultures. Understanding and embracing the culinary arts is essential in a world that celebrates diversity and interconnectedness.",
+  "The rise of social media has transformed the way we communicate, interact, and perceive the world around us. With platforms like Facebook, Twitter, Instagram, and TikTok, individuals can share their thoughts, experiences, and creativity with a global audience. While social media has made it easier to connect with others and build communities, it has also raised concerns about privacy, mental health, and misinformation. Many people find themselves navigating the challenges of maintaining a positive online presence while dealing with the pressure to conform to societal standards. As we continue to adapt to this digital landscape, it is crucial to find a balance between leveraging the benefits of social media and protecting our well-being.",
+  "The exploration of space has captivated human imagination for centuries. The quest to understand the universe and our place within it has driven advancements in science and technology. From the early days of astronomy to the groundbreaking Apollo missions, humanity's journey into space has been marked by awe-inspiring achievements and significant discoveries. Today, private companies are joining government space agencies in the race to explore Mars, establish lunar bases, and develop space tourism. As we venture further into the cosmos, ethical questions about the implications of colonizing other planets and the responsibility we hold for preserving our own planet's resources arise.",
+  "The world of literature offers a profound insight into the human experience. Through stories, poetry, and essays, writers convey emotions, ideas, and perspectives that resonate with readers across generations. Literature has the power to transport us to different times and places, helping us empathize with characters and situations that may be far removed from our own lives. From the classics of Shakespeare and Jane Austen to contemporary authors like Chimamanda Ngozi Adichie and Haruki Murakami, literature continues to evolve, reflecting societal changes and cultural shifts. Engaging with literature enriches our understanding of the world and ourselves, making it an essential aspect of education and personal growth.",
+  "Sports have always played a significant role in society, serving as a source of entertainment, competition, and community engagement. From football to basketball, cricket to tennis, sports bring people together, fostering a sense of camaraderie and pride. Major sporting events, such as the Olympics and the FIFA World Cup, showcase not only athletic prowess but also cultural exchange and international cooperation. However, sports also face challenges, including issues of inequality, doping, and the commercialization of athletes. As we celebrate athletic achievements, it is important to address these challenges and work towards creating a more inclusive and fair sporting environment for all."
 ];
+
 
 function getRandomParagraph() {
   // Function to get a random paragraph from the possibleParagraphs array.
@@ -18,11 +24,14 @@ function getRandomParagraph() {
 
 function TypingGame() {
   const [text, setText] = useState(getRandomParagraph());
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+  const [showResultPopup, setShowResultPopup] = useState(false); // State for showing the pop-up
+  const [lastWpm, setLastWpm] = useState(0); // 
   const [typedText, setTypedText] = useState('');
   const [mistakes, setMistakes] = useState(0);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
-  const [timeLeft, setTimeLeft] = useState(180); // 3 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(60); // 1 minutes in seconds
   const [currentWpm, setCurrentWpm] = useState(0);
   const [accuracy, setAccuracy] = useState(100); // Initially set to 100%
   const [playMistakeSound, setPlayMistakeSound] = useState(false);
@@ -36,6 +45,23 @@ function TypingGame() {
   ]);
 
   const audioRef = useRef(null);
+
+  useEffect(() => {
+    // Detect if the user is on a mobile or tablet device
+    const checkDevice = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setIsMobileOrTablet(true); // Mobile or tablet detected
+      }
+    };
+
+    checkDevice(); // Run on load
+    window.addEventListener('resize', checkDevice); // Run on resize
+
+    return () => {
+      window.removeEventListener('resize', checkDevice); // Clean up listener
+    };
+  }, []);
 
   useEffect(() => {
     if (!audioRef.current) {
@@ -106,13 +132,15 @@ function TypingGame() {
 
     if (timeLeft === 0 && endTime === null) {
       clearInterval(timerInterval);
+      setLastWpm(currentWpm); // Set the last WPM before showing the pop-up
+      setShowResultPopup(true); // Show the result pop-up when the time is up
       setEndTime(Date.now());
     }
 
     return () => {
       clearInterval(timerInterval);
     };
-  }, [startTime, endTime, timeLeft, typedText]);
+  }, [startTime, endTime, timeLeft, typedText, currentWpm]);
 
   useEffect(() => {
     const totalCharsTyped = typedText.length - mistakes;
@@ -132,10 +160,12 @@ function TypingGame() {
     setMistakes(0);
     setStartTime(null);
     setEndTime(null);
-    setTimeLeft(180);
+    setTimeLeft(60);
     setCurrentWpm(0);
+    setLastWpm(0); 
     setAccuracy(100);
     setHasPlayedMistakeSound(false);
+    setShowResultPopup(false);
   };
 
   function goBack() {
@@ -166,19 +196,61 @@ function TypingGame() {
     });
   };
 
+
+  if (isMobileOrTablet) {
+    // Render Popup if on mobile or tablet
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
+        <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+          <h2 className="text-xl font-bold mb-4 text-red-600">Unsupported Device</h2>
+          <p className="mb-6 text-gray-700">
+            Please use a laptop or desktop for the best experience!
+          </p>
+          <button
+            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+            onClick={() => window.history.back()}
+          >
+            Go Back
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+    // Format the time taken
+    const formatTimeTaken = () => {
+      const totalTime = 60 - timeLeft; // Total time taken in seconds
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      return { minutes, seconds };
+  };
+
+  // Render Typing Game UI if on desktop/laptop
   return (
-    <TypingGmeUI
-      goBack={goBack}
-      timeLeft={timeLeft}
-      mistakes={mistakes}
-      currentWpm={currentWpm}
-      accuracy={accuracy}
-      resetGame={resetGame}
-      renderTextWithHighlights={renderTextWithHighlights}
-      music={music}
-      playMistakeSound={playMistakeSound}
-      setPlayMistakeSound={setPlayMistakeSound}
-    />
+    <>
+      <TypingGmeUI
+        goBack={goBack}
+        timeLeft={timeLeft}
+        mistakes={mistakes}
+        currentWpm={currentWpm}
+        accuracy={accuracy}
+        resetGame={resetGame}
+        renderTextWithHighlights={renderTextWithHighlights}
+        music={music}
+        playMistakeSound={playMistakeSound}
+        setPlayMistakeSound={setPlayMistakeSound}
+      />
+      {showResultPopup && (
+        <GameResultPopup
+                    timeLeft={formatTimeTaken()}
+          mistakes={mistakes}
+          currentWpm={lastWpm} 
+          accuracy={accuracy}
+          resetGame={resetGame}
+          goBack={goBack}
+        />
+      )}
+    </>
   );
 }
 

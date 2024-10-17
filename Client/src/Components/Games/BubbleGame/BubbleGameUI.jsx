@@ -3,7 +3,7 @@ import { GiFastBackwardButton } from 'react-icons/gi';
 
 function BubbleGameUI({ startGame, gameStarted, goBack, restartGame, isGameOver, isWinner, hitNum, timer, score, bubbleGrid, handleBubbleClick }) {
     return (
-        <div className="bg-cover bg-center w-full h-screen flex flex-col items-center justify-center relative" style={{backgroundImage: 'url(/bubbleGamebgc.jpg)'}}>
+        <div className="bg-cover bg-center w-full h-screen flex flex-col items-center justify-center relative" style={{ backgroundImage: 'url(/bubbleGamebgc.jpg)' }}>
             {gameStarted ? (
                 <>
                     {/* Game Controls and Information */}
@@ -18,7 +18,7 @@ function BubbleGameUI({ startGame, gameStarted, goBack, restartGame, isGameOver,
                             RESTART
                         </button>
                     </span>
-                    <div className="overflow-hidden h-[80%] w-fit bg-cover rounded-2xl" style={{backgroundImage: 'url(/bgcbubble.png)'}}>
+                    <div className="overflow-hidden h-[80%] w-fit bg-cover rounded-2xl" style={{ backgroundImage: 'url(/bgcbubble.png)' }}>
                         {/* Game Info */}
                         <div className="py-3 flex items-center justify-around text-white bg-[#240e74]">
                             <span><strong>Hit: </strong>{hitNum}</span>
@@ -42,10 +42,12 @@ function BubbleGameUI({ startGame, gameStarted, goBack, restartGame, isGameOver,
                     </div>
                 </>
             ) : (
-                // Start Game Screen
-                <div className="flex items-center justify-center flex-col bg-center bg-cover w-full h-full" style={{backgroundImage: 'url(/StartbubbleBgc.png)'}}>
+                // Start or Game Over Screen
+                <div className="flex items-center justify-center flex-col bg-center bg-cover w-full h-full" style={{ backgroundImage: 'url(/StartbubbleBgc.png)' }}>
                     {isGameOver && !isWinner && (
-                        <div className="text-4xl mb-4 text-white">Game Over!</div>
+                        <div className="text-4xl mb-4 text-white">
+                            Game Over! Your Score: <strong>{score}</strong>
+                        </div>
                     )}
                     <button
                         id="startButton"
@@ -60,7 +62,7 @@ function BubbleGameUI({ startGame, gameStarted, goBack, restartGame, isGameOver,
                 // Winner Screen Overlay
                 <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-gray-800 bg-opacity-80 text-white">
                     <div className="text-4xl mb-8">
-                        Congratulations, you win the game!
+                        Congratulations, you win the game! <br /> Final Score: <strong>{score}</strong>
                     </div>
                     <button
                         className="bg-red-500 rounded-full border-none px-5 py-2 shadow-md hover:bg-red-700 text-white"
