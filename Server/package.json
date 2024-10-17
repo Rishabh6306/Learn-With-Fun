@@ -24,5 +24,8 @@
     "nodemailer": "^6.9.5",
     "otp-generator": "^4.0.1",
     "validator": "^13.11.0"
+  },
+  "engines": {
+    "node": ">=16.0.0" 
   }
 }
